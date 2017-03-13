@@ -1,0 +1,6 @@
+framework module Pods_ZPI2017 {
+  umbrella header "Pods-ZPI2017-umbrella.h"
+
+  export *
+  module * { export * }
+}

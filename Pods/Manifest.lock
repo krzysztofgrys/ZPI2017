@@ -1,0 +1,12 @@
+PODS:
+  - MySqlSwiftNative (1.0.10)
+
+DEPENDENCIES:
+  - MySqlSwiftNative (~> 1.0.1)
+
+SPEC CHECKSUMS:
+  MySqlSwiftNative: 25d6d8c5db9d114a9b839aa5cb7de6d1f460f596
+
+PODFILE CHECKSUM: a2af05d27b731ed8721edc4c5ad77ddf7d25b575
+
+COCOAPODS: 1.2.0
