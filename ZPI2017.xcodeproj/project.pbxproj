@@ -123,6 +123,7 @@
 				TargetAttributes = {
 					4BB8F01F1E76E65600D1F909 = {
 						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = R8S98YHV2J;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -336,6 +337,7 @@
 			baseConfigurationReference = 30E3B0D381C12BEE9281AB94 /* Pods-ZPI2017.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = R8S98YHV2J;
 				INFOPLIST_FILE = ZPI2017/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zpi.ZPI2017;
@@ -349,6 +351,7 @@
 			baseConfigurationReference = C88EE102FD7FD420C8B65D88 /* Pods-ZPI2017.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = R8S98YHV2J;
 				INFOPLIST_FILE = ZPI2017/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zpi.ZPI2017;
@@ -376,6 +379,7 @@
 				4BB8F0341E76E65600D1F909 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
