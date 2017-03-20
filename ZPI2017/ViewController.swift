@@ -9,14 +9,47 @@
 import UIKit
 import MySqlSwiftNative
 
-class ViewController: UIViewController {
+
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    let con = MySQL.Connection()
+    let db_name = "hanna123"
+
+   
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return 5
+    }
+    
+    
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+        cell.label.text = "asdasdasd"
+        do{
+        try con.open("149.202.40.84", user: "root", passwd: "haslo")
+        try con.use(dbname: db_name)
+
+        let select_stmt = try con.prepare(q: "SELECT * FROM test WHERE Id=?")
+        let res = try select_stmt.query([indexPath])
+        let rows = try res.readAllRows()
+          
+        
+        }
+        catch (let e) {
+            print(e)
+        }
+        return cell
+    }
+    
+
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let con = MySQL.Connection()
-        let db_name = "hanna123"
         
         do{
             // open a new connection
