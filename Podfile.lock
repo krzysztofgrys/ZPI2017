@@ -2,11 +2,21 @@ PODS:
   - MySqlSwiftNative (1.0.10)
 
 DEPENDENCIES:
-  - MySqlSwiftNative (~> 1.0.1)
+  - MySqlSwiftNative (from `https://github.com/mcorega/MySqlSwiftNative.git`, tag `1.3.1`)
+
+EXTERNAL SOURCES:
+  MySqlSwiftNative:
+    :git: https://github.com/mcorega/MySqlSwiftNative.git
+    :tag: 1.3.1
+
+CHECKOUT OPTIONS:
+  MySqlSwiftNative:
+    :git: https://github.com/mcorega/MySqlSwiftNative.git
+    :tag: 1.3.1
 
 SPEC CHECKSUMS:
   MySqlSwiftNative: 25d6d8c5db9d114a9b839aa5cb7de6d1f460f596
 
-PODFILE CHECKSUM: a2af05d27b731ed8721edc4c5ad77ddf7d25b575
+PODFILE CHECKSUM: 1d332c80c8580f566d539e041174324b07ce07fc
 
 COCOAPODS: 1.2.0

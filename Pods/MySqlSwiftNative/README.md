@@ -57,15 +57,168 @@ catch (let e) {
   print(e)
 }
 ```
+### Create a table from a Swift Object
+```swift
+// create a new Table object with name on a connection
+let table = MySQL.Table(tableName: "createtable_obj", connection: con)
+// drop the table if it exists
+try table.drop()
+          
+// declare a new Swft Object with various types
+struct obj {
+  var iint8 : Int8 = -1
+  var uint8: UInt8 = 1
+  var int16 : Int16 = -1
+  var uint16: UInt16 = 1
+  var id:Int = 1
+  var count:UInt = 10
+  var uint64 : UInt64 = 19999999999
+  var int64 : Int64 = -19999999999
+  var ffloat : Float = 1.1
+  var ddouble : Double = 1.1
+  var ddate = NSDate()
+  var str = "test string"
+  var ddata = "test data".dataUsingEncoding(NSUTF8StringEncoding)!
+}
+
+// create a new object
+let o = obj()
+ 
+// create the MySQL Table based on the Swift object
+try table.create(o)
+
+// create a table with given primaryKey and auto_increment set to true
+try table.create(o, primaryKey: "id", autoInc: true)
+
+```
+
+### Create a table from a MySQL.Row
+```swift
+// create a new Table object with name on a connection
+let table = MySQL.Table(tableName: "createtable_row", connection: con)
+// drop the table if it exists
+try table.drop()
+
+// declare a new MySQL.Row with various types
+let obj : MySQL.Row = [
+      "oint": Int?(0),
+      "iint8" : Int8(-1),
+      "uint8": UInt8(1),
+      "int16" : Int16(-1),
+      "uint16": UInt16(100),
+      "id":Int(1),
+      "count":UInt?(10),
+      "uint64" : UInt64(19999999999),
+      "int64" : Int64(-19999999999),
+      "ffloat" : Float(1.1),
+      "ddouble" : Double(1.1),
+      "ddate" : NSDate(dateString: "2015-11-10"),
+      "str" : "test string",
+      "nsdata" : "test data".dataUsingEncoding(NSUTF8StringEncoding)!,
+      "uint8_array" : [UInt8]("test data uint8 array".utf8),
+]
+
+// create the MySQL Table based on MySQL.Row object
+try table.create(obj)
+
+// create a table with given primaryKey and auto_increment set to true
+try table.create(o, primaryKey: "id", autoInc: true)
+```
+
+### Insert a Swift Object or a MySQL.Row into a table
+```swift
+try table.insert(o)
+```
+### Update a Swift Object using a key property
+```swift
+o.iint8 = -100
+o.uint8 = 100
+o.int16 = -100
+o.iint32 = -200
+
+try table.update(o, key:"id")
+```
+### Update a MySQL.Row using a key property
+```swift
+obj["iint32"] = 4000
+obj["iint16"] = Int16(-100)
+            
+try table.update(obj, key: "id")
+```
+### Select Rows from a Table
+```swift
+// insert 100 objects
+for i in 1...100 {
+    o.str = "test string \(i)"
+    try table.insert(o)
+}
+
+
+// select all rows from the table given a condition
+if let rows = try table.select(Where: ["id=",90, "or id=",91, "or id>",95]) {
+    print(rows)
+}
+
+// select rows specifying the columns we want and a select condition
+if let rows = try table.select(["str", "uint8_array"], Where: ["id=",90, "or id=",91, "or id>",95]) {
+    print(rows)
+}
+```
+### Create a MySQL Connection Pool
+```swift
+// create a connection pool with 10 connections using con as prototype
+let connPool = try MySQL.ConnectionPool(num: 10, connection: con)
+//create a table object using the connection
+let table = MySQL.Table(tableName: "xctest_conn_pool", connection: con)
+// drop the table if it exists
+try table.drop()
+
+// declare a Swift object
+class obj {
+  var id:Int?
+  var val : Int = 1
+}
+            
+// create a new object
+let o = obj()
+// create a new MySQL Table using the object 
+try table.create(o, primaryKey: "id", autoInc: true)
+            
+// do 500 async inserts using the connections pool
+for i in 1...500 {
+  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
+  //get a connection from the pool
+    if let c = connPool.getConnection() {
+    // get a Table reference using the connection from the pool
+      let t = MySQL.Table(tableName: "xctest_conn_pool", connection: c)
+      do {
+        let o = obj()
+        o.val = i
+        // insert the object
+        try t.insert(o)
+      }
+      catch {
+        print(error)
+        XCTAssertNil(error)
+        connPool.free(c)
+      }
+      // release the connection to the pool
+      connPool.free(c)
+    }
+  })
+}
+
+```
+
 ### CocoaPods.
 ```
 use_frameworks!
-pod 'MySqlSwiftNative', '~> 1.0.9'
+pod 'MySqlSwiftNative', '~> 1.0.10'
 ```
 
 ### Carthage.
 ```
-github "mcorega/MySqlSwiftNative" == 1.0.9
+github "mcorega/MySqlSwiftNative" == 1.0.10
 ```
 
 ### License

@@ -1,4 +1,4 @@
 use_frameworks! 
 target 'ZPI2017' do
-pod 'MySqlSwiftNative', '~> 1.0.1'
+pod 'MySqlSwiftNative', :git => 'https://github.com/mcorega/MySqlSwiftNative.git', :tag => '1.3.1'
 end
