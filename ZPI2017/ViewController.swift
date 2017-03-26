@@ -24,20 +24,48 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        cell.label.text = "asdasdasd"
+        var tekst=""
         do{
-        try con.open("149.202.40.84", user: "root", passwd: "haslo")
-        try con.use(dbname: db_name)
-
-        let select_stmt = try con.prepare(q: "SELECT * FROM test WHERE Id=?")
-        let res = try select_stmt.query([indexPath])
-        let rows = try res.readAllRows()
-          
-        
+            //make new connection with DB
+            try con.open("149.202.40.84", user: "root", passwd: "haslo")
+            try con.use(dbname: db_name)
+            //prepare query
+            let getData = try con.prepare(q: "SELECT * FROM test WHERE id=?")
+            // get row index
+            let indeks = indexPath.row + 1
+            // get data from table from index row
+            let res = try getData.query([indeks])
+            //read all rows from the resultset
+            let row = try res.readAllRows()
+            //read from Array
+            for p in row! {
+                //read from Array<[String:Any]>
+                for dat in p {
+                    //read [String:Any]
+                    for (key,value) in dat{
+                        tekst+=" key:"+key+", value: "
+                        switch value {
+                        case let tmpVal as String:
+                            tekst+=tmpVal
+                            break;
+                        case let tmpVal as Int:
+                            tekst+="\(tmpVal)"
+                            break;
+                        case let tmpVal as Float:
+                            tekst+="\(tmpVal)"
+                            break;
+                        default:
+                            tekst+=String(describing: value)
+                            print("blad")
+                        }
+                    }
+                }
+            }
         }
         catch (let e) {
             print(e)
         }
+        cell.label.text=tekst
         return cell
     }
     
