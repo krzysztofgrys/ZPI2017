@@ -94,9 +94,9 @@
 			children = (
 				4BF5FDAE1E929C2D007430E8 /* Shared */,
 				4BF5FDAD1E928CCC007430E8 /* LoginView */,
-				4BB8F0231E76E65600D1F909 /* AppDelegate.swift */,
 				4BF5FDB71E92CC4F007430E8 /* DatabaseSelection */,
 				4BB8F0251E76E65600D1F909 /* ViewController.swift */,
+				4BB8F0231E76E65600D1F909 /* AppDelegate.swift */,
 				4BB8F0271E76E65600D1F909 /* Main.storyboard */,
 				4BB8F02A1E76E65600D1F909 /* Assets.xcassets */,
 				4BB8F02C1E76E65600D1F909 /* LaunchScreen.storyboard */,

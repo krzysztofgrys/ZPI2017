@@ -43,9 +43,6 @@ class DatabaseSelectionTableViewController: UITableViewController  {
         return cell
     }
     
- 
-    
-    
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return 10
     }
