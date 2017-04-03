@@ -28,7 +28,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
-
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         if(FavLastSwitcher.selectedSegmentIndex==0){
