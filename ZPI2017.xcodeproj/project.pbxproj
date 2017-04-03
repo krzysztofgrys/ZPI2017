@@ -14,6 +14,7 @@
 		4BB8F0291E76E65600D1F909 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB8F0271E76E65600D1F909 /* Main.storyboard */; };
 		4BB8F02B1E76E65600D1F909 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BB8F02A1E76E65600D1F909 /* Assets.xcassets */; };
 		4BB8F02E1E76E65600D1F909 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB8F02C1E76E65600D1F909 /* LaunchScreen.storyboard */; };
+		B2D9ADEF1E92E96300FECB06 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D9ADEE1E92E96300FECB06 /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		4BB8F02A1E76E65600D1F909 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BB8F02D1E76E65600D1F909 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BB8F02F1E76E65600D1F909 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2D9ADEE1E92E96300FECB06 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		C88EE102FD7FD420C8B65D88 /* Pods-ZPI2017.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZPI2017.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZPI2017/Pods-ZPI2017.release.xcconfig"; sourceTree = "<group>"; };
 		E2FD6D5270F0383BEE8BFAD2 /* Pods_ZPI2017.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZPI2017.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -87,6 +89,7 @@
 				4BB8F02C1E76E65600D1F909 /* LaunchScreen.storyboard */,
 				4BB8F02F1E76E65600D1F909 /* Info.plist */,
 				4B990F161E80307700A64F4A /* TableViewCell.swift */,
+				B2D9ADEE1E92E96300FECB06 /* DataModel.swift */,
 			);
 			path = ZPI2017;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B990F171E80307700A64F4A /* TableViewCell.swift in Sources */,
+				B2D9ADEF1E92E96300FECB06 /* DataModel.swift in Sources */,
 				4BB8F0261E76E65600D1F909 /* ViewController.swift in Sources */,
 				4BB8F0241E76E65600D1F909 /* AppDelegate.swift in Sources */,
 			);

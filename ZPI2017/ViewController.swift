@@ -14,6 +14,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     let con = MySQL.Connection()
     let db_name = "hanna123"
+    var getData: MySQL.Statement! = nil
+    var rows: [MySQL.ResultSet]? = nil
+    var rowss: MySQL.ResultSet? = nil
+    var indeks = Int()
+    var list = [DataModel]()
 
    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -25,46 +30,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         var tekst=""
-        do{
-            //make new connection with DB
-            try con.open("149.202.40.84", user: "root", passwd: "haslo")
-            try con.use(dbname: db_name)
-            //prepare query
-            let getData = try con.prepare(q: "SELECT * FROM test WHERE id=?")
-            // get row index
-            let indeks = indexPath.row + 1
-            // get data from table from index row
-            let res = try getData.query([indeks])
-            //read all rows from the resultset
-            let row = try res.readAllRows()
-            //read from Array
-            for p in row! {
-                //read from Array<[String:Any]>
-                for dat in p {
-                    //read [String:Any]
-                    for (key,value) in dat{
-                        tekst+=" key:"+key+", value: "
-                        switch value {
-                        case let tmpVal as String:
-                            tekst+=tmpVal
-                            break;
-                        case let tmpVal as Int:
-                            tekst+="\(tmpVal)"
-                            break;
-                        case let tmpVal as Float:
-                            tekst+="\(tmpVal)"
-                            break;
-                        default:
-                            tekst+=String(describing: value)
-                            print("blad")
-                        }
-                    }
+        let indeks = indexPath.row + 1
+        for dat in list{
+            if(dat.row==indeks){
+                tekst+=" key:"+dat.key+", value: "
+                switch dat.value {
+                case let tmpVal as String:
+                    tekst+=tmpVal
+                    break;
+                case let tmpVal as Int:
+                    tekst+="\(tmpVal)"
+                    break;
+                case let tmpVal as Float:
+                    tekst+="\(tmpVal)"
+                    break;
+                default:
+                    tekst+=String(describing: dat.value)
+                    print("blad")
                 }
+                
             }
         }
-        catch (let e) {
-            print(e)
-        }
+        print(tekst)
         cell.label.text=tekst
         return cell
     }
@@ -77,6 +64,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        do{
+            //make new connection with DB
+            try con.open("149.202.40.84", user: "root", passwd: "haslo")
+            try con.use(dbname: db_name)
+            //prepare query
+            let gett = try con.query(q: "SELECT * FROM test")
+            //rows to wszystkie wiersze z query
+            rows = try gett.readAllRows()
+            //rowss to tez wszystkie wiersze z query XDD
+            rowss = rows?[0]
+            // row to jeden wiersz z query
+            var ii:Int=1
+            for row in rowss!{
+                for(key,value) in row{
+                    list.append(DataModel(k: key, v: value, r: ii))
+                }
+                ii += 1
+            }
+            
+        }catch(let e){
+            print(e)
+        }
     }
     
     override func didReceiveMemoryWarning() {
