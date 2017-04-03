@@ -10,78 +10,113 @@ import UIKit
 import MySqlSwiftNative
 
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let con = MySQL.Connection()
-    let db_name = "hanna123"
-
-   
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return 5
-    }
-    
+    @IBOutlet weak var login: UIButton!
+    @IBOutlet weak var FavLastSwitcher: UISegmentedControl!
+    @IBOutlet weak var TableView: UITableView!
+    @IBOutlet weak var port: UITextField!
+    @IBOutlet weak var pickerControll: UISegmentedControl!
+    @IBOutlet weak var ipField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var userField: UITextField!
+    @IBOutlet weak var portField: UITextField!
     
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        var tekst=""
-        do{
-            //make new connection with DB
-            try con.open("149.202.40.84", user: "root", passwd: "haslo")
-            try con.use(dbname: db_name)
-            //prepare query
-            let getData = try con.prepare(q: "SELECT * FROM test WHERE id=?")
-            // get row index
-            let indeks = indexPath.row + 1
-            // get data from table from index row
-            let res = try getData.query([indeks])
-            //read all rows from the resultset
-            let row = try res.readAllRows()
-            //read from Array
-            for p in row! {
-                //read from Array<[String:Any]>
-                for dat in p {
-                    //read [String:Any]
-                    for (key,value) in dat{
-                        tekst+=" key:"+key+", value: "
-                        switch value {
-                        case let tmpVal as String:
-                            tekst+=tmpVal
-                            break;
-                        case let tmpVal as Int:
-                            tekst+="\(tmpVal)"
-                            break;
-                        case let tmpVal as Float:
-                            tekst+="\(tmpVal)"
-                            break;
-                        default:
-                            tekst+=String(describing: value)
-                            print("blad")
-                        }
-                    }
-                }
-            }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LastTableViewCell
+        if(FavLastSwitcher.selectedSegmentIndex==0){
+            cell.LastCell.text = "ulubione"
+        }else{
+            cell.LastCell.text = "ostatnie"
         }
-        catch (let e) {
-            print(e)
-        }
-        cell.label.text=tekst
-        return cell
+            return cell
     }
     
 
     
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return 10
+    }
     
+    
+    public func switcherChange(){
+        if FavLastSwitcher.selectedSegmentIndex==0 {
+         TableView.reloadData()
+//            DispatchQueue.main.async{
+//                self.TableView.reloadData()
+//            
+//            }
+        }else{
+            TableView.reloadData()
+        }
+    }
+    
+    func showAlert(message: String){
+        let alertController = UIAlertController(title: "Warning", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+        {
+            (result : UIAlertAction) -> Void in
+        }
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    
+    public func connect(){
+        if validateFields(){
+            do{
+                try con.open(ipField.text!, user: userField.text!, passwd: passwordField.text)
+                let destination = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "databaseSelection") as! DatabaseSelectionTableViewController
+                destination.con = self.con
+                navigationController?.pushViewController(destination, animated: true)
+            }catch(let e){
+                print(e)
+                showAlert(message: "Nie mozna polaczyc sie z baza danych")
+            }
+        }
+    }
+    
+    
+    public func validateFields() -> Bool{
+        if(ipField.text == "" || ipField.text == nil){
+            showAlert(message: "Ip nie moze byc puste")
+            return false
+        }
+        if(userField.text == "" || userField.text == nil){
+            showAlert(message: "User nie moze byc puste")
+            return false
+        }
+        if(passwordField.text == "" || passwordField.text == nil){
+            showAlert(message: "Password nie moze byc puste")
+            return false
+        }
+        if(port.text == "" || port.text == nil){
+            showAlert(message: "Port nie moze byc pusty")
+            return false
+        }
+        return true
+    }
     
     
     override func viewDidLoad() {
+    
+        FavLastSwitcher.addTarget(self, action: #selector(switcherChange), for: .valueChanged)
+        
+        login.addTarget(self, action: #selector(connect), for: .touchDown)
+        
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        port.addTarget(self, action: #selector(textFieldDidBeginEditing), for: UIControlEvents.touchDown)
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        port.text = ""
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     

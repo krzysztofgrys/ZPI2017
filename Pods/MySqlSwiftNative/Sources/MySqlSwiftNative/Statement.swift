@@ -49,7 +49,7 @@ public extension MySQL {
             //     throw Connection.Error.QueryInProgress
         }
 
-        open func exec(_ args:[Any]) throws {
+        open func exec(_ args:[Any]) throws{
 
             guard self.con != nil else {
                 throw StatementError.nilConnection
@@ -63,6 +63,8 @@ public extension MySQL {
                     try con!.readUntilEOF()
                     try con!.readUntilEOF()
                 }
+            
+                print(resLen)
                 
                 return
                 
