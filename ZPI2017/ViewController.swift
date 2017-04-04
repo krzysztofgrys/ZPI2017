@@ -94,7 +94,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     public func connect(){
         if validateFields(){
             do{
-                try con.open(ipField.text!, user: userField.text!, passwd: passwordField.text)
+                try con.open(ipField.text!, user: userField.text!, passwd: passwordField.text, port: Int(portField.text!))
                 let destination = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "databaseSelection") as! DatabaseSelectionTableViewController
                 destination.con = self.con
                 navigationController?.pushViewController(destination, animated: true)

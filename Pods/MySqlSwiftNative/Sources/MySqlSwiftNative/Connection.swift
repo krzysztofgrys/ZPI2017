@@ -30,16 +30,17 @@ public extension MySQL.Connection {
             throw ConnectionError.usernameNotSet
         }
         
-        try self.open(self.addr!, user: self.user!, passwd: self.passwd, dbname: self.dbname)
+    try self.open(self.addr!, user: self.user!, passwd: self.passwd, dbname: self.dbname, port:self.port)
     }
     
-    public func open(_ addr:String, user:String, passwd:String? = nil, dbname:String? = nil) throws {
+    public func open(_ addr:String, user:String, passwd:String? = nil, dbname:String? = nil, port:Int? = nil) throws {
         
         self.addr = addr
         self.user = user
         self.passwd = passwd
         self.dbname = dbname
-        
+        self.port = port
+        print(port)
         try self.connect()
         try self.auth()
         try self.readResultOK()
