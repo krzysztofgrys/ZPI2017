@@ -12,10 +12,32 @@ import MySqlSwiftNative
 
 class DatabaseSelectionTableViewController: UITableViewController  {
 
-    var con: MySQL.Connection? = nil
+    var con = MySQL.Connection()
+    var rows: [MySQL.ResultSet]? = nil
+    var rowss: MySQL.ResultSet? = nil
+    var list = [DataModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        do{
+            //prepare query
+            let gett = try con.query(q: "SHOW DATABASES")
+            //rows to wszystkie wiersze z query
+            rows = try gett.readAllRows()
+            //rowss to tez wszystkie wiersze z query XDD
+            rowss = rows?[0]
+            // row to jeden wiersz z query
+            var ii:Int=1
+            for row in rowss!{
+                for(key,value) in row{
+                    list.append(DataModel(k: key, v: value, r: ii))
+                }
+                ii += 1
+            }
+            
+        }catch(let e){
+            print(e)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,7 +49,7 @@ class DatabaseSelectionTableViewController: UITableViewController  {
         
         if (self.isMovingFromParentViewController){
             do{
-                try con?.close()
+                try con.close()
                 print("mysql closed")
             } catch(let e){
                 print(e)
@@ -39,7 +61,7 @@ class DatabaseSelectionTableViewController: UITableViewController  {
    
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DatabaseSelectionTableViewCell
-        cell.database.text = "Tutaj bedzie baza"
+        cell.database.text = list[indexPath.row].value as! String
         return cell
     }
     

@@ -20,7 +20,7 @@
 		4BF5FDB41E92C3AD007430E8 /* Last.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5FDB31E92C3AD007430E8 /* Last.swift */; };
 		4BF5FDB61E92CA4B007430E8 /* DatabaseSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5FDB51E92CA4B007430E8 /* DatabaseSelectionTableViewController.swift */; };
 		4BF5FDB91E92CC6D007430E8 /* DatabaseSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5FDB81E92CC6D007430E8 /* DatabaseSelectionTableViewCell.swift */; };
-
+		B26199101E98286D008AC2AC /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B261990F1E98286D008AC2AC /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +39,7 @@
 		4BF5FDB31E92C3AD007430E8 /* Last.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Last.swift; sourceTree = "<group>"; };
 		4BF5FDB51E92CA4B007430E8 /* DatabaseSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseSelectionTableViewController.swift; sourceTree = "<group>"; };
 		4BF5FDB81E92CC6D007430E8 /* DatabaseSelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseSelectionTableViewCell.swift; sourceTree = "<group>"; };
+		B261990F1E98286D008AC2AC /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		C88EE102FD7FD420C8B65D88 /* Pods-ZPI2017.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZPI2017.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZPI2017/Pods-ZPI2017.release.xcconfig"; sourceTree = "<group>"; };
 		E2FD6D5270F0383BEE8BFAD2 /* Pods_ZPI2017.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZPI2017.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -102,6 +103,7 @@
 				4BB8F02A1E76E65600D1F909 /* Assets.xcassets */,
 				4BB8F02C1E76E65600D1F909 /* LaunchScreen.storyboard */,
 				4BB8F02F1E76E65600D1F909 /* Info.plist */,
+				B261990F1E98286D008AC2AC /* DataModel.swift */,
 			);
 			path = ZPI2017;
 			sourceTree = "<group>";
@@ -263,6 +265,7 @@
 				4BF5FDAA1E928C72007430E8 /* LastTableViewCell.swift in Sources */,
 				4BB8F0261E76E65600D1F909 /* ViewController.swift in Sources */,
 				4BF5FDB41E92C3AD007430E8 /* Last.swift in Sources */,
+				B26199101E98286D008AC2AC /* DataModel.swift in Sources */,
 				4BF5FDB21E92C3A4007430E8 /* Favorite.swift in Sources */,
 				4BB8F0241E76E65600D1F909 /* AppDelegate.swift in Sources */,
 				4BF5FDB01E929D01007430E8 /* LastFav.swift in Sources */,
