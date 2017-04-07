@@ -66,7 +66,15 @@ class DatabaseSelectionTableViewController: UITableViewController  {
     }
     
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return 10
+        return list.count
+    }
+    
+    public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let destination = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "tableSelection") as! TableSelectionTableViewController
+        destination.con = self.con
+        destination.dbName = list[indexPath.row].value as! String
+        navigationController?.pushViewController(destination, animated: true)
+        print(indexPath.row)
     }
 
    
