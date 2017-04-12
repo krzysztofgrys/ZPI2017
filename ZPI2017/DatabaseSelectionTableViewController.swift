@@ -71,10 +71,37 @@ class DatabaseSelectionTableViewController: UITableViewController  {
     
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let destination = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "tableSelection") as! TableSelectionTableViewController
-        destination.con = self.con
-        destination.dbName = list[indexPath.row].value as! String
-        navigationController?.pushViewController(destination, animated: true)
-        print(indexPath.row)
+        let dbName = list[indexPath.row].value as! String
+        do{
+            try con.use(dbname: dbName)
+            //prepare query
+            let gett = try con.query(q: "SHOW TABLES")
+            //rows to wszystkie wiersze z query
+            rows = try gett.readAllRows()
+            //rowss to tez wszystkie wiersze z query XDD
+            if(rows?.isEmpty==false){
+                destination.con = self.con
+                destination.dbName = dbName
+                navigationController?.pushViewController(destination, animated: true)
+            }else{
+                showAlert(message: "Wybrana baza danych jest pusta")
+            }
+            
+        }catch(let e){
+            print(e)
+        }
+        
+    }
+    
+    func showAlert(message: String){
+        let alertController = UIAlertController(title: "Warning", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+        {
+            (result : UIAlertAction) -> Void in
+        }
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 
    
