@@ -16,6 +16,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var userField: UITextField!
     @IBOutlet weak var portField: UITextField!
     var favorites: [LastFav] = []
+    @IBOutlet weak var act: UIActivityIndicatorView!
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LastTableViewCell
@@ -42,7 +43,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 TableView.backgroundView = nil
                 tableView.separatorStyle  = .singleLine
             }
-
+            
             return favorites.count
         }else{
             
@@ -66,11 +67,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     public func switcherChange(){
         if FavLastSwitcher.selectedSegmentIndex==0 {
-         TableView.reloadData()
-//            DispatchQueue.main.async{
-//                self.TableView.reloadData()
-//            
-//            }
+            TableView.reloadData()
+            //            DispatchQueue.main.async{
+            //                self.TableView.reloadData()
+            //
+            //            }
         }else{
             TableView.reloadData()
         }
@@ -92,16 +93,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     public func connect(){
-        if validateFields(){
-            do{
-                try con.open(ipField.text!, user: userField.text!, passwd: passwordField.text, port: Int(portField.text!))
-                let destination = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DBSelection") as! DBSelectionViewController
-                destination.con = self.con
-                navigationController?.pushViewController(destination, animated: true)
-            }catch(let e){
-                print(e)
-                showAlert(message: "Nie mozna polaczyc sie z baza danych")
+        startAct()
+        DispatchQueue.main.async {
+            if self.validateFields(){
+                do{
+                    try self.con.open(self.ipField.text!, user: self.userField.text!, passwd: self.passwordField.text, port: Int(self.portField.text!))
+                    let destination = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DBSelection") as! DBSelectionViewController
+                    destination.con = self.con
+                    self.navigationController?.pushViewController(destination, animated: true)
+                }catch(let e){
+                    print(e)
+                    self.showAlert(message: "Nie mozna polaczyc sie z baza danych")
+                }
             }
+            self.stopAct()
         }
     }
     
@@ -150,7 +155,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         NSKeyedArchiver.archiveRootObject(credentials, toFile: filename)
         print("zapisano")
     }
-
+    
     func getCredentials(){
         if let data = NSData(contentsOfFile: NSHomeDirectory().appending("/Documents/profile.bin")){
             let unarchiveProfile = NSKeyedUnarchiver.unarchiveObject(with: data as Data) as! [LastFav]
@@ -193,7 +198,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     override func viewDidLoad() {
-    
+        
         FavLastSwitcher.addTarget(self, action: #selector(switcherChange), for: .valueChanged)
         
         login.addTarget(self, action: #selector(connect), for: .touchDown)
@@ -204,6 +209,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func textFieldDidBeginEditing(textField: UITextField) {
         port.text = ""
+    }
+    func startAct(){
+        self.view.superview?.bringSubview(toFront: self.act)
+        self.act.startAnimating()
+        self.act.isHidden = false
+    }
+    func stopAct(){
+        DispatchQueue.main.async {
+            self.act.stopAnimating()
+        }
     }
     
     override func didReceiveMemoryWarning() {
