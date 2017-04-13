@@ -1,5 +1,5 @@
 //
-//  DBSelectionViewController.swift
+//  TableSelectionViewController.swift
 //  ZPI2017
 //
 //  Created by Łukasz on 13.04.2017.
@@ -9,12 +9,13 @@
 import UIKit
 import MySqlSwiftNative
 
-class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class TableSelectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var con = MySQL.Connection()
     var rows: [MySQL.ResultSet]? = nil
     var rowss: MySQL.ResultSet? = nil
     var list = [DataModel]()
+    var dbName = String()
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var act: UIActivityIndicatorView!
     
@@ -23,8 +24,9 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.delegate = self
         tableView.dataSource = self
         do{
+            try con.use(dbname: dbName)
             //prepare query
-            let gett = try con.query(q: "SHOW DATABASES")
+            let gett = try con.query(q: "SHOW TABLES")
             //rows to wszystkie wiersze z query
             rows = try gett.readAllRows()
             //rowss to tez wszystkie wiersze z query XDD
@@ -41,65 +43,50 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
         }catch(let e){
             print(e)
         }
+        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillDisappear(_ animated : Bool) {
-        super.viewWillDisappear(animated)
-        
-        if (self.isMovingFromParentViewController){
-            do{
-                try con.close()
-                print("mysql closed")
-            } catch(let e){
-                print(e)
-                // todo lepiej to obsluzyc?
-            }
-        }
-    }
-    
-    
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DBSelectionTableViewCell
-        cell.db.text = list[indexPath.row].value as! String
-        return cell
-    }
-    
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
         return list.count
     }
-    
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.view.bringSubview(toFront: act)
         startAct()
         DispatchQueue.main.async {
-            let destination = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "tableSelection") as! TableSelectionViewController
-            let dbName = self.list[indexPath.row].value as! String
+            let destination = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "tableView") as! TableViewViewController
+            let tblName = self.list[indexPath.row].value as! String
             do{
-                try self.con.use(dbname: dbName)
                 //prepare query
-                let gett = try self.con.query(q: "SHOW TABLES")
+                let query = "SELECT * FROM " + tblName
+                let gett = try self.con.query(q: query)
                 //rows to wszystkie wiersze z query
                 self.rows = try gett.readAllRows()
                 //rowss to tez wszystkie wiersze z query XDD
                 if(self.rows?.isEmpty==false){
                     destination.con = self.con
-                    destination.dbName = dbName
+                    destination.tableName = tblName
                     self.navigationController?.pushViewController(destination, animated: true)
                 }else{
-                    self.showAlert(message: "Wybrana baza danych jest pusta")
+                    self.showAlert(message: "Tabela jest pusta")
                 }
                 self.stopAct()
             }catch(let e){
                 print(e)
             }
         }
-        
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableSelectionTableViewCell
+        cell.table.text = list[indexPath.row].value as! String
+        return cell
+    }
     func showAlert(message: String){
         let alertController = UIAlertController(title: "Warning", message: message, preferredStyle: UIAlertControllerStyle.alert)
         
@@ -120,4 +107,5 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
             self.act.stopAnimating()
         }
     }
+    
 }

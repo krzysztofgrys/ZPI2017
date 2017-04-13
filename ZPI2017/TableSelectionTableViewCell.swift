@@ -2,7 +2,7 @@
 //  TableSelectionTableViewCell.swift
 //  ZPI2017
 //
-//  Created by Łukasz on 07.04.2017.
+//  Created by Łukasz on 13.04.2017.
 //  Copyright © 2017 ZPI. All rights reserved.
 //
 

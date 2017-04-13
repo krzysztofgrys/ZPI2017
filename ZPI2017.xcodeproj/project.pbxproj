@@ -21,8 +21,10 @@
 		B21C7C311E9F9739001647A7 /* DBSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21C7C301E9F9739001647A7 /* DBSelectionViewController.swift */; };
 		B21C7C331E9F974F001647A7 /* DBSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21C7C321E9F974F001647A7 /* DBSelectionTableViewCell.swift */; };
 		B26199101E98286D008AC2AC /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B261990F1E98286D008AC2AC /* DataModel.swift */; };
-		B26199181E983A80008AC2AC /* TableSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26199171E983A80008AC2AC /* TableSelectionTableViewController.swift */; };
-		B261991A1E983A90008AC2AC /* TableSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26199191E983A90008AC2AC /* TableSelectionTableViewCell.swift */; };
+		B2EABFF81E9FBB47005D1C02 /* TableSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EABFF71E9FBB47005D1C02 /* TableSelectionTableViewCell.swift */; };
+		B2EABFFA1E9FBB5C005D1C02 /* TableSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EABFF91E9FBB5C005D1C02 /* TableSelectionViewController.swift */; };
+		B2EABFFD1E9FC062005D1C02 /* TableViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EABFFC1E9FC062005D1C02 /* TableViewCollectionViewCell.swift */; };
+		B2EABFFF1E9FC070005D1C02 /* TableViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EABFFE1E9FC070005D1C02 /* TableViewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +44,10 @@
 		B21C7C301E9F9739001647A7 /* DBSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBSelectionViewController.swift; sourceTree = "<group>"; };
 		B21C7C321E9F974F001647A7 /* DBSelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		B261990F1E98286D008AC2AC /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
-		B26199171E983A80008AC2AC /* TableSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSelectionTableViewController.swift; sourceTree = "<group>"; };
-		B26199191E983A90008AC2AC /* TableSelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSelectionTableViewCell.swift; sourceTree = "<group>"; };
+		B2EABFF71E9FBB47005D1C02 /* TableSelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSelectionTableViewCell.swift; sourceTree = "<group>"; };
+		B2EABFF91E9FBB5C005D1C02 /* TableSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSelectionViewController.swift; sourceTree = "<group>"; };
+		B2EABFFC1E9FC062005D1C02 /* TableViewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCollectionViewCell.swift; sourceTree = "<group>"; };
+		B2EABFFE1E9FC070005D1C02 /* TableViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewViewController.swift; sourceTree = "<group>"; };
 		C88EE102FD7FD420C8B65D88 /* Pods-ZPI2017.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZPI2017.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZPI2017/Pods-ZPI2017.release.xcconfig"; sourceTree = "<group>"; };
 		E2FD6D5270F0383BEE8BFAD2 /* Pods_ZPI2017.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZPI2017.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -98,8 +102,9 @@
 		4BB8F0221E76E65600D1F909 /* ZPI2017 */ = {
 			isa = PBXGroup;
 			children = (
+				B2EAC0001E9FC074005D1C02 /* TablewView */,
+				B2EABFFB1E9FBB61005D1C02 /* TableSelection */,
 				B21C7C341E9F9763001647A7 /* DBSelection */,
-				B26199161E983A58008AC2AC /* TableSelection */,
 				4BF5FDAE1E929C2D007430E8 /* Shared */,
 				4BF5FDAD1E928CCC007430E8 /* LoginView */,
 				4BB8F0251E76E65600D1F909 /* ViewController.swift */,
@@ -141,13 +146,22 @@
 			name = DBSelection;
 			sourceTree = "<group>";
 		};
-		B26199161E983A58008AC2AC /* TableSelection */ = {
+		B2EABFFB1E9FBB61005D1C02 /* TableSelection */ = {
 			isa = PBXGroup;
 			children = (
-				B26199171E983A80008AC2AC /* TableSelectionTableViewController.swift */,
-				B26199191E983A90008AC2AC /* TableSelectionTableViewCell.swift */,
+				B2EABFF91E9FBB5C005D1C02 /* TableSelectionViewController.swift */,
+				B2EABFF71E9FBB47005D1C02 /* TableSelectionTableViewCell.swift */,
 			);
 			name = TableSelection;
+			sourceTree = "<group>";
+		};
+		B2EAC0001E9FC074005D1C02 /* TablewView */ = {
+			isa = PBXGroup;
+			children = (
+				B2EABFFE1E9FC070005D1C02 /* TableViewViewController.swift */,
+				B2EABFFC1E9FC062005D1C02 /* TableViewCollectionViewCell.swift */,
+			);
+			name = TablewView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,14 +288,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B26199181E983A80008AC2AC /* TableSelectionTableViewController.swift in Sources */,
 				4BF5FDAC1E928CB2007430E8 /* LastTableController.swift in Sources */,
 				B21C7C311E9F9739001647A7 /* DBSelectionViewController.swift in Sources */,
 				4BF5FDAA1E928C72007430E8 /* LastTableViewCell.swift in Sources */,
 				4BB8F0261E76E65600D1F909 /* ViewController.swift in Sources */,
 				4BF5FDB41E92C3AD007430E8 /* Last.swift in Sources */,
+				B2EABFFD1E9FC062005D1C02 /* TableViewCollectionViewCell.swift in Sources */,
+				B2EABFFF1E9FC070005D1C02 /* TableViewViewController.swift in Sources */,
+				B2EABFFA1E9FBB5C005D1C02 /* TableSelectionViewController.swift in Sources */,
 				B26199101E98286D008AC2AC /* DataModel.swift in Sources */,
-				B261991A1E983A90008AC2AC /* TableSelectionTableViewCell.swift in Sources */,
+				B2EABFF81E9FBB47005D1C02 /* TableSelectionTableViewCell.swift in Sources */,
 				4BF5FDB21E92C3A4007430E8 /* Favorite.swift in Sources */,
 				B21C7C331E9F974F001647A7 /* DBSelectionTableViewCell.swift in Sources */,
 				4BB8F0241E76E65600D1F909 /* AppDelegate.swift in Sources */,
