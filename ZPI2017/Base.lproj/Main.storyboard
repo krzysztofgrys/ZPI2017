@@ -225,51 +225,60 @@
             <point key="canvasLocation" x="151.19999999999999" y="-289.20539730134936"/>
         </scene>
         <!--Wybierz baze danych-->
-        <scene sceneID="UIx-nh-fSJ">
+        <scene sceneID="drA-Wr-TrT">
             <objects>
-                <tableViewController storyboardIdentifier="databaseSelection" title="Wybierz baze danych" id="aNj-eX-Sw7" customClass="DatabaseSelectionTableViewController" customModule="ZPI2017" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="GdM-AQ-Ric">
+                <viewController storyboardIdentifier="DBSelection" title="Wybierz baze danych" automaticallyAdjustsScrollViewInsets="NO" id="aEe-3k-0fw" customClass="DBSelectionViewController" customModule="ZPI2017" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="K5Y-BF-xL6"/>
+                        <viewControllerLayoutGuide type="bottom" id="f3K-85-8Yw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UcT-Cl-zVr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="wri-dm-uTI">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
+                            </activityIndicatorView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="soW-VO-3qt">
+                                <rect key="frame" x="0.0" y="67" width="375" height="600"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="WEa-XQ-MOf" customClass="DBSelectionTableViewCell" customModule="ZPI2017" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WEa-XQ-MOf" id="VQr-rq-oWR">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86v-51-cVC">
+                                                    <rect key="frame" x="8" y="0.0" width="359" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="db" destination="86v-51-cVC" id="7tp-L9-tJR"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="kjU-VN-goI" customClass="DatabaseSelectionTableViewCell" customModule="ZPI2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kjU-VN-goI" id="4jJ-69-k4Y">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OjL-Q9-Mcp">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="6Iq-VT-5Sm"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="OjL-Q9-Mcp" secondAttribute="trailing" id="IyX-hr-X37"/>
-                                        <constraint firstItem="OjL-Q9-Mcp" firstAttribute="top" secondItem="4jJ-69-k4Y" secondAttribute="top" id="q8j-hZ-Q5S"/>
-                                        <constraint firstItem="OjL-Q9-Mcp" firstAttribute="leading" secondItem="4jJ-69-k4Y" secondAttribute="leading" id="yxe-K8-azA"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="database" destination="OjL-Q9-Mcp" id="Kdj-vM-fdn"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="aNj-eX-Sw7" id="yC1-ma-sXC"/>
-                            <outlet property="delegate" destination="aNj-eX-Sw7" id="EjV-Fu-9Cg"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dlp-bU-A7I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    </view>
+                    <connections>
+                        <outlet property="act" destination="wri-dm-uTI" id="YSs-V7-pZE"/>
+                        <outlet property="tableView" destination="soW-VO-3qt" id="VCG-iH-eg3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0mS-gJ-asC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="930" y="-288"/>
+            <point key="canvasLocation" x="901.60000000000002" y="-289.20539730134936"/>
         </scene>
         <!--Table Selection Table View Controller-->
         <scene sceneID="8G7-Pi-8G0">

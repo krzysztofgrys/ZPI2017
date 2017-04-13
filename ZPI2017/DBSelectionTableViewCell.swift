@@ -1,16 +1,16 @@
 //
-//  DatabaseSelectionTableViewCell.swift
+//  DBSelectionTableViewCell.swift
 //  ZPI2017
 //
-//  Created by Krzysztof Grys on 4/3/17.
+//  Created by Łukasz on 13.04.2017.
 //  Copyright © 2017 ZPI. All rights reserved.
 //
 
 import UIKit
 
-class DatabaseSelectionTableViewCell: UITableViewCell {
+class DBSelectionTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var database: UILabel!
+    @IBOutlet weak var db: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
