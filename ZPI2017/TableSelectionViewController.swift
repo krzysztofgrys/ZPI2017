@@ -32,10 +32,13 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
             //rowss to tez wszystkie wiersze z query XDD
             rowss = rows?[0]
             // row to jeden wiersz z query
-            var ii:Int=1
+            var ii:Int = 1
+            var cc:Int = 0
             for row in rowss!{
+                cc = 0
                 for(key,value) in row{
-                    list.append(DataModel(k: key, v: value, r: ii))
+                    list.append(DataModel(k: key, v: value, r: ii, c:cc))
+                    cc += 1
                 }
                 ii += 1
             }

@@ -12,9 +12,11 @@ struct DataModel{
     var key:String
     var value:Any
     var row:Int
-    init(k:String, v:Any, r:Int) {
+    var column:Int
+    init(k:String, v:Any, r:Int, c:Int) {
         self.key=k
         self.value=v
         self.row=r
+        self.column=c
     }
 }
