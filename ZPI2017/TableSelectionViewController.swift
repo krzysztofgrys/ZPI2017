@@ -16,6 +16,7 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
     var rowss: MySQL.ResultSet? = nil
     var list = [DataModel]()
     var dbName = String()
+    var dbToDelete: Int = -1
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var act: UIActivityIndicatorView!
     
@@ -23,6 +24,7 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        
         do{
             try con.use(dbname: dbName)
             //prepare query
@@ -90,6 +92,43 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
         cell.table.text = list[indexPath.row].value as! String
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if(editingStyle == .delete){
+            dbToDelete = indexPath.row
+            confirm(msg: (list[indexPath.row].value as! String))
+        }
+    }
+    
+    func confirm(msg: String){
+        let alert = UIAlertController(title: "UWAGA", message: "Czy na pewno chcesz usunąć tabelę \(msg)? Operacja jest nieodwracalna!", preferredStyle: .actionSheet)
+        let DeleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: handleDeleteDB)
+        let CancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(DeleteAction)
+        alert.addAction(CancelAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func handleDeleteDB(alertAction: UIAlertAction){
+        self.view.bringSubview(toFront: act)
+        startAct()
+        DispatchQueue.main.async {
+            do{
+                let query = "DROP TABLE " + (self.list[self.dbToDelete].value as! String)
+                let _ = try self.con.query(q: query)
+                self.list.remove(at: self.dbToDelete)
+                self.tableView.reloadData()
+            }catch(let e){
+                print(e)
+            }
+            self.stopAct()
+        }
+    }
+    
     func showAlert(message: String){
         let alertController = UIAlertController(title: "Warning", message: message, preferredStyle: UIAlertControllerStyle.alert)
         

@@ -15,6 +15,8 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
     var rows: [MySQL.ResultSet]? = nil
     var rowss: MySQL.ResultSet? = nil
     var list = [DataModel]()
+    var dbToDelete: Int = -1
+    var showSysTable: Bool = true
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var act: UIActivityIndicatorView!
     
@@ -22,6 +24,7 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "DB. Sys. ON", style: .plain, target: self, action: #selector(showSystemTable))
         do{
             //prepare query
             let gett = try con.query(q: "SHOW DATABASES")
@@ -103,6 +106,74 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if(editingStyle == .delete){
+            dbToDelete = indexPath.row
+            confirm(msg: (list[indexPath.row].value as! String))
+        }
+    }
+    func confirm(msg: String){
+        let alert = UIAlertController(title: "UWAGA", message: "Czy na pewno chcesz usunąć bazę danych \(msg)? Operacja jest nieodwracalna!", preferredStyle: .actionSheet)
+        let DeleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: handleDeleteDB)
+        let CancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(DeleteAction)
+        alert.addAction(CancelAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    func handleDeleteDB(alertAction: UIAlertAction){
+        self.view.bringSubview(toFront: act)
+        startAct()
+        DispatchQueue.main.async {
+            do{
+                let query = "DROP DATABASE " + (self.list[self.dbToDelete].value as! String)
+                let _ = try self.con.query(q: query)
+                self.list.remove(at: self.dbToDelete)
+                self.tableView.reloadData()
+            }catch(let e){
+                print(e)
+            }
+            self.stopAct()
+        }
+    }
+    func showSystemTable(sender: UIBarButtonItem){
+        let db1 = "information_schema"
+        let db2 = "mysql"
+        let db3 = "performance_schema"
+        let db4 = "sys"
+        if(showSysTable){
+            showSysTable = false
+            for dat in list{
+                let tmp = dat.value as! String
+                if (tmp==db1 || tmp==db2 || tmp==db3 || tmp==db4){
+                    removeObj(datMod: tmp)
+                }
+            }
+            self.navigationItem.rightBarButtonItem?.title = "DB. Sys. OFF"
+            tableView.reloadData()
+        }else{
+            list.append(DataModel(k: "", v: db1, r: 0, c: 0))
+            list.append(DataModel(k: "", v: db2, r: 0, c: 0))
+            list.append(DataModel(k: "", v: db3, r: 0, c: 0))
+            list.append(DataModel(k: "", v: db4, r: 0, c: 0))
+            showSysTable = true
+            self.navigationItem.rightBarButtonItem?.title = "DB. Sys. ON"
+            tableView.reloadData()
+        }
+    }
+    func removeObj(datMod: String){
+        var ii:Int = 0
+        for dat in list{
+            let tmp:String = dat.value as! String
+            if(tmp==datMod){
+                list.remove(at: ii)
+            }
+            ii += 1
+        }
+    }
     func showAlert(message: String){
         let alertController = UIAlertController(title: "Warning", message: message, preferredStyle: UIAlertControllerStyle.alert)
         
