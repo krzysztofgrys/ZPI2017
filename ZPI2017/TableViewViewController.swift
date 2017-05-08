@@ -58,7 +58,7 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return rowss![0].count
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return numberRows
