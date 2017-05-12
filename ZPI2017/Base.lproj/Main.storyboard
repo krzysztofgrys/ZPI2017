@@ -217,7 +217,7 @@
                                 <color key="color" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
                             </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="soW-VO-3qt">
-                                <rect key="frame" x="0.0" y="67" width="320" height="501"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -259,12 +259,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0mS-gJ-asC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="901.60000000000002" y="-289.20539730134936"/>
+            <point key="canvasLocation" x="900" y="-289.43661971830988"/>
         </scene>
-        <!--Table Selection View Controller-->
+        <!--Wybierz tabele-->
         <scene sceneID="YF9-sf-9jg">
             <objects>
-                <viewController storyboardIdentifier="tableSelection" automaticallyAdjustsScrollViewInsets="NO" id="GYI-d5-z2D" customClass="TableSelectionViewController" customModule="ZPI2017" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="tableSelection" title="Wybierz tabele" automaticallyAdjustsScrollViewInsets="NO" id="GYI-d5-z2D" customClass="TableSelectionViewController" customModule="ZPI2017" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="c4u-C6-yJj"/>
                         <viewControllerLayoutGuide type="bottom" id="E2o-2f-gHL"/>
@@ -278,7 +278,7 @@
                                 <color key="color" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
                             </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x4f-Xy-4Gy">
-                                <rect key="frame" x="0.0" y="62" width="320" height="501"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="499"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -320,7 +320,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3KU-AI-he7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1704.8" y="-288.30584707646182"/>
+            <point key="canvasLocation" x="1704.375" y="-288.38028169014086"/>
         </scene>
         <!--Widok tabeli-->
         <scene sceneID="HZv-fL-yUx">

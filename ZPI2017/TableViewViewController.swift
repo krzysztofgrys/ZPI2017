@@ -19,35 +19,12 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
     var dbName = String()
     var tableName = String()
     var numberRows:Int = 1
+    var numberColumns:Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self 
-        do{
-            let query = "SELECT * FROM " + tableName
-            //prepare query
-            let gett = try con.query(q: query)
-            //rows to wszystkie wiersze z query
-            rows = try gett.readAllRows()
-            //rowss to tez wszystkie wiersze z query XDD
-            rowss = rows?[0]
-            // row to jeden wiersz z query
-            var ii:Int = 0
-            var cc:Int = 0
-            for row in rowss!{
-                cc = 0
-                for(key,value) in row{
-                    list.append(DataModel(k: key, v: value, r: ii, c:cc))
-                    cc += 1
-                }
-                ii += 1
-            }
-            
-        }catch(let e){
-            print(e)
-        }
-        numberRows = (rowss?.count)!
         // Do any additional setup after loading the view.
         self.collectionView!.collectionViewLayout = NodeLayout(itemWidth: 300.0, itemHeight: 50.0, space: 5.0)
     }
@@ -58,7 +35,7 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return rowss![0].count
+        return numberColumns
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return numberRows

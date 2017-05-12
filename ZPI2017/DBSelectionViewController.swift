@@ -16,7 +16,7 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
     var rowss: MySQL.ResultSet? = nil
     var list = [DataModel]()
     var dbToDelete: Int = -1
-    var showSysTable: Bool = true
+    var showSysTable: Bool = false
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var act: UIActivityIndicatorView!
     
@@ -47,6 +47,7 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
         }catch(let e){
             print(e)
         }
+        showSystemTable(sender: self.navigationItem.rightBarButtonItem!)
     }
     
     override func didReceiveMemoryWarning() {
@@ -70,7 +71,7 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DBSelectionTableViewCell
-        cell.db.text = list[indexPath.row].value as! String
+        cell.db.text = list[indexPath.row].value as? String
         return cell
     }
     
@@ -90,10 +91,26 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
                 let gett = try self.con.query(q: "SHOW TABLES")
                 //rows to wszystkie wiersze z query
                 self.rows = try gett.readAllRows()
-                //rowss to tez wszystkie wiersze z query XDD
+                //rowss to tez wszystkie wiersze z query
                 if(self.rows?.isEmpty==false){
                     destination.con = self.con
                     destination.dbName = dbName
+                    var list = [DataModel]()
+                    //rowss to tez wszystkie wiersze z query
+                    var rowss = self.rows?[0]
+                    // row to jeden wiersz z query
+                    var ii:Int = 1
+                    var cc:Int = 0
+                    for row in rowss!{
+                        cc = 0
+                        for(key,value) in row{
+                            list.append(DataModel(k: key, v: value, r: ii, c:cc))
+                            cc += 1
+                        }
+                        ii += 1
+                    }
+                    rowss = nil
+                    destination.list = list
                     self.navigationController?.pushViewController(destination, animated: true)
                 }else{
                     self.showAlert(message: "Wybrana baza danych jest pusta")
@@ -144,8 +161,8 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
         let db2 = "mysql"
         let db3 = "performance_schema"
         let db4 = "sys"
-        if(showSysTable){
-            showSysTable = false
+        if(!showSysTable){
+            showSysTable = true
             for dat in list{
                 let tmp = dat.value as! String
                 if (tmp==db1 || tmp==db2 || tmp==db3 || tmp==db4){
@@ -159,7 +176,7 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
             list.append(DataModel(k: "", v: db2, r: 0, c: 0))
             list.append(DataModel(k: "", v: db3, r: 0, c: 0))
             list.append(DataModel(k: "", v: db4, r: 0, c: 0))
-            showSysTable = true
+            showSysTable = false
             self.navigationItem.rightBarButtonItem?.title = "DB. Sys. ON"
             tableView.reloadData()
         }

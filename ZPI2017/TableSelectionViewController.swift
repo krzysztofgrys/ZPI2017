@@ -24,30 +24,6 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
-        do{
-            try con.use(dbname: dbName)
-            //prepare query
-            let gett = try con.query(q: "SHOW TABLES")
-            //rows to wszystkie wiersze z query
-            rows = try gett.readAllRows()
-            //rowss to tez wszystkie wiersze z query XDD
-            rowss = rows?[0]
-            // row to jeden wiersz z query
-            var ii:Int = 1
-            var cc:Int = 0
-            for row in rowss!{
-                cc = 0
-                for(key,value) in row{
-                    list.append(DataModel(k: key, v: value, r: ii, c:cc))
-                    cc += 1
-                }
-                ii += 1
-            }
-            
-        }catch(let e){
-            print(e)
-        }
         // Do any additional setup after loading the view.
     }
     
@@ -76,6 +52,24 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
                 if(self.rows?.isEmpty==false){
                     destination.con = self.con
                     destination.tableName = tblName
+                    var list = [DataModel]()
+                    //rowss to tez wszystkie wiersze z query
+                    var rowss = self.rows?[0]
+                    // row to jeden wiersz z query
+                    var ii:Int = 0
+                    var cc:Int = 0
+                    for row in rowss!{
+                        cc = 0
+                        for(key,value) in row{
+                            list.append(DataModel(k: key, v: value, r: ii, c:cc))
+                            cc += 1
+                        }
+                        ii += 1
+                    }
+                    destination.list = list
+                    destination.numberRows = (rowss?.count)!
+                    destination.numberColumns = rowss![0].count
+                    rowss = nil
                     self.navigationController?.pushViewController(destination, animated: true)
                 }else{
                     self.showAlert(message: "Tabela jest pusta")
@@ -89,7 +83,7 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableSelectionTableViewCell
-        cell.table.text = list[indexPath.row].value as! String
+        cell.table.text = list[indexPath.row].value as? String
         return cell
     }
     
