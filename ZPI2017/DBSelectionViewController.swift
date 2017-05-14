@@ -68,6 +68,29 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
+    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!) {
+        
+        switch item.tag {
+            
+        case 1:
+                print("case 1")
+                let storyboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "makeSQL")
+            
+            self.view.insertSubview(storyboard.view!, at: 0)
+            break
+            
+            
+        case 2:
+            print("case 2")
+            break
+            
+        default:
+            break
+            
+        }
+        
+        
+    }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DBSelectionTableViewCell

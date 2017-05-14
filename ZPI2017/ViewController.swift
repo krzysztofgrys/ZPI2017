@@ -198,7 +198,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     override func viewDidLoad() {
-        
         FavLastSwitcher.addTarget(self, action: #selector(switcherChange), for: .valueChanged)
         
         login.addTarget(self, action: #selector(connect), for: .touchDown)
