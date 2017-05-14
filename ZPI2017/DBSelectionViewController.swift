@@ -17,11 +17,16 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
     var list = [DataModel]()
     var dbToDelete: Int = -1
     var showSysTable: Bool = false
+    var refreshControl: UIRefreshControl!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var act: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(DBSelectionViewController.refreshData), for: UIControlEvents.valueChanged)
+        tableView.addSubview(refreshControl)
         tableView.delegate = self
         tableView.dataSource = self
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "DB. Sys. ON", style: .plain, target: self, action: #selector(showSystemTable))
@@ -30,7 +35,7 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
             let gett = try con.query(q: "SHOW DATABASES")
             //rows to wszystkie wiersze z query
             rows = try gett.readAllRows()
-            //rowss to tez wszystkie wiersze z query XDD
+            //rowss to tez wszystkie wiersze z query
             rowss = rows?[0]
             // row to jeden wiersz z query
             var ii:Int = 1
@@ -66,30 +71,6 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
                 // todo lepiej to obsluzyc?
             }
         }
-    }
-    
-    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!) {
-        
-        switch item.tag {
-            
-        case 1:
-                print("case 1")
-                let storyboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "makeSQL")
-            
-            self.view.insertSubview(storyboard.view!, at: 0)
-            break
-            
-            
-        case 2:
-            print("case 2")
-            break
-            
-        default:
-            break
-            
-        }
-        
-        
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
@@ -204,6 +185,18 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
             tableView.reloadData()
         }
     }
+    func showNOSystemTable(){
+        let db1 = "information_schema"
+        let db2 = "mysql"
+        let db3 = "performance_schema"
+        let db4 = "sys"
+            for dat in list{
+                let tmp = dat.value as! String
+                if (tmp==db1 || tmp==db2 || tmp==db3 || tmp==db4){
+                    removeObj(datMod: tmp)
+                }
+            }
+    }
     func removeObj(datMod: String){
         var ii:Int = 0
         for dat in list{
@@ -213,6 +206,34 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
             }
             ii += 1
         }
+    }
+    func refreshData(){
+        do{
+            list.removeAll()
+            //prepare query
+            let gett = try con.query(q: "SHOW DATABASES")
+            //rows to wszystkie wiersze z query
+            rows = try gett.readAllRows()
+            //rowss to tez wszystkie wiersze z query
+            rowss = rows?[0]
+            // row to jeden wiersz z query
+            var ii:Int = 1
+            var cc:Int = 0
+            for row in rowss!{
+                cc = 0
+                for(key,value) in row{
+                    list.append(DataModel(k: key, v: value, r: ii, c:cc))
+                    cc += 1
+                }
+                ii += 1
+            }
+            
+        }catch(let e){
+            print(e)
+        }
+        showNOSystemTable()
+        tableView.reloadData()
+        refreshControl.endRefreshing()
     }
     func showAlert(message: String){
         let alertController = UIAlertController(title: "Warning", message: message, preferredStyle: UIAlertControllerStyle.alert)
