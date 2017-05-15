@@ -18,6 +18,7 @@
 		4BF5FDB01E929D01007430E8 /* LastFav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5FDAF1E929D01007430E8 /* LastFav.swift */; };
 		4BF5FDB21E92C3A4007430E8 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5FDB11E92C3A4007430E8 /* Favorite.swift */; };
 		4BF5FDB41E92C3AD007430E8 /* Last.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5FDB31E92C3AD007430E8 /* Last.swift */; };
+		9A4CE5B41EC9E4080075046C /* ExecuteSQLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4CE5B31EC9E4080075046C /* ExecuteSQLViewController.swift */; };
 		B21C7C311E9F9739001647A7 /* DBSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21C7C301E9F9739001647A7 /* DBSelectionViewController.swift */; };
 		B21C7C331E9F974F001647A7 /* DBSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21C7C321E9F974F001647A7 /* DBSelectionTableViewCell.swift */; };
 		B26199101E98286D008AC2AC /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B261990F1E98286D008AC2AC /* DataModel.swift */; };
@@ -41,6 +42,7 @@
 		4BF5FDAF1E929D01007430E8 /* LastFav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastFav.swift; sourceTree = "<group>"; };
 		4BF5FDB11E92C3A4007430E8 /* Favorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		4BF5FDB31E92C3AD007430E8 /* Last.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Last.swift; sourceTree = "<group>"; };
+		9A4CE5B31EC9E4080075046C /* ExecuteSQLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExecuteSQLViewController.swift; sourceTree = "<group>"; };
 		B21C7C301E9F9739001647A7 /* DBSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBSelectionViewController.swift; sourceTree = "<group>"; };
 		B21C7C321E9F974F001647A7 /* DBSelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		B261990F1E98286D008AC2AC /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				4BF5FDAD1E928CCC007430E8 /* LoginView */,
 				4BB8F0251E76E65600D1F909 /* ViewController.swift */,
 				4BB8F0231E76E65600D1F909 /* AppDelegate.swift */,
+				9A4CE5B31EC9E4080075046C /* ExecuteSQLViewController.swift */,
 				4BB8F0271E76E65600D1F909 /* Main.storyboard */,
 				4BB8F02A1E76E65600D1F909 /* Assets.xcassets */,
 				4BB8F02C1E76E65600D1F909 /* LaunchScreen.storyboard */,
@@ -297,6 +300,7 @@
 				B2EABFFF1E9FC070005D1C02 /* TableViewViewController.swift in Sources */,
 				B2EABFFA1E9FBB5C005D1C02 /* TableSelectionViewController.swift in Sources */,
 				B26199101E98286D008AC2AC /* DataModel.swift in Sources */,
+				9A4CE5B41EC9E4080075046C /* ExecuteSQLViewController.swift in Sources */,
 				B2EABFF81E9FBB47005D1C02 /* TableSelectionTableViewCell.swift in Sources */,
 				4BF5FDB21E92C3A4007430E8 /* Favorite.swift in Sources */,
 				B21C7C331E9F974F001647A7 /* DBSelectionTableViewCell.swift in Sources */,
@@ -428,7 +432,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = R8S98YHV2J;
 				INFOPLIST_FILE = ZPI2017/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zpi.ZPI2017;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -446,7 +450,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = R8S98YHV2J;
 				INFOPLIST_FILE = ZPI2017/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zpi.ZPI2017;
 				PRODUCT_NAME = "$(TARGET_NAME)";
