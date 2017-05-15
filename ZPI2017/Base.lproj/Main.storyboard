@@ -240,7 +240,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86v-51-cVC">
-                                                    <rect key="frame" x="3" y="-6" width="363" height="43"/>
+                                                    <rect key="frame" x="2" y="-7" width="364" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -262,6 +262,7 @@
                             <constraint firstItem="wri-dm-uTI" firstAttribute="centerY" secondItem="UcT-Cl-zVr" secondAttribute="centerY" id="poS-vS-M8Y"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="9SB-Bo-hDs"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -273,6 +274,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0mS-gJ-asC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="900" y="-290.10494752623691"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="zLC-su-xcr">
+            <objects>
+                <tabBarController storyboardIdentifier="tabBarController" id="87s-2n-n1i" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="BWv-Uz-MHB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="aEe-3k-0fw" kind="relationship" relationship="viewControllers" id="lIn-RJ-Hj2"/>
+                        <segue destination="xyx-Z7-8iv" kind="relationship" relationship="viewControllers" id="o6R-7H-3Gx"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wht-pS-IoS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="148" y="414"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="gkl-bV-IZ3">
+            <objects>
+                <viewController id="xyx-Z7-8iv" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gmw-9G-Har"/>
+                        <viewControllerLayoutGuide type="bottom" id="SDp-LA-Eui"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AfF-Ik-jiz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YbW-q3-DGA">
+                                <rect key="frame" x="166" y="323" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Njx-V2-CgJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dTo-o4-D7A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1033" y="380"/>
         </scene>
         <!--Wybierz tabele-->
         <scene sceneID="YF9-sf-9jg">
@@ -303,7 +350,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5q6-6O-Sn1">
-                                                    <rect key="frame" x="7" y="-4" width="356" height="41"/>
+                                                    <rect key="frame" x="7" y="-5" width="355" height="41"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -361,10 +408,10 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="xR3-Z8-RrR" customClass="TableViewCollectionViewCell" customModule="ZPI2017" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="0.0" width="343" height="50"/>
+                                        <rect key="frame" x="16" y="0.0" width="342" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaX-8E-YJM">
