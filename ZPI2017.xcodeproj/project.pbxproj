@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2459C729968D8CCFDA71F884 /* Pods_ZPI2017.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2FD6D5270F0383BEE8BFAD2 /* Pods_ZPI2017.framework */; };
+		4BB5188D1ED321A0004CFC3C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB5188C1ED321A0004CFC3C /* TabBarController.swift */; };
+		4BB5188F1ED324EE004CFC3C /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB5188E1ED324EE004CFC3C /* Connection.swift */; };
+		4BB518911ED32A3B004CFC3C /* TabBarTableSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB518901ED32A3B004CFC3C /* TabBarTableSelectionViewController.swift */; };
 		4BB8F0241E76E65600D1F909 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB8F0231E76E65600D1F909 /* AppDelegate.swift */; };
 		4BB8F0261E76E65600D1F909 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB8F0251E76E65600D1F909 /* ViewController.swift */; };
 		4BB8F0291E76E65600D1F909 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB8F0271E76E65600D1F909 /* Main.storyboard */; };
@@ -30,6 +33,9 @@
 
 /* Begin PBXFileReference section */
 		30E3B0D381C12BEE9281AB94 /* Pods-ZPI2017.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZPI2017.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZPI2017/Pods-ZPI2017.debug.xcconfig"; sourceTree = "<group>"; };
+		4BB5188C1ED321A0004CFC3C /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		4BB5188E1ED324EE004CFC3C /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
+		4BB518901ED32A3B004CFC3C /* TabBarTableSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarTableSelectionViewController.swift; sourceTree = "<group>"; };
 		4BB8F0201E76E65600D1F909 /* ZPI2017.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZPI2017.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB8F0231E76E65600D1F909 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BB8F0251E76E65600D1F909 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +89,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4BB5188B1ED3216D004CFC3C /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				4BB5188C1ED321A0004CFC3C /* TabBarController.swift */,
+				4BB518901ED32A3B004CFC3C /* TabBarTableSelectionViewController.swift */,
+			);
+			name = TabBar;
+			sourceTree = "<group>";
+		};
 		4BB8F0171E76E65500D1F909 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +119,7 @@
 		4BB8F0221E76E65600D1F909 /* ZPI2017 */ = {
 			isa = PBXGroup;
 			children = (
+				4BB5188B1ED3216D004CFC3C /* TabBar */,
 				B2EAC0001E9FC074005D1C02 /* TablewView */,
 				B2EABFFB1E9FBB61005D1C02 /* TableSelection */,
 				B21C7C341E9F9763001647A7 /* DBSelection */,
@@ -136,6 +152,7 @@
 				4BF5FDAF1E929D01007430E8 /* LastFav.swift */,
 				4BF5FDB11E92C3A4007430E8 /* Favorite.swift */,
 				4BF5FDB31E92C3AD007430E8 /* Last.swift */,
+				4BB5188E1ED324EE004CFC3C /* Connection.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -292,8 +309,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BF5FDAC1E928CB2007430E8 /* LastTableController.swift in Sources */,
+				4BB5188D1ED321A0004CFC3C /* TabBarController.swift in Sources */,
 				B21C7C311E9F9739001647A7 /* DBSelectionViewController.swift in Sources */,
 				4BF5FDAA1E928C72007430E8 /* LastTableViewCell.swift in Sources */,
+				4BB518911ED32A3B004CFC3C /* TabBarTableSelectionViewController.swift in Sources */,
 				4BB8F0261E76E65600D1F909 /* ViewController.swift in Sources */,
 				4BF5FDB41E92C3AD007430E8 /* Last.swift in Sources */,
 				B2EABFFD1E9FC062005D1C02 /* TableViewCollectionViewCell.swift in Sources */,
@@ -301,6 +320,7 @@
 				B2EABFFA1E9FBB5C005D1C02 /* TableSelectionViewController.swift in Sources */,
 				B26199101E98286D008AC2AC /* DataModel.swift in Sources */,
 				9A4CE5B41EC9E4080075046C /* ExecuteSQLViewController.swift in Sources */,
+				4BB5188F1ED324EE004CFC3C /* Connection.swift in Sources */,
 				B2EABFF81E9FBB47005D1C02 /* TableSelectionTableViewCell.swift in Sources */,
 				4BF5FDB21E92C3A4007430E8 /* Favorite.swift in Sources */,
 				B21C7C331E9F974F001647A7 /* DBSelectionTableViewCell.swift in Sources */,

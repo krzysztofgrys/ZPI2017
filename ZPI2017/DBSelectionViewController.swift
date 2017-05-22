@@ -23,6 +23,9 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        con = Connecion.instanceOfConnection.con!
+        
         refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(DBSelectionViewController.refreshData), for: UIControlEvents.valueChanged)
@@ -52,6 +55,8 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
         }catch(let e){
             print(e)
         }
+        
+    
         showSystemTable(sender: self.navigationItem.rightBarButtonItem!)
     }
     
@@ -114,8 +119,22 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
                         ii += 1
                     }
                     rowss = nil
-                    destination.list = list
-                    self.navigationController?.pushViewController(destination, animated: true)
+//                    destination.list = list
+//                    self.navigationController?.pushViewController(destination, animated: true)
+                    
+                    let appDelegate = UIApplication.shared.delegate! as! AppDelegate
+                    
+                    Connecion.instanceOfConnection.list = list
+                    
+                    let initialViewController = self.storyboard!.instantiateViewController(withIdentifier: "tabBarTableSelection") as! TabBarTableSelectionViewController
+                    
+                    
+                    appDelegate.window?.rootViewController = initialViewController
+                    appDelegate.window?.makeKeyAndVisible()
+                    
+                    
+                    
+                    
                 }else{
                     self.showAlert(message: "Wybrana baza danych jest pusta")
                 }

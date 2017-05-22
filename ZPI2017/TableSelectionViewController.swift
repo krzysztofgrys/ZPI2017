@@ -22,6 +22,8 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        list = Connecion.instanceOfConnection.list!
+        con = Connecion.instanceOfConnection.con!
         tableView.delegate = self
         tableView.dataSource = self
         // Do any additional setup after loading the view.
@@ -71,6 +73,7 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
                     destination.numberColumns = rowss![0].count
                     rowss = nil
                     self.navigationController?.pushViewController(destination, animated: true)
+                    
                 }else{
                     self.showAlert(message: "Tabela jest pusta")
                 }

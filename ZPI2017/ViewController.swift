@@ -98,13 +98,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if self.validateFields(){
                 do{
                     try self.con.open(self.ipField.text!, user: self.userField.text!, passwd: self.passwordField.text, port: Int(self.portField.text!))
-                    let destination = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DBSelection") as! DBSelectionViewController
-                    destination.con = self.con
-//                    self.navigationController?.pushViewController(destination, animated: true)
-                    
+//                    let destination = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DBSelection") as! DBSelectionViewController
+                    //                    self.navigationController?.pushViewController(destination, animated: true)
+                    Connecion.instanceOfConnection.con = self.con
+
                     let appDelegate = UIApplication.shared.delegate! as! AppDelegate
                     
-                    let initialViewController = self.storyboard!.instantiateViewController(withIdentifier: "tabBarController")
+                    let initialViewController = self.storyboard!.instantiateViewController(withIdentifier: "tabBarController") as! TabBarController
+                    initialViewController.con = self.con
                     appDelegate.window?.rootViewController = initialViewController
                     appDelegate.window?.makeKeyAndVisible()
                     
