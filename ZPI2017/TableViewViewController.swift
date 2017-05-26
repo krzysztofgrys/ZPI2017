@@ -20,15 +20,17 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
     var tableName = String()
     var numberRows:Int = 1
     var numberColumns:Int = 1
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-   
+        self.collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+
         
         collectionView.delegate = self
         collectionView.dataSource = self 
         // Do any additional setup after loading the view.
+        
         self.collectionView!.collectionViewLayout = NodeLayout(itemWidth: 300.0, itemHeight: 50.0, space: 5.0)
     }
 

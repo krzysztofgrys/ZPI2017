@@ -13,6 +13,8 @@
 		4BB518911ED32A3B004CFC3C /* TabBarTableSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB518901ED32A3B004CFC3C /* TabBarTableSelectionViewController.swift */; };
 		4BB518931ED36EC0004CFC3C /* TabBarTabalViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB518921ED36EC0004CFC3C /* TabBarTabalViewViewController.swift */; };
 		4BB518961ED836FB004CFC3C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB518951ED836FB004CFC3C /* SettingsViewController.swift */; };
+		4BB518981ED889EC004CFC3C /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB518971ED889EC004CFC3C /* CustomCollectionViewCell.swift */; };
+		4BB5189A1ED895EF004CFC3C /* CredentialsTmp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB518991ED895EF004CFC3C /* CredentialsTmp.swift */; };
 		4BB8F0241E76E65600D1F909 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB8F0231E76E65600D1F909 /* AppDelegate.swift */; };
 		4BB8F0261E76E65600D1F909 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB8F0251E76E65600D1F909 /* ViewController.swift */; };
 		4BB8F0291E76E65600D1F909 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB8F0271E76E65600D1F909 /* Main.storyboard */; };
@@ -40,6 +42,8 @@
 		4BB518901ED32A3B004CFC3C /* TabBarTableSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarTableSelectionViewController.swift; sourceTree = "<group>"; };
 		4BB518921ED36EC0004CFC3C /* TabBarTabalViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarTabalViewViewController.swift; sourceTree = "<group>"; };
 		4BB518951ED836FB004CFC3C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4BB518971ED889EC004CFC3C /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		4BB518991ED895EF004CFC3C /* CredentialsTmp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CredentialsTmp.swift; sourceTree = "<group>"; };
 		4BB8F0201E76E65600D1F909 /* ZPI2017.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZPI2017.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB8F0231E76E65600D1F909 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BB8F0251E76E65600D1F909 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 				4BF5FDB11E92C3A4007430E8 /* Favorite.swift */,
 				4BF5FDB31E92C3AD007430E8 /* Last.swift */,
 				4BB5188E1ED324EE004CFC3C /* Connection.swift */,
+				4BB518991ED895EF004CFC3C /* CredentialsTmp.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 			children = (
 				B2EABFFE1E9FC070005D1C02 /* TableViewViewController.swift */,
 				B2EABFFC1E9FC062005D1C02 /* TableViewCollectionViewCell.swift */,
+				4BB518971ED889EC004CFC3C /* CustomCollectionViewCell.swift */,
 			);
 			name = TablewView;
 			sourceTree = "<group>";
@@ -323,6 +329,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BB518931ED36EC0004CFC3C /* TabBarTabalViewViewController.swift in Sources */,
+				4BB518981ED889EC004CFC3C /* CustomCollectionViewCell.swift in Sources */,
+				4BB5189A1ED895EF004CFC3C /* CredentialsTmp.swift in Sources */,
 				4BF5FDAC1E928CB2007430E8 /* LastTableController.swift in Sources */,
 				4BB5188D1ED321A0004CFC3C /* TabBarController.swift in Sources */,
 				4BB518961ED836FB004CFC3C /* SettingsViewController.swift in Sources */,

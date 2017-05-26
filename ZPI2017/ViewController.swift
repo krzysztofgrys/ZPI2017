@@ -15,7 +15,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var userField: UITextField!
     @IBOutlet weak var portField: UITextField!
+    
+    var isFavourite: Bool = false
     var favorites: [LastFav] = []
+    var fav: [LastFav] = []
+    var tmp: [LastFav] = []
     @IBOutlet weak var act: UIActivityIndicatorView!
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
@@ -23,8 +27,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if(FavLastSwitcher.selectedSegmentIndex==0){
             cell.LastCell.text = favorites[indexPath.row].ip+("/")+favorites[indexPath.row].user
         }else{
-            //TODO
-            cell.LastCell.text = "ulubione - TODO"
+            cell.LastCell.text = fav[indexPath.row].ip+("/")+fav[indexPath.row].user
         }
         return cell
     }
@@ -32,9 +35,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         if(FavLastSwitcher.selectedSegmentIndex==0){
+            //TUtaj sa ostatnie
             if favorites.count == 0{
                 let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
-                noDataLabel.text          = "Brak :("
+                noDataLabel.text          = "Brak"
                 noDataLabel.textColor     = UIColor.black
                 noDataLabel.textAlignment = .center
                 tableView.backgroundView  = noDataLabel
@@ -46,12 +50,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             return favorites.count
         }else{
-            
-            // TODO pozniej - gdy beda ulubione - to mi sie nie podoba, pozniej bedzie refactoring
-            let favData = 0
-            if favData == 0{
+            //a tutaj sa serio ulubione
+            if fav.count == 0{
                 let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
-                noDataLabel.text          = "Brak :("
+                noDataLabel.text          = "Brak"
                 noDataLabel.textColor     = UIColor.black
                 noDataLabel.textAlignment = .center
                 tableView.backgroundView  = noDataLabel
@@ -60,7 +62,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 TableView.backgroundView = nil
                 tableView.separatorStyle  = .singleLine
             }
-            return favData
+            return fav.count
         }
     }
     
@@ -98,14 +100,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if self.validateFields(){
                 do{
                     try self.con.open(self.ipField.text!, user: self.userField.text!, passwd: self.passwordField.text, port: Int(self.portField.text!))
-//                    let destination = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DBSelection") as! DBSelectionViewController
-                    //                    self.navigationController?.pushViewController(destination, animated: true)
                     Connecion.instanceOfConnection.con = self.con
 
                     let appDelegate = UIApplication.shared.delegate! as! AppDelegate
                     
                     let initialViewController = self.storyboard!.instantiateViewController(withIdentifier: "tabBarController") as! TabBarController
                     initialViewController.con = self.con
+                    
+                    CredentialsTmp.CredentialIp.ip   = self.ipField.text!
+                    CredentialsTmp.CredentialPort.port = self.port.text!
+                    CredentialsTmp.CredentialPassword.password = self.passwordField.text!
+                    CredentialsTmp.CredentialUser.user = self.userField.text!
+                    CredentialsTmp.CredentialisFav.isFavourite = false
+                    
                     appDelegate.window?.rootViewController = initialViewController
                     appDelegate.window?.makeKeyAndVisible()
                     
@@ -137,7 +144,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             return false
         }
         if(!checkIfCredentialsExists(ip: ipField.text!, user: userField.text!)){
-            saveCredentials()
+            saveCredentials(type: "last")
         }
         getCredentials()
         return true
@@ -156,9 +163,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return false
     }
     
-    func saveCredentials(){
+    func saveCredentials(type: String){
         
-        let credentials = favorites+[(LastFav(ip: ipField.text!, user: userField.text!, password: passwordField.text!, port: port.text!))]
+        let credentials = tmp+[(LastFav(ip: ipField.text!, user: userField.text!, password: passwordField.text!, port: port.text!, type: type))]
         let filename = NSHomeDirectory().appending("/Documents/profile.bin")
         NSKeyedArchiver.archiveRootObject(credentials, toFile: filename)
         print("zapisano")
@@ -168,9 +175,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if let data = NSData(contentsOfFile: NSHomeDirectory().appending("/Documents/profile.bin")){
             let unarchiveProfile = NSKeyedUnarchiver.unarchiveObject(with: data as Data) as! [LastFav]
             print("odczytano")
-            favorites = []
-            for fav in 0..<(unarchiveProfile.count){
-                favorites.append(unarchiveProfile[fav])
+            tmp = []
+            for favv in 0..<(unarchiveProfile.count){
+                let read = unarchiveProfile[favv]
+                tmp.append(read)
             }
         }
     }
@@ -193,12 +201,35 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return [cell]
     }
     
+    
+    func prepareLastAndFav(){
+        
+        for favv in 0..<tmp.count{
+            let read = tmp[favv]
+            if(read.type=="last"){
+                favorites.append(read)
+            }else{
+                fav.append(read)
+            }
+        }
+        
+    }
+    
     func fillCredentials(id: Int){
-        let fav = favorites[id]
-        ipField.text = fav.ip
-        userField.text = fav.user
-        passwordField.text = fav.password
-        portField.text = fav.port
+        if(FavLastSwitcher.selectedSegmentIndex==0){
+            let fav = favorites[id]
+            ipField.text = fav.ip
+            userField.text = fav.user
+            passwordField.text = fav.password
+            portField.text = fav.port
+            
+        }else{
+            let favv = fav[id]
+            ipField.text = favv.ip
+            userField.text = favv.user
+            passwordField.text = favv.password
+            portField.text = favv.port
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -210,6 +241,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         login.addTarget(self, action: #selector(connect), for: .touchDown)
         getCredentials()
+        prepareLastAndFav()
         super.viewDidLoad()
         port.addTarget(self, action: #selector(textFieldDidBeginEditing), for: UIControlEvents.touchDown)
     }
