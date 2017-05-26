@@ -12,6 +12,8 @@ import MySqlSwiftNative
 class Connecion{
     var con: MySQL.Connection? = nil
     var list: [DataModel]? = nil
+    var numberRows: Int? = nil
+    var numberColumns: Int? = nil
 
     class var instanceOfConnection: Connecion {
         struct Static {
@@ -22,6 +24,20 @@ class Connecion{
     
     class var instatnceOfList: Connecion{
         struct Static{
+            static let instance = Connecion()
+        }
+        return Static.instance
+    }
+    
+    class var numberOfRows: Connecion {
+        struct Static {
+            static let instance = Connecion()
+        }
+        return Static.instance
+    }
+    
+    class var numberOfColumns: Connecion {
+        struct Static {
             static let instance = Connecion()
         }
         return Static.instance
