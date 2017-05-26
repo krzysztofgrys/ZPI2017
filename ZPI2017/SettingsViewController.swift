@@ -11,6 +11,7 @@ import UIKit
 class SettingsViewController: UIViewController {
     var tmp: [LastFav] = []
     
+    @IBOutlet weak var favButton: UIButton!
     @IBAction func addToFavButton(_ sender: Any) {
         saveCredentials()
     }
@@ -19,6 +20,18 @@ class SettingsViewController: UIViewController {
         // TO NIE DZIALA TO TYLKO DO TESTOW ULUBIONYCH
         let destination = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "mainLoginPage") as! ViewController
             self.navigationController?.pushViewController(destination, animated: true)
+    }
+    
+    func checkIfFavExist() -> Bool{
+        for favv in 0..<(tmp.count){
+            let read = tmp[favv]
+            if(read.ip == CredentialsTmp.CredentialIp.ip && CredentialsTmp.CredentialUser.user == read.user){
+                
+                favButton.isHidden  = true
+                return true
+            }
+        }
+        return false
     }
     
     
@@ -45,6 +58,7 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getCredentials()
+        checkIfFavExist()
 
         // Do any additional setup after loading the view.
     }

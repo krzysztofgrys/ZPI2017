@@ -487,6 +487,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="7fn-ye-yjY"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <connections>
+                        <outlet property="favButton" destination="IGx-dS-uwD" id="94u-UP-res"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sF7-yC-DdX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
