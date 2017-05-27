@@ -16,8 +16,9 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
     var rowss: MySQL.ResultSet? = nil
     var list = [DataModel]()
     var dbToDelete: Int = -1
-    var showSysTable: Bool = false
+    //var showSysTable: Bool = false
     var refreshControl: UIRefreshControl!
+    let userDefults = UserDefaults.standard
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var act: UIActivityIndicatorView!
     
@@ -32,7 +33,7 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.addSubview(refreshControl)
         tableView.delegate = self
         tableView.dataSource = self
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "DB. Sys. ON", style: .plain, target: self, action: #selector(showSystemTable))
+        //self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "DB. Sys. ON", style: .plain, target: self, action: #selector(showSystemTable))
         do{
             //prepare query
             let gett = try con.query(q: "SHOW DATABASES")
@@ -51,13 +52,12 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
                 }
                 ii += 1
             }
-            
+            if(userDefults.bool(forKey: "sysDB") == false){
+                showNOSystemTable()
+            }
         }catch(let e){
             print(e)
         }
-        
-    
-        showSystemTable(sender: self.navigationItem.rightBarButtonItem!)
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,6 +75,19 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
                 print(e)
                 // todo lepiej to obsluzyc?
             }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        startAct()
+        DispatchQueue.main.async {
+            if(self.userDefults.bool(forKey: "sysDB")){
+                self.showSystemTable()
+            }
+            else{
+                self.showNOSystemTable()
+            }
+        self.tableView.reloadData()
         }
     }
     
@@ -168,30 +181,27 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
             self.stopAct()
         }
     }
-    func showSystemTable(sender: UIBarButtonItem){
+    func showSystemTable(){
         let db1 = "information_schema"
         let db2 = "mysql"
         let db3 = "performance_schema"
         let db4 = "sys"
-        if(!showSysTable){
-            showSysTable = true
-            for dat in list{
-                let tmp = dat.value as! String
-                if (tmp==db1 || tmp==db2 || tmp==db3 || tmp==db4){
-                    removeObj(datMod: tmp)
-                }
-            }
-            self.navigationItem.rightBarButtonItem?.title = "DB. Sys. OFF"
-            tableView.reloadData()
-        }else{
-            list.append(DataModel(k: "", v: db1, r: 0, c: 0))
-            list.append(DataModel(k: "", v: db2, r: 0, c: 0))
-            list.append(DataModel(k: "", v: db3, r: 0, c: 0))
-            list.append(DataModel(k: "", v: db4, r: 0, c: 0))
-            showSysTable = false
-            self.navigationItem.rightBarButtonItem?.title = "DB. Sys. ON"
-            tableView.reloadData()
+        if(!listContains(toCompare: db1)){
+          list.append(DataModel(k: "", v: db1, r: 0, c: 0))
         }
+        if(!listContains(toCompare: db2)){
+            list.append(DataModel(k: "", v: db2, r: 0, c: 0))
+        }
+        if(!listContains(toCompare: db3)){
+            list.append(DataModel(k: "", v: db3, r: 0, c: 0))
+        }
+        if(!listContains(toCompare: db4)){
+            list.append(DataModel(k: "", v: db4, r: 0, c: 0))
+        }
+//            list.append(DataModel(k: "", v: db2, r: 0, c: 0))
+//            list.append(DataModel(k: "", v: db3, r: 0, c: 0))
+//            list.append(DataModel(k: "", v: db4, r: 0, c: 0))
+            //tableView.reloadData()
     }
     func showNOSystemTable(){
         let db1 = "information_schema"
@@ -214,6 +224,15 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
             }
             ii += 1
         }
+    }
+    func listContains(toCompare: String) -> Bool {
+        for dat in list{
+            let tmp: String = dat.value as! String
+            if(toCompare == tmp){
+              return true
+            }
+        }
+        return false
     }
     func refreshData(){
         do{
@@ -239,7 +258,9 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
         }catch(let e){
             print(e)
         }
-        showNOSystemTable()
+        if(userDefults.bool(forKey: "sysDB") == false){
+            showNOSystemTable()
+        }
         tableView.reloadData()
         refreshControl.endRefreshing()
     }
