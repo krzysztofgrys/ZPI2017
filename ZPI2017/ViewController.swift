@@ -70,10 +70,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     public func switcherChange(){
         if FavLastSwitcher.selectedSegmentIndex==0 {
             TableView.reloadData()
-            //            DispatchQueue.main.async{
-            //                self.TableView.reloadData()
-            //
-            //            }
         }else{
             TableView.reloadData()
         }

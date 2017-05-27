@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12117" systemVersion="16F71b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="D09-3F-7dJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="D09-3F-7dJ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12084"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,7 +31,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tHw-4A-1VB" id="uYd-pz-kze">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9p3-Np-ajo">
@@ -192,7 +192,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rHV-B1-A4r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-922.39999999999998" y="-291.00449775112446"/>
+            <point key="canvasLocation" x="-927" y="-231"/>
         </scene>
         <!--Wybierz baze danych-->
         <scene sceneID="drA-Wr-TrT">
@@ -259,6 +259,7 @@
                     <connections>
                         <outlet property="act" destination="wri-dm-uTI" id="YSs-V7-pZE"/>
                         <outlet property="tableView" destination="soW-VO-3qt" id="VCG-iH-eg3"/>
+                        <segue destination="GYI-d5-z2D" kind="show" identifier="showSelectTable" id="GCW-wA-gZs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0mS-gJ-asC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -377,11 +378,11 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xa7-9A-VHy" id="eSf-Ig-LbC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5q6-6O-Sn1">
-                                                    <rect key="frame" x="4.5" y="-8.5" width="355.5" height="40.5"/>
+                                                    <rect key="frame" x="5" y="-9" width="355" height="41"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -413,6 +414,7 @@
                     <connections>
                         <outlet property="act" destination="kL6-qS-urM" id="TXi-8c-lob"/>
                         <outlet property="tableView" destination="x4f-Xy-4Gy" id="kTK-bS-yjJ"/>
+                        <segue destination="UeP-VJ-lGd" kind="show" identifier="showViewTable" id="srg-ZX-XlG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3KU-AI-he7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -466,7 +468,7 @@
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="logoutButton:" destination="jo1-Tt-vFt" eventType="touchUpInside" id="laS-tJ-Kmm"/>
+                                    <action selector="logOutButtonAction:" destination="jo1-Tt-vFt" eventType="touchUpInside" id="uLl-PF-ygl"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGx-dS-uwD">
@@ -477,6 +479,17 @@
                                     <action selector="addToFavButton:" destination="jo1-Tt-vFt" eventType="touchUpInside" id="LTg-o2-X2Y"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ukrywaj systemowe bazy danych" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gW8-Dw-B5H">
+                                <rect key="frame" x="16" y="126" width="198" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="65Q-rt-VSi">
+                                <rect key="frame" x="253" y="132" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -493,7 +506,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sF7-yC-DdX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2090" y="784"/>
+            <point key="canvasLocation" x="2088.8000000000002" y="783.95802098950526"/>
         </scene>
         <!--Ustawienia-->
         <scene sceneID="q35-Ae-gDu">
@@ -536,8 +549,8 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="xR3-Z8-RrR" customClass="CustomCollectionViewCell" customModule="ZPI2017" customModuleProvider="target">
-                                        <rect key="frame" x="16.5" y="0.0" width="342" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="xR3-Z8-RrR" customClass="TableViewCollectionViewCell" customModule="ZPI2017" customModuleProvider="target">
+                                        <rect key="frame" x="17" y="0.0" width="342" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="50"/>
@@ -561,7 +574,6 @@
                                             <constraint firstItem="jaX-8E-YJM" firstAttribute="top" secondItem="xR3-Z8-RrR" secondAttribute="topMargin" id="Lrk-Vq-RL9"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="cell" destination="jaX-8E-YJM" id="JUl-ia-slh"/>
                                             <outlet property="values" destination="jaX-8E-YJM" id="5os-Tb-DOr"/>
                                         </connections>
                                     </collectionViewCell>

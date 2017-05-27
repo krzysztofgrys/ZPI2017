@@ -73,11 +73,8 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
                     destination.numberColumns = rowss![0].count
                     
                     rowss = nil
-                    self.navigationController?.pushViewController(destination, animated: true)
-                    
-               
-                    
-                    
+                    //self.navigationController?.pushViewController(destination, animated: true)
+                    self.performSegue(withIdentifier: "showViewTable", sender: self)
                 }else{
                     self.showAlert(message: "Tabela jest pusta")
                 }

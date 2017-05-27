@@ -120,21 +120,10 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
                     }
                     rowss = nil
                     destination.list = list
-                    self.navigationController?.pushViewController(destination, animated: true)
-                    
-                    let appDelegate = UIApplication.shared.delegate! as! AppDelegate
+                    self.performSegue(withIdentifier: "showSelectTable", sender: self)
+                    //self.navigationController?.pushViewController(destination, animated: true)
                     
                     Connecion.instanceOfConnection.list = list
-                    
-            //        let initialViewController = self.storyboard!.instantiateViewController(withIdentifier: "tabBarTableSelection") as! TabBarTableSelectionViewController
-                    
-                    
-           //         appDelegate.window?.rootViewController = initialViewController
-             //       appDelegate.window?.makeKeyAndVisible()
-                    
-                    
-                    
-                    
                 }else{
                     self.showAlert(message: "Wybrana baza danych jest pusta")
                 }

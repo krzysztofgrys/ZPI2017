@@ -15,11 +15,16 @@ class SettingsViewController: UIViewController {
     @IBAction func addToFavButton(_ sender: Any) {
         saveCredentials()
     }
+    @IBAction func logOutButtonAction(_ sender: Any) {
+        let destination = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "mainLoginPage") as! ViewController
+        self.present(destination, animated: true, completion: nil)
+    }
     @IBAction func logoutButton(_ sender: Any) {
         
         // TO NIE DZIALA TO TYLKO DO TESTOW ULUBIONYCH
         let destination = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "mainLoginPage") as! ViewController
             self.navigationController?.pushViewController(destination, animated: true)
+        self.present(destination, animated: true, completion: nil)
     }
     
     func checkIfFavExist() -> Bool{
@@ -47,7 +52,6 @@ class SettingsViewController: UIViewController {
         if let data = NSData(contentsOfFile: NSHomeDirectory().appending("/Documents/profile.bin")){
             let unarchiveProfile = NSKeyedUnarchiver.unarchiveObject(with: data as Data) as! [LastFav]
             print("odczytano")
-            tmp = []
             for favv in 0..<(unarchiveProfile.count){
                 let read = unarchiveProfile[favv]
                     tmp.append(read)
