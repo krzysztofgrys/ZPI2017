@@ -20,20 +20,50 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
     var tableName = String()
     var numberRows:Int = 1
     var numberColumns:Int = 1
-
+    var pinchGesture = UIPinchGestureRecognizer()
+    var itemWidth: CGFloat = 300.0
+    var lastScale: CGFloat = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
-
-        
         collectionView.delegate = self
         collectionView.dataSource = self 
         // Do any additional setup after loading the view.
         
-        self.collectionView!.collectionViewLayout = NodeLayout(itemWidth: 300.0, itemHeight: 50.0, space: 5.0)
+        self.pinchGesture = UIPinchGestureRecognizer(target: self, action:#selector(pinchRecognized))
+        self.collectionView.minimumZoomScale = 1.0
+        self.collectionView.maximumZoomScale = 10.0
+        self.collectionView.addGestureRecognizer(pinchGesture)
+        
+        self.collectionView!.collectionViewLayout = NodeLayout(itemWidth: itemWidth, itemHeight: 50.0, space: 5.0)
     }
 
+    func pinchRecognized(gesture: UIPinchGestureRecognizer) {
+        itemWidth = self.itemWidth*(gesture.scale/100)
+        self.collectionView.collectionViewLayout = NodeLayout.init(itemWidth: itemWidth, itemHeight: 50.0, space: 5.0)
+        print(itemWidth)
+        collectionView.reloadData()
+        
+        if(gesture.state == .began) {
+            // Reset the last scale, necessary if there are multiple objects with different scales
+            lastScale = gesture.scale
+        }
+        if (gesture.state == .began || gesture.state == .changed) {
+            let currentScale = gesture.view!.layer.value(forKeyPath:"transform.scale")! as! CGFloat
+            // Constants to adjust the max/min values of zoom
+            let kMaxScale:CGFloat = 2.0
+            let kMinScale:CGFloat = 1.0
+            var newScale = 1 -  (lastScale - gesture.scale)
+            newScale = min(newScale, kMaxScale / currentScale)
+            newScale = max(newScale, kMinScale / currentScale)
+            let transform = (gesture.view?.transform)!.scaledBy(x: newScale, y: newScale)
+            gesture.view?.transform = transform
+            lastScale = gesture.scale
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -51,10 +81,10 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
         var tekst=""
         let indeks = indexPath.row
         let kolumna = indexPath.section
-        print("indeks:")
-        print(indeks)
-        print("kolumna")
-        print(kolumna)
+//        print("indeks:")
+//        print(indeks)
+//        print("kolumna")
+//        print(kolumna)
         for dat in list{
             if(dat.row==kolumna && dat.column==indeks){
                 tekst+=" key:"+dat.key+", value: "
