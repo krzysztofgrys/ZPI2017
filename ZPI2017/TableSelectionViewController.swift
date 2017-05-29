@@ -15,6 +15,7 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
     var rows: [MySQL.ResultSet]? = nil
     var rowss: MySQL.ResultSet? = nil
     var list = [DataModel]()
+    var list2 = [DataModel]()
     var dbName = String()
     var dbToDelete: Int = -1
     @IBOutlet weak var tableView: UITableView!
@@ -64,6 +65,7 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
                         cc = 0
                         for(key,value) in row{
                             list.append(DataModel(k: key, v: value, r: ii, c:cc))
+                            self.list2.append(DataModel(k: key, v: value, r: ii, c:cc))
                             cc += 1
                         }
                         ii += 1
@@ -72,7 +74,7 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
                     destination.numberRows = (rowss?.count)!
                     destination.numberColumns = rowss![0].count
                     
-                    rowss = nil
+                    //rowss = nil
                     //self.navigationController?.pushViewController(destination, animated: true)
                     self.performSegue(withIdentifier: "showViewTable", sender: self)
                 }else{
@@ -99,6 +101,17 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
         if(editingStyle == .delete){
             dbToDelete = indexPath.row
             confirm(msg: (list[indexPath.row].value as! String))
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "showViewTable"){
+            if let destination = segue.destination as? TableViewViewController{
+                var rowss = self.rows?[0]
+                destination.list = self.list2
+                destination.numberRows = (rowss?.count)!
+                destination.numberColumns = rowss![0].count
+            }
         }
     }
     
