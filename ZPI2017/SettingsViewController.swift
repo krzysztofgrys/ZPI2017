@@ -34,7 +34,7 @@ class SettingsViewController: UIViewController {
     func checkIfFavExist() -> Bool{
         for favv in 0..<(tmp.count){
             let read = tmp[favv]
-            if(read.ip == CredentialsTmp.CredentialIp.ip && CredentialsTmp.CredentialUser.user == read.user){
+            if(read.ip == CredentialsTmp.CredentialIp.ip && CredentialsTmp.CredentialUser.user == read.user && read.type=="fav"){
                 favButton.isHidden  = true
                 return true
             }
