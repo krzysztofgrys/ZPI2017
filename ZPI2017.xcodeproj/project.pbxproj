@@ -13,7 +13,6 @@
 		4BB518911ED32A3B004CFC3C /* TabBarTableSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB518901ED32A3B004CFC3C /* TabBarTableSelectionViewController.swift */; };
 		4BB518931ED36EC0004CFC3C /* TabBarTabalViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB518921ED36EC0004CFC3C /* TabBarTabalViewViewController.swift */; };
 		4BB518961ED836FB004CFC3C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB518951ED836FB004CFC3C /* SettingsViewController.swift */; };
-		4BB518981ED889EC004CFC3C /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB518971ED889EC004CFC3C /* CustomCollectionViewCell.swift */; };
 		4BB5189A1ED895EF004CFC3C /* CredentialsTmp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB518991ED895EF004CFC3C /* CredentialsTmp.swift */; };
 		4BB8F0241E76E65600D1F909 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB8F0231E76E65600D1F909 /* AppDelegate.swift */; };
 		4BB8F0261E76E65600D1F909 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB8F0251E76E65600D1F909 /* ViewController.swift */; };
@@ -33,6 +32,7 @@
 		B2EABFFA1E9FBB5C005D1C02 /* TableSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EABFF91E9FBB5C005D1C02 /* TableSelectionViewController.swift */; };
 		B2EABFFD1E9FC062005D1C02 /* TableViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EABFFC1E9FC062005D1C02 /* TableViewCollectionViewCell.swift */; };
 		B2EABFFF1E9FC070005D1C02 /* TableViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EABFFE1E9FC070005D1C02 /* TableViewViewController.swift */; };
+		B2ED54C71EDF337E00E172F8 /* CustomCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2ED54C61EDF337D00E172F8 /* CustomCollection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +42,6 @@
 		4BB518901ED32A3B004CFC3C /* TabBarTableSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarTableSelectionViewController.swift; sourceTree = "<group>"; };
 		4BB518921ED36EC0004CFC3C /* TabBarTabalViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarTabalViewViewController.swift; sourceTree = "<group>"; };
 		4BB518951ED836FB004CFC3C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		4BB518971ED889EC004CFC3C /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		4BB518991ED895EF004CFC3C /* CredentialsTmp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CredentialsTmp.swift; sourceTree = "<group>"; };
 		4BB8F0201E76E65600D1F909 /* ZPI2017.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZPI2017.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB8F0231E76E65600D1F909 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +63,7 @@
 		B2EABFF91E9FBB5C005D1C02 /* TableSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSelectionViewController.swift; sourceTree = "<group>"; };
 		B2EABFFC1E9FC062005D1C02 /* TableViewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		B2EABFFE1E9FC070005D1C02 /* TableViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewViewController.swift; sourceTree = "<group>"; };
+		B2ED54C61EDF337D00E172F8 /* CustomCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollection.swift; sourceTree = "<group>"; };
 		C88EE102FD7FD420C8B65D88 /* Pods-ZPI2017.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZPI2017.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZPI2017/Pods-ZPI2017.release.xcconfig"; sourceTree = "<group>"; };
 		E2FD6D5270F0383BEE8BFAD2 /* Pods_ZPI2017.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZPI2017.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -199,7 +199,7 @@
 			children = (
 				B2EABFFE1E9FC070005D1C02 /* TableViewViewController.swift */,
 				B2EABFFC1E9FC062005D1C02 /* TableViewCollectionViewCell.swift */,
-				4BB518971ED889EC004CFC3C /* CustomCollectionViewCell.swift */,
+				B2ED54C61EDF337D00E172F8 /* CustomCollection.swift */,
 			);
 			name = TablewView;
 			sourceTree = "<group>";
@@ -329,7 +329,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BB518931ED36EC0004CFC3C /* TabBarTabalViewViewController.swift in Sources */,
-				4BB518981ED889EC004CFC3C /* CustomCollectionViewCell.swift in Sources */,
 				4BB5189A1ED895EF004CFC3C /* CredentialsTmp.swift in Sources */,
 				4BF5FDAC1E928CB2007430E8 /* LastTableController.swift in Sources */,
 				4BB5188D1ED321A0004CFC3C /* TabBarController.swift in Sources */,
@@ -345,6 +344,7 @@
 				B26199101E98286D008AC2AC /* DataModel.swift in Sources */,
 				9A4CE5B41EC9E4080075046C /* ExecuteSQLViewController.swift in Sources */,
 				4BB5188F1ED324EE004CFC3C /* Connection.swift in Sources */,
+				B2ED54C71EDF337E00E172F8 /* CustomCollection.swift in Sources */,
 				B2EABFF81E9FBB47005D1C02 /* TableSelectionTableViewCell.swift in Sources */,
 				4BF5FDB21E92C3A4007430E8 /* Favorite.swift in Sources */,
 				B21C7C331E9F974F001647A7 /* DBSelectionTableViewCell.swift in Sources */,

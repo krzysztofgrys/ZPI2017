@@ -27,7 +27,7 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        self.collectionView.register(TableViewCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         collectionView.delegate = self
         collectionView.dataSource = self 
         // Do any additional setup after loading the view.
@@ -35,7 +35,9 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
         self.pinchGesture = UIPinchGestureRecognizer(target: self, action:#selector(pinchRecognized))
         self.collectionView.minimumZoomScale = 1.0
         self.collectionView.maximumZoomScale = 10.0
-        self.collectionView.addGestureRecognizer(pinchGesture)
+        
+        //tymczasowo wylaczam rozpoznawanie gestu
+        //self.collectionView.addGestureRecognizer(pinchGesture)
         
         self.collectionView!.collectionViewLayout = NodeLayout(itemWidth: itemWidth, itemHeight: 50.0, space: 5.0)
     }
@@ -73,7 +75,7 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
         return numberColumns
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return numberRows
+        return numberRows+1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -81,13 +83,11 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
         var tekst=""
         let indeks = indexPath.row
         let kolumna = indexPath.section
-//        print("indeks:")
-//        print(indeks)
-//        print("kolumna")
-//        print(kolumna)
+        let keyes = getKeyes()
         for dat in list{
-            if(dat.row==kolumna && dat.column==indeks){
-                tekst+=" key:"+dat.key+", value: "
+            if(kolumna == 0){ tekst += keyes[indeks]; break;}
+            else if(dat.row==kolumna-1 && dat.column==indeks){
+//                tekst+=" key:"+dat.key+", value: "
                 switch dat.value {
                 case let tmpVal as String:
                     tekst+=tmpVal
@@ -98,15 +98,38 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
                 case let tmpVal as Float:
                     tekst+="\(tmpVal)"
                     break;
+                case let tmpVal as Double:
+                    tekst+="\(tmpVal)"
+                    break;
+                case let tmpVal as Date:
+                    tekst+="\(tmpVal)"
+                    break;
                 default:
                     tekst+=String(describing: dat.value)
                     print("blad")
                 }
-                
             }
+        }
+        if indexPath.section == 0 {
+            cell.backgroundColor = UIColor.darkGray
+            cell.values.textColor = UIColor.white
+            
+            
+        } else {
+            cell.backgroundColor = UIColor.white
+            cell.values.textColor = UIColor.black
         }
         cell.values.text = tekst
         return cell
+    }
+    
+    func getKeyes() -> [String]{
+        var result = [String]()
+        for dat in list {
+            result.append(dat.key)
+            if(result.count == numberColumns){ break;}
+        }
+        return result
     }
 
 }

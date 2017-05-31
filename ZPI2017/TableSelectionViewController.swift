@@ -18,16 +18,16 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
     var list2 = [DataModel]()
     var dbName = String()
     var dbToDelete: Int = -1
+    var tField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var act: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        list = Connecion.instanceOfConnection.list!
-        con = Connecion.instanceOfConnection.con!
+//        list = Connecion.instanceOfConnection.list!
+//        con = Connecion.instanceOfConnection.con!
         tableView.delegate = self
         tableView.dataSource = self
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,7 +36,6 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return list.count
     }
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -45,6 +44,7 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
         DispatchQueue.main.async {
             let destination = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "tableView") as! TableViewViewController
             let tblName = self.list[indexPath.row].value as! String
+            self.list2.removeAll()
             do{
                 //prepare query
                 let query = "SELECT * FROM " + tblName
@@ -74,8 +74,6 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
                     destination.numberRows = (rowss?.count)!
                     destination.numberColumns = rowss![0].count
                     
-                    //rowss = nil
-                    //self.navigationController?.pushViewController(destination, animated: true)
                     self.performSegue(withIdentifier: "showViewTable", sender: self)
                 }else{
                     self.showAlert(message: "Tabela jest pusta")

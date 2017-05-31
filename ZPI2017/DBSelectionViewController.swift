@@ -15,13 +15,22 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
     var rows: [MySQL.ResultSet]? = nil
     var rowss: MySQL.ResultSet? = nil
     var list = [DataModel]()
+    var list2 = [DataModel]()
     var dbToDelete: Int = -1
-    //var showSysTable: Bool = false
+    var tField: UITextField!
     var refreshControl: UIRefreshControl!
     let userDefults = UserDefaults.standard
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var act: UIActivityIndicatorView!
     
+    @IBAction func AddBarButtonAction(_ sender: Any) {
+        let alert = UIAlertController(title: "Nazwa bazy", message: "", preferredStyle: .alert)
+        alert.addTextField(configurationHandler: configurationTextField)
+        alert.addAction(UIAlertAction(title: "Anuluj", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Dodaj", style: .default, handler: handleAddDataBase))
+        self.present(alert, animated: true, completion: nil)
+            
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,7 +42,6 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.addSubview(refreshControl)
         tableView.delegate = self
         tableView.dataSource = self
-        //self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "DB. Sys. ON", style: .plain, target: self, action: #selector(showSystemTable))
         do{
             //prepare query
             let gett = try con.query(q: "SHOW DATABASES")
@@ -60,20 +68,36 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "showSelectTable"){
+            if let destination = segue.destination as? TableSelectionViewController{
+                destination.con = self.con
+                destination.list = self.list2
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewWillDisappear(_ animated : Bool) {
-        super.viewWillDisappear(animated)
-        
-        if (self.isMovingFromParentViewController){
-            do{
-                try con.close()
-                print("mysql closed")
-            } catch(let e){
-                print(e)
-                // todo lepiej to obsluzyc?
+    func configurationTextField(textField: UITextField!)
+    {
+        textField.placeholder = "Nazwa bazy danych..."
+        tField = textField
+    }
+    
+    func handleAddDataBase(alert: UIAlertAction!){
+        startAct()
+        DispatchQueue.main.async {
+        do{
+            let newDBName: String = self.tField.text as String!
+            let _ = try self.con.query(q: "CREATE DATABASE "+newDBName)
+            self.refreshData()
+            self.stopAct()
+        }
+        catch(_){
+            print("Blad dodania bazy")
             }
         }
     }
@@ -88,6 +112,7 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
                 self.showNOSystemTable()
             }
         self.tableView.reloadData()
+            self.stopAct()
         }
     }
     
@@ -105,8 +130,8 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
         self.view.bringSubview(toFront: act)
         startAct()
         DispatchQueue.main.async {
-            let destination = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "tableSelection") as! TableSelectionViewController
             let dbName = self.list[indexPath.row].value as! String
+            self.list2.removeAll()
             do{
                 try self.con.use(dbname: dbName)
                 //prepare query
@@ -115,8 +140,6 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
                 self.rows = try gett.readAllRows()
                 //rowss to tez wszystkie wiersze z query
                 if(self.rows?.isEmpty==false){
-                    destination.con = self.con
-                    destination.dbName = dbName
                     var list = [DataModel]()
                     //rowss to tez wszystkie wiersze z query
                     var rowss = self.rows?[0]
@@ -127,16 +150,15 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
                         cc = 0
                         for(key,value) in row{
                             list.append(DataModel(k: key, v: value, r: ii, c:cc))
+                            self.list2.append(DataModel(k: key, v: value, r: ii, c:cc))
                             cc += 1
                         }
                         ii += 1
                     }
                     rowss = nil
-                    destination.list = list
                     self.performSegue(withIdentifier: "showSelectTable", sender: self)
-                    //self.navigationController?.pushViewController(destination, animated: true)
                     
-                    Connecion.instanceOfConnection.list = list
+                    
                 }else{
                     self.showAlert(message: "Wybrana baza danych jest pusta")
                 }
