@@ -23,13 +23,12 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var act: UIActivityIndicatorView!
     
-    @IBAction func AddBarButtonAction(_ sender: Any) {
+    @IBAction func AddBarItemAction(_ sender: Any) {
         let alert = UIAlertController(title: "Nazwa bazy", message: "", preferredStyle: .alert)
         alert.addTextField(configurationHandler: configurationTextField)
         alert.addAction(UIAlertAction(title: "Anuluj", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Dodaj", style: .default, handler: handleAddDataBase))
         self.present(alert, animated: true, completion: nil)
-            
     }
     override func viewDidLoad() {
         super.viewDidLoad()

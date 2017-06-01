@@ -86,10 +86,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.present(alertController, animated: true, completion: nil)
     }
     
-    
-    
-    
-    
     public func connect(){
         startAct()
         DispatchQueue.main.async {
@@ -120,7 +116,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.stopAct()
         }
     }
-    
     
     public func validateFields() -> Bool{
         if(ipField.text == "" || ipField.text == nil){

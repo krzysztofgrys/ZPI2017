@@ -264,6 +264,11 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="z2M-Uj-eRI">
                         <barButtonItem key="backBarButtonItem" title="Cofnij" id="ouw-hb-mqE"/>
+                        <barButtonItem key="rightBarButtonItem" title="Dodaj" id="Uxx-Vq-ytG">
+                            <connections>
+                                <action selector="AddBarItemAction:" destination="aEe-3k-0fw" id="Qkd-yu-N3W"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -402,7 +407,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5q6-6O-Sn1">
-                                                    <rect key="frame" x="2" y="-13" width="356" height="43"/>
+                                                    <rect key="frame" x="2" y="-13" width="356" height="42"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -428,11 +433,6 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="J76-rp-taM">
                         <barButtonItem key="backBarButtonItem" title="Cofnij" id="DE5-rw-3aY"/>
-                        <barButtonItem key="rightBarButtonItem" title="Dodaj" id="hcn-M9-bsL">
-                            <connections>
-                                <action selector="AddTableBarButtonAction:" destination="GYI-d5-z2D" id="dx1-Yx-ZSv"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -648,7 +648,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Xkc-KM-scy">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewLayout key="collectionViewLayout" id="iB7-0U-dPb" customClass="CustomCollection" customModule="ZPI2017" customModuleProvider="target"/>
                                 <cells>
@@ -709,6 +709,6 @@
         <image name="settings_icon" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4xe-vB-hD6"/>
+        <segue reference="srg-ZX-XlG"/>
     </inferredMetricsTieBreakers>
 </document>
