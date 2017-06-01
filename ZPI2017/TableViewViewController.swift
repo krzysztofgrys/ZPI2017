@@ -71,6 +71,39 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
         // Dispose of any resources that can be recreated.
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var tekst = ""
+        for dat in list{
+            if(dat.row == indexPath.section-1 && dat.column == indexPath.row){
+                switch dat.value {
+                case let tmpVal as String:
+                    tekst+=tmpVal
+                    break;
+                case let tmpVal as Int:
+                    tekst+="\(tmpVal)"
+                    break;
+                case let tmpVal as Float:
+                    tekst+="\(tmpVal)"
+                    break;
+                case let tmpVal as Double:
+                    tekst+="\(tmpVal)"
+                    break;
+                case let tmpVal as Date:
+                    tekst+="\(tmpVal)"
+                    break;
+                default:
+                    tekst+=String(describing: dat.value)
+                    print("blad")
+                }
+            }
+        }
+        let alert = UIAlertController(title: tekst, message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        if(indexPath.section != 0){
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return numberColumns
     }
