@@ -32,39 +32,38 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
         collectionView.dataSource = self 
         // Do any additional setup after loading the view.
         
-        self.pinchGesture = UIPinchGestureRecognizer(target: self, action:#selector(pinchRecognized))
-        self.collectionView.minimumZoomScale = 1.0
-        self.collectionView.maximumZoomScale = 10.0
-        
         //tymczasowo wylaczam rozpoznawanie gestu
-        //self.collectionView.addGestureRecognizer(pinchGesture)
-        
-        self.collectionView!.collectionViewLayout = NodeLayout(itemWidth: itemWidth, itemHeight: 50.0, space: 5.0)
+//        self.pinchGesture = UIPinchGestureRecognizer(target: self, action:#selector(pinchRecognized))
+//        self.collectionView.minimumZoomScale = 1.0
+//        self.collectionView.maximumZoomScale = 10.0
+//        self.collectionView.addGestureRecognizer(pinchGesture)
+        //wylaczam poprzedni custom layout
+//        self.collectionView!.collectionViewLayout = NodeLayout(itemWidth: itemWidth, itemHeight: 50.0, space: 5.0)
     }
 
-    func pinchRecognized(gesture: UIPinchGestureRecognizer) {
-        itemWidth = self.itemWidth*(gesture.scale/100)
-        self.collectionView.collectionViewLayout = NodeLayout.init(itemWidth: itemWidth, itemHeight: 50.0, space: 5.0)
-        print(itemWidth)
-        collectionView.reloadData()
-        
-        if(gesture.state == .began) {
-            // Reset the last scale, necessary if there are multiple objects with different scales
-            lastScale = gesture.scale
-        }
-        if (gesture.state == .began || gesture.state == .changed) {
-            let currentScale = gesture.view!.layer.value(forKeyPath:"transform.scale")! as! CGFloat
-            // Constants to adjust the max/min values of zoom
-            let kMaxScale:CGFloat = 2.0
-            let kMinScale:CGFloat = 1.0
-            var newScale = 1 -  (lastScale - gesture.scale)
-            newScale = min(newScale, kMaxScale / currentScale)
-            newScale = max(newScale, kMinScale / currentScale)
-            let transform = (gesture.view?.transform)!.scaledBy(x: newScale, y: newScale)
-            gesture.view?.transform = transform
-            lastScale = gesture.scale
-        }
-    }
+//    func pinchRecognized(gesture: UIPinchGestureRecognizer) {
+//        itemWidth = self.itemWidth*(gesture.scale/100)
+//        self.collectionView.collectionViewLayout = NodeLayout.init(itemWidth: itemWidth, itemHeight: 50.0, space: 5.0)
+//        print(itemWidth)
+//        collectionView.reloadData()
+//        
+//        if(gesture.state == .began) {
+//            // Reset the last scale, necessary if there are multiple objects with different scales
+//            lastScale = gesture.scale
+//        }
+//        if (gesture.state == .began || gesture.state == .changed) {
+//            let currentScale = gesture.view!.layer.value(forKeyPath:"transform.scale")! as! CGFloat
+//            // Constants to adjust the max/min values of zoom
+//            let kMaxScale:CGFloat = 2.0
+//            let kMinScale:CGFloat = 1.0
+//            var newScale = 1 -  (lastScale - gesture.scale)
+//            newScale = min(newScale, kMaxScale / currentScale)
+//            newScale = max(newScale, kMinScale / currentScale)
+//            let transform = (gesture.view?.transform)!.scaledBy(x: newScale, y: newScale)
+//            gesture.view?.transform = transform
+//            lastScale = gesture.scale
+//        }
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -167,56 +166,56 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
 
 }
 
-class NodeLayout : UICollectionViewFlowLayout {
-    var itemWidth : CGFloat
-    var itemHeight : CGFloat
-    var space : CGFloat
-    var columns: Int{
-        return self.collectionView!.numberOfItems(inSection: 0)
-    }
-    var rows: Int{
-        return self.collectionView!.numberOfSections
-    }
-    
-    init(itemWidth: CGFloat, itemHeight: CGFloat, space: CGFloat) {
-        self.itemWidth = itemWidth
-        self.itemHeight = itemHeight
-        self.space = space
-        super.init()
-    }
-    
-    required init(coder aDecoder: NSCoder) {
-        self.itemWidth = 50
-        self.itemHeight = 50
-        self.space = 3
-        super.init()
-    }
-    
-    override var collectionViewContentSize: CGSize{
-        let w : CGFloat = CGFloat(columns) * (itemWidth + space)
-        let h : CGFloat = CGFloat(rows) * (itemHeight + space)
-        return CGSize(width: w, height: h)
-    }
-    
-    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
-        let x : CGFloat = CGFloat(indexPath.row) * (itemWidth + space)
-        let y : CGFloat = CGFloat(indexPath.section) + CGFloat(indexPath.section) * (itemHeight + space)
-        attributes.frame = CGRect(x: x, y: y, width: itemWidth, height: itemHeight)
-        return attributes
-    }
-    
-    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        let minRow : Int = (rect.origin.x > 0) ? Int(floor(rect.origin.x/(itemWidth + space))) : 0
-        let maxRow : Int = min(columns - 1, Int(ceil(rect.size.width / (itemWidth + space)) + CGFloat(minRow)))
-        var attributes : Array<UICollectionViewLayoutAttributes> = [UICollectionViewLayoutAttributes]()
-        for i in 0 ..< rows {
-            for j in minRow ... maxRow {
-                attributes.append(self.layoutAttributesForItem(at: IndexPath(item: j, section: i))!)
-            }
-        }
-        return attributes
-    }
-}
+//class NodeLayout : UICollectionViewFlowLayout {
+//    var itemWidth : CGFloat
+//    var itemHeight : CGFloat
+//    var space : CGFloat
+//    var columns: Int{
+//        return self.collectionView!.numberOfItems(inSection: 0)
+//    }
+//    var rows: Int{
+//        return self.collectionView!.numberOfSections
+//    }
+//    
+//    init(itemWidth: CGFloat, itemHeight: CGFloat, space: CGFloat) {
+//        self.itemWidth = itemWidth
+//        self.itemHeight = itemHeight
+//        self.space = space
+//        super.init()
+//    }
+//    
+//    required init(coder aDecoder: NSCoder) {
+//        self.itemWidth = 50
+//        self.itemHeight = 50
+//        self.space = 3
+//        super.init()
+//    }
+//    
+//    override var collectionViewContentSize: CGSize{
+//        let w : CGFloat = CGFloat(columns) * (itemWidth + space)
+//        let h : CGFloat = CGFloat(rows) * (itemHeight + space)
+//        return CGSize(width: w, height: h)
+//    }
+//    
+//    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+//        let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+//        let x : CGFloat = CGFloat(indexPath.row) * (itemWidth + space)
+//        let y : CGFloat = CGFloat(indexPath.section) + CGFloat(indexPath.section) * (itemHeight + space)
+//        attributes.frame = CGRect(x: x, y: y, width: itemWidth, height: itemHeight)
+//        return attributes
+//    }
+//    
+//    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+//        let minRow : Int = (rect.origin.x > 0) ? Int(floor(rect.origin.x/(itemWidth + space))) : 0
+//        let maxRow : Int = min(columns - 1, Int(ceil(rect.size.width / (itemWidth + space)) + CGFloat(minRow)))
+//        var attributes : Array<UICollectionViewLayoutAttributes> = [UICollectionViewLayoutAttributes]()
+//        for i in 0 ..< rows {
+//            for j in minRow ... maxRow {
+//                attributes.append(self.layoutAttributesForItem(at: IndexPath(item: j, section: i))!)
+//            }
+//        }
+//        return attributes
+//    }
+//}
 
 

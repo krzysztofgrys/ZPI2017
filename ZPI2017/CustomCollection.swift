@@ -11,7 +11,7 @@ import UIKit
 class CustomCollection: UICollectionViewLayout {
 
     let CELL_HEIGHT: CGFloat = 50
-    let CELL_WIDTH: CGFloat = 180
+    let CELL_WIDTH: CGFloat = 280
     
     
     var cellAttributesDictionary = Dictionary<IndexPath, UICollectionViewLayoutAttributes>()
@@ -29,7 +29,6 @@ class CustomCollection: UICollectionViewLayout {
         
         let STATUS_BAR_HEIGHT = UIApplication.shared.statusBarFrame.height
         let NAV_BAR_HEIGHT = UINavigationController().navigationBar.frame.size.height
-        let TAB_BAR_HEIGHT = UINavigationController().tabBarController?.accessibilityFrame.height
         
         collectionView?.bounces = false
         
@@ -43,7 +42,7 @@ class CustomCollection: UICollectionViewLayout {
                         let cellIndexPath = IndexPath(item: item, section: section)
                         if let attrs = cellAttributesDictionary[cellIndexPath] {
                             var frame = attrs.frame
-                            frame.origin.y = yOffSet + STATUS_BAR_HEIGHT + NAV_BAR_HEIGHT
+                            frame.origin.y = yOffSet// + STATUS_BAR_HEIGHT + NAV_BAR_HEIGHT
                             attrs.frame = frame
                         }
                     }
