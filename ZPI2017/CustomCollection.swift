@@ -10,8 +10,9 @@ import UIKit
 
 class CustomCollection: UICollectionViewLayout {
 
+    let userDefults = UserDefaults.standard
     let CELL_HEIGHT: CGFloat = 50
-    let CELL_WIDTH: CGFloat = 280
+    let CELL_WIDTH: CGFloat = Connecion.instanceOfConnection.cellWidth
     
     
     var cellAttributesDictionary = Dictionary<IndexPath, UICollectionViewLayoutAttributes>()
@@ -26,10 +27,6 @@ class CustomCollection: UICollectionViewLayout {
     var dataSourceDidUpdate = true
     
     override func prepare() {
-        
-        let STATUS_BAR_HEIGHT = UIApplication.shared.statusBarFrame.height
-        let NAV_BAR_HEIGHT = UINavigationController().navigationBar.frame.size.height
-        
         collectionView?.bounces = false
         
         if !dataSourceDidUpdate {
@@ -52,7 +49,6 @@ class CustomCollection: UICollectionViewLayout {
         }
         
         dataSourceDidUpdate = false
-        
         for section in 0 ..< collectionView!.numberOfSections {
             for item in 0 ..< collectionView!.numberOfItems(inSection: section) {
                 let cellIndexPath = IndexPath(item: item, section: section)

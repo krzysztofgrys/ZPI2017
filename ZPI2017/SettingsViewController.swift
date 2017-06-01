@@ -14,6 +14,7 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var sysDBSwitch: UISwitch!
     @IBOutlet weak var favButton: UIButton!
+    @IBOutlet weak var cellWidthTextField: UITextField!
     @IBAction func addToFavButton(_ sender: Any) {
         saveCredentials()
     }
@@ -29,6 +30,11 @@ class SettingsViewController: UIViewController {
     }
     @IBAction func sysDBAction(_ sender: Any) {
         userDefults.set(sysDBSwitch.isOn, forKey: "sysDB")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        let n = NumberFormatter().number(from: cellWidthTextField.text!)
+        Connecion.instanceOfConnection.cellWidth = CGFloat(n!)
     }
     
     func checkIfFavExist() -> Bool{
@@ -65,6 +71,8 @@ class SettingsViewController: UIViewController {
         getCredentials()
         checkIfFavExist()
         sysDBSwitch.setOn(userDefults.bool(forKey: "sysDB"), animated: true)
+        let cellWidth = String(format: "%.3f", Double(Connecion.instanceOfConnection.cellWidth))
+        cellWidthTextField.text = cellWidth
         // Do any additional setup after loading the view.
     }
 

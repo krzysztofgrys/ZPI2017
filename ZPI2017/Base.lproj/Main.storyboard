@@ -222,7 +222,7 @@
                                 <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="soW-VO-3qt">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="WEa-XQ-MOf" customClass="DBSelectionTableViewCell" customModule="ZPI2017" customModuleProvider="target">
@@ -259,7 +259,7 @@
                             <constraint firstItem="soW-VO-3qt" firstAttribute="centerX" secondItem="wri-dm-uTI" secondAttribute="centerX" id="6g0-Sx-soj"/>
                             <constraint firstItem="soW-VO-3qt" firstAttribute="top" secondItem="UcT-Cl-zVr" secondAttribute="top" id="GgU-PR-Sc2"/>
                             <constraint firstItem="wri-dm-uTI" firstAttribute="centerX" secondItem="UcT-Cl-zVr" secondAttribute="centerX" id="WEe-v4-cUE"/>
-                            <constraint firstItem="soW-VO-3qt" firstAttribute="centerY" secondItem="wri-dm-uTI" secondAttribute="centerY" id="hLP-IS-GoG"/>
+                            <constraint firstItem="soW-VO-3qt" firstAttribute="centerY" secondItem="wri-dm-uTI" secondAttribute="centerY" constant="-22.5" id="hLP-IS-GoG"/>
                             <constraint firstItem="wri-dm-uTI" firstAttribute="centerY" secondItem="UcT-Cl-zVr" secondAttribute="centerY" id="poS-vS-M8Y"/>
                         </constraints>
                     </view>
@@ -283,7 +283,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0mS-gJ-asC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2201" y="-575"/>
+            <point key="canvasLocation" x="2200.8000000000002" y="-575.26236881559225"/>
         </scene>
         <!--Item-->
         <scene sceneID="zLC-su-xcr">
@@ -381,10 +381,10 @@
             </objects>
             <point key="canvasLocation" x="2201" y="81"/>
         </scene>
-        <!--Add Table View Controller-->
+        <!--Dodaj tabele-->
         <scene sceneID="6JU-EG-VaV">
             <objects>
-                <viewController id="clU-ou-n4D" customClass="AddTableViewController" customModule="ZPI2017" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Dodaj tabele" id="clU-ou-n4D" customClass="AddTableViewController" customModule="ZPI2017" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OLk-i9-Srp"/>
                         <viewControllerLayoutGuide type="bottom" id="iHo-Xz-HFe"/>
@@ -393,10 +393,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="261" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X8N-Th-06j">
-                                <rect key="frame" x="0.0" y="28" width="375" height="534"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="261" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X8N-Th-06j">
+                                <rect key="frame" x="0.0" y="66" width="375" height="462"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="261" id="N5Z-Dg-4fM" customClass="AddTableTableViewCell" customModule="ZPI2017" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="261"/>
@@ -420,7 +420,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lmu-wL-bTu">
-                                                    <rect key="frame" x="154" y="40" width="217" height="87"/>
+                                                    <rect key="frame" x="152" y="40" width="218" height="87"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 </pickerView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Null" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fvq-OI-SVn">
@@ -491,6 +491,7 @@
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="dataType" destination="Lmu-wL-bTu" id="rCZ-qM-xKv"/>
                                             <outlet property="length" destination="WYH-I6-oyL" id="SKa-yH-glf"/>
@@ -502,24 +503,61 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1PQ-6Y-YPA">
-                                <rect key="frame" x="0.0" y="585" width="375" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1PQ-6Y-YPA">
+                                <rect key="frame" x="0.0" y="579" width="375" height="35"/>
+                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Dodaj tabelę">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="addTableAction:" destination="clU-ou-n4D" eventType="touchUpInside" id="bPn-tc-fcw"/>
+                                </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilF-Xa-Tb7">
+                                <rect key="frame" x="0.0" y="536" width="375" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Dodaj atrybut">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addAttributeAction:" destination="clU-ou-n4D" eventType="touchUpInside" id="ct0-tS-1Yn"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wpisz nazwę tabeli..." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Qks-nD-gmM">
+                                <rect key="frame" x="154" y="28" width="205" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nazwa tabeli" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oE9-Lb-Q7g">
+                                <rect key="frame" x="16" y="28" width="117" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="1PQ-6Y-YPA" firstAttribute="top" secondItem="ilF-Xa-Tb7" secondAttribute="bottom" constant="8" id="2ey-VA-3KV"/>
+                            <constraint firstItem="1PQ-6Y-YPA" firstAttribute="leading" secondItem="RTc-2f-65r" secondAttribute="leadingMargin" constant="-16" id="NNr-m3-5D9"/>
+                            <constraint firstItem="iHo-Xz-HFe" firstAttribute="top" secondItem="1PQ-6Y-YPA" secondAttribute="bottom" constant="8" id="Rkz-9t-Nk6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1PQ-6Y-YPA" secondAttribute="trailing" constant="-16" id="aPq-eP-9Vk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ilF-Xa-Tb7" secondAttribute="trailing" constant="-16" id="huz-cg-vkv"/>
+                            <constraint firstItem="ilF-Xa-Tb7" firstAttribute="leading" secondItem="RTc-2f-65r" secondAttribute="leadingMargin" constant="-16" id="rCv-hM-2JI"/>
+                        </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="nameOfNewTable" destination="Qks-nD-gmM" id="Pha-M7-xu1"/>
                         <outlet property="tableView" destination="X8N-Th-06j" id="jUu-FB-MAB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6iB-Cc-aJg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3112.8000000000002" y="-1264.3178410794603"/>
+            <point key="canvasLocation" x="3112.8000000000002" y="-1245.4272863568217"/>
         </scene>
         <!--Wybierz tabele-->
         <scene sceneID="YF9-sf-9jg">
@@ -538,7 +576,7 @@
                                 <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x4f-Xy-4Gy">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="615"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="xa7-9A-VHy" customClass="TableSelectionTableViewCell" customModule="ZPI2017" customModuleProvider="target">
@@ -574,7 +612,7 @@
                         <constraints>
                             <constraint firstItem="x4f-Xy-4Gy" firstAttribute="centerX" secondItem="kL6-qS-urM" secondAttribute="centerX" id="2Ya-Bd-88f"/>
                             <constraint firstItem="x4f-Xy-4Gy" firstAttribute="top" secondItem="QlU-8K-mCJ" secondAttribute="top" id="4r0-WN-PZ4"/>
-                            <constraint firstItem="E2o-2f-gHL" firstAttribute="top" secondItem="x4f-Xy-4Gy" secondAttribute="bottom" constant="8" symbolic="YES" id="A9F-gY-t3a"/>
+                            <constraint firstItem="E2o-2f-gHL" firstAttribute="top" secondItem="x4f-Xy-4Gy" secondAttribute="bottom" id="A9F-gY-t3a"/>
                             <constraint firstItem="kL6-qS-urM" firstAttribute="centerY" secondItem="QlU-8K-mCJ" secondAttribute="centerY" id="FZr-Ia-bkj"/>
                             <constraint firstItem="kL6-qS-urM" firstAttribute="centerX" secondItem="QlU-8K-mCJ" secondAttribute="centerX" id="nXG-NU-Heo"/>
                             <constraint firstItem="x4f-Xy-4Gy" firstAttribute="leading" secondItem="QlU-8K-mCJ" secondAttribute="leading" id="w9P-SE-4ej"/>
@@ -600,7 +638,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3KU-AI-he7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3114" y="-575"/>
+            <point key="canvasLocation" x="3112.8000000000002" y="-575.26236881559225"/>
         </scene>
         <!--Wykonaj SQL-->
         <scene sceneID="Gbc-vZ-IIO">
@@ -765,6 +803,7 @@
                     <navigationItem key="navigationItem" id="7fn-ye-yjY"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="cellWidthTextField" destination="ost-YM-jpG" id="d2L-go-Olw"/>
                         <outlet property="favButton" destination="IGx-dS-uwD" id="7WE-aj-Nv9"/>
                         <outlet property="sysDBSwitch" destination="65Q-rt-VSi" id="x9n-Ty-yJa"/>
                     </connections>

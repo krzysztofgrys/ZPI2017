@@ -136,6 +136,12 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
                 case let tmpVal as Date:
                     tekst+="\(tmpVal)"
                     break;
+                case let tmpVal as TimeZone:
+                    tekst+="\(tmpVal)"
+                    break;
+                case let tmpVal as Data:
+                    tekst+="\(tmpVal)"
+                    break;
                 default:
                     tekst+=String(describing: dat.value)
                     print("blad")

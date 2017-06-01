@@ -229,7 +229,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         FavLastSwitcher.addTarget(self, action: #selector(switcherChange), for: .valueChanged)
-        
+        //UserDefaults.standard.set("200.000", forKey: "cellWidth")
         login.addTarget(self, action: #selector(connect), for: .touchDown)
         getCredentials()
         prepareLastAndFav()

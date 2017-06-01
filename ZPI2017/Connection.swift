@@ -14,6 +14,7 @@ class Connecion{
     var list: [DataModel]? = nil
     var numberRows: Int? = nil
     var numberColumns: Int? = nil
+    var cellWidth: CGFloat = 200
 
     class var instanceOfConnection: Connecion {
         struct Static {
