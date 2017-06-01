@@ -27,6 +27,10 @@
 		9A4CE5B41EC9E4080075046C /* ExecuteSQLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4CE5B31EC9E4080075046C /* ExecuteSQLViewController.swift */; };
 		B21C7C311E9F9739001647A7 /* DBSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21C7C301E9F9739001647A7 /* DBSelectionViewController.swift */; };
 		B21C7C331E9F974F001647A7 /* DBSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21C7C321E9F974F001647A7 /* DBSelectionTableViewCell.swift */; };
+		B247E3731EE083C20028BBA6 /* AddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247E3721EE083C20028BBA6 /* AddTableViewController.swift */; };
+		B247E3751EE0842C0028BBA6 /* AddTableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247E3741EE0842C0028BBA6 /* AddTableTableViewCell.swift */; };
+		B247E3791EE086490028BBA6 /* checked_checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = B247E3771EE086490028BBA6 /* checked_checkbox.png */; };
+		B247E37A1EE086490028BBA6 /* unchecked_checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = B247E3781EE086490028BBA6 /* unchecked_checkbox.png */; };
 		B26199101E98286D008AC2AC /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B261990F1E98286D008AC2AC /* DataModel.swift */; };
 		B2EABFF81E9FBB47005D1C02 /* TableSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EABFF71E9FBB47005D1C02 /* TableSelectionTableViewCell.swift */; };
 		B2EABFFA1E9FBB5C005D1C02 /* TableSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EABFF91E9FBB5C005D1C02 /* TableSelectionViewController.swift */; };
@@ -58,6 +62,10 @@
 		9A4CE5B31EC9E4080075046C /* ExecuteSQLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExecuteSQLViewController.swift; sourceTree = "<group>"; };
 		B21C7C301E9F9739001647A7 /* DBSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBSelectionViewController.swift; sourceTree = "<group>"; };
 		B21C7C321E9F974F001647A7 /* DBSelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBSelectionTableViewCell.swift; sourceTree = "<group>"; };
+		B247E3721EE083C20028BBA6 /* AddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewController.swift; sourceTree = "<group>"; };
+		B247E3741EE0842C0028BBA6 /* AddTableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableTableViewCell.swift; sourceTree = "<group>"; };
+		B247E3771EE086490028BBA6 /* checked_checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked_checkbox.png; sourceTree = "<group>"; };
+		B247E3781EE086490028BBA6 /* unchecked_checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked_checkbox.png; sourceTree = "<group>"; };
 		B261990F1E98286D008AC2AC /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		B2EABFF71E9FBB47005D1C02 /* TableSelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		B2EABFF91E9FBB5C005D1C02 /* TableSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSelectionViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +144,8 @@
 		4BB8F0221E76E65600D1F909 /* ZPI2017 */ = {
 			isa = PBXGroup;
 			children = (
+				B247E3761EE086410028BBA6 /* Images */,
+				B247E3711EE083A40028BBA6 /* AddTableView */,
 				4BB518941ED836ED004CFC3C /* Settings */,
 				4BB5188B1ED3216D004CFC3C /* TabBar */,
 				B2EAC0001E9FC074005D1C02 /* TablewView */,
@@ -183,6 +193,24 @@
 				B21C7C321E9F974F001647A7 /* DBSelectionTableViewCell.swift */,
 			);
 			name = DBSelection;
+			sourceTree = "<group>";
+		};
+		B247E3711EE083A40028BBA6 /* AddTableView */ = {
+			isa = PBXGroup;
+			children = (
+				B247E3721EE083C20028BBA6 /* AddTableViewController.swift */,
+				B247E3741EE0842C0028BBA6 /* AddTableTableViewCell.swift */,
+			);
+			name = AddTableView;
+			sourceTree = "<group>";
+		};
+		B247E3761EE086410028BBA6 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B247E3771EE086490028BBA6 /* checked_checkbox.png */,
+				B247E3781EE086490028BBA6 /* unchecked_checkbox.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		B2EABFFB1E9FBB61005D1C02 /* TableSelection */ = {
@@ -267,6 +295,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B247E3791EE086490028BBA6 /* checked_checkbox.png in Resources */,
+				B247E37A1EE086490028BBA6 /* unchecked_checkbox.png in Resources */,
 				4BB8F02E1E76E65600D1F909 /* LaunchScreen.storyboard in Resources */,
 				4BB8F02B1E76E65600D1F909 /* Assets.xcassets in Resources */,
 				4BB8F0291E76E65600D1F909 /* Main.storyboard in Resources */,
@@ -333,6 +363,7 @@
 				4BF5FDAC1E928CB2007430E8 /* LastTableController.swift in Sources */,
 				4BB5188D1ED321A0004CFC3C /* TabBarController.swift in Sources */,
 				4BB518961ED836FB004CFC3C /* SettingsViewController.swift in Sources */,
+				B247E3731EE083C20028BBA6 /* AddTableViewController.swift in Sources */,
 				B21C7C311E9F9739001647A7 /* DBSelectionViewController.swift in Sources */,
 				4BF5FDAA1E928C72007430E8 /* LastTableViewCell.swift in Sources */,
 				4BB518911ED32A3B004CFC3C /* TabBarTableSelectionViewController.swift in Sources */,
@@ -345,6 +376,7 @@
 				9A4CE5B41EC9E4080075046C /* ExecuteSQLViewController.swift in Sources */,
 				4BB5188F1ED324EE004CFC3C /* Connection.swift in Sources */,
 				B2ED54C71EDF337E00E172F8 /* CustomCollection.swift in Sources */,
+				B247E3751EE0842C0028BBA6 /* AddTableTableViewCell.swift in Sources */,
 				B2EABFF81E9FBB47005D1C02 /* TableSelectionTableViewCell.swift in Sources */,
 				4BF5FDB21E92C3A4007430E8 /* Favorite.swift in Sources */,
 				B21C7C331E9F974F001647A7 /* DBSelectionTableViewCell.swift in Sources */,
