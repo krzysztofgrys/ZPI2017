@@ -680,7 +680,7 @@
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="logOutButtonAction:" destination="jo1-Tt-vFt" eventType="touchUpInside" id="uLl-PF-ygl"/>
+                                    <action selector="logOutAction:" destination="jo1-Tt-vFt" eventType="touchUpInside" id="63x-Uy-AFC"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dodaj baze do ulubionych" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diq-ef-DFf">
