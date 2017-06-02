@@ -19,6 +19,7 @@ class AddTableViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        Connecion.instanceOfConnection.primaryButton = true
     }
     @IBAction func addAttributeAction(_ sender: Any) {
         numberOfAttributes += 1
@@ -51,7 +52,9 @@ class AddTableViewController: UIViewController, UITableViewDelegate, UITableView
                 uniques.append(false)
             }
             if(cell.primaryKeyCheckBox.currentImage! == UIImage(named: "checked_checkbox.png")!){
-                primary.append(true)
+                if(!primary.contains(true)){
+                    primary.append(true)
+                }
             }else{
                 primary.append(false)
             }

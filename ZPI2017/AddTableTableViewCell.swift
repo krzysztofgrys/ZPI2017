@@ -32,10 +32,13 @@ class AddTableTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerView
         }
     }
     @IBAction func primaryKeyButtonAction(_ sender: Any) {
+        if(Connecion.instanceOfConnection.primaryButton){
+            Connecion.instanceOfConnection.primaryButton = false
         if(primaryKeyCheckBox.currentImage! == UIImage(named: "checked_checkbox.png")!){
             primaryKeyCheckBox.setImage(UIImage(named: "unchecked_checkbox.png"), for: .normal)
         }else{
             primaryKeyCheckBox.setImage(UIImage(named: "checked_checkbox.png"), for: .normal)
+            }
         }
     }
     

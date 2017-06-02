@@ -48,10 +48,12 @@ class ExecuteSQLViewController: UIViewController {
                     self.performSegue(withIdentifier: "SQLshowViewTable", sender: self)
                 }else{
                     print("Pusta tabela!")
+                    self.showAlert(message: "Operacja wykonana poprawnie!",type: "Sukces")
                 }
                 self.stopAct()
             }catch(let e){
                 print(e)
+                self.showAlert(message: "Blad wykonania operacji!",type: "Błąd")
                 self.stopAct()
             }
         }
@@ -92,15 +94,16 @@ class ExecuteSQLViewController: UIViewController {
             self.act.stopAnimating()
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func showAlert(message: String, type: String){
+        let alertController = UIAlertController(title: type, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+        {
+            (result : UIAlertAction) -> Void in
+        }
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
-    */
 
 }

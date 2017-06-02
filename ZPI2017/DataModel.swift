@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import MySqlSwiftNative
 struct DataModel{
     var key:String
     var value:Any
