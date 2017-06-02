@@ -18,14 +18,17 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
     var list2 = [DataModel]()
     var dbName = String()
     var dbToDelete: Int = -1
+    var refreshControl: UIRefreshControl!
     var tField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var act: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        list = Connecion.instanceOfConnection.list!
-//        con = Connecion.instanceOfConnection.con!
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(TableSelectionViewController.refreshData), for: UIControlEvents.valueChanged)
+        tableView.addSubview(refreshControl)
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -136,6 +139,34 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
             }
             self.stopAct()
         }
+    }
+    
+    func refreshData(){
+        do{
+            list.removeAll()
+            //prepare query
+            let gett = try con.query(q: "SHOW TABLES")
+            //rows to wszystkie wiersze z query
+            rows = try gett.readAllRows()
+            //rowss to tez wszystkie wiersze z query
+            rowss = rows?[0]
+            // row to jeden wiersz z query
+            var ii:Int = 1
+            var cc:Int = 0
+            for row in rowss!{
+                cc = 0
+                for(key,value) in row{
+                    list.append(DataModel(k: key, v: value, r: ii, c:cc))
+                    cc += 1
+                }
+                ii += 1
+            }
+            
+        }catch(let e){
+            print(e)
+        }
+        tableView.reloadData()
+        refreshControl.endRefreshing()
     }
     
     func showAlert(message: String){
