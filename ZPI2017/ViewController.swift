@@ -174,6 +174,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    
+    func saveCred(){
+        let filename = NSHomeDirectory().appending("/Documents/profile.bin")
+        NSKeyedArchiver.archiveRootObject(tmp, toFile: filename)
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         fillCredentials(id: indexPath.row)
@@ -185,7 +190,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
         let cell = UITableViewRowAction(style: .normal, title: " Delete ") { action, index in
-            //TODO usuwanie
+            self.deleteFavOrLast(id: index.row)
+            self.refresh()
+            self.prepareLastAndFav()
+            self.saveCred()
+            tableView.reloadData()
         }
         cell.backgroundColor = UIColor(red: 255/255.0, green: 59/255.0, blue: 48/255.0, alpha: 1)
         
@@ -194,7 +203,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func prepareLastAndFav(){
-        
         for favv in 0..<tmp.count{
             let read = tmp[favv]
             if(read.type=="last"){
@@ -203,8 +211,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 fav.append(read)
             }
         }
-        
     }
+    
+    func refresh(){
+        tmp = []
+        
+        for i in 0..<fav.count{
+            tmp.append(fav[i])
+        }
+        
+        for i in 0..<favorites.count{
+            tmp.append(favorites[i])
+        }
+        favorites = []
+        fav = []
+    }
+    
+    func deleteFavOrLast(id: Int){
+        if(FavLastSwitcher.selectedSegmentIndex==0){
+            favorites.remove(at: id)
+            
+        }else{
+            fav.remove(at: id)
+        }
+    }
+    
     
     func fillCredentials(id: Int){
         if(FavLastSwitcher.selectedSegmentIndex==0){

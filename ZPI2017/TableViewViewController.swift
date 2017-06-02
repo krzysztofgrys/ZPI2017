@@ -87,16 +87,16 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
             if(kolumna == 0){ tekst += keyes[indeks]; break;}
             else if(dat.row==kolumna-1 && dat.column==indeks){
                 switch dat.value {
-                case let tmpVal as String:
-                    tekst+=tmpVal
-                    break;
-                case let tmpVal as Int:
-                    tekst+="\(tmpVal)"
-                    break;
                 case let tmpVal as Float:
                     tekst+="\(tmpVal)"
                     break;
                 case let tmpVal as Double:
+                    tekst+="\(tmpVal)"
+                    break;
+                case let tmpVal as String:
+                    tekst+=tmpVal
+                    break;
+                case let tmpVal as Int:
                     tekst+="\(tmpVal)"
                     break;
                 case let tmpVal as Date:
@@ -106,6 +106,18 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
                     tekst+="\(tmpVal)"
                     break;
                 case let tmpVal as Data:
+                    tekst+="\(tmpVal)"
+                    break;
+                case let tmpVal as UInt16:
+                    tekst+="\(tmpVal)"
+                    break;
+                case let tmpVal as UInt8:
+                    tekst+="\(tmpVal)"
+                    break;
+                case let tmpVal as Int16:
+                    tekst+="\(tmpVal)"
+                    break;
+                case let tmpVal as UInt8:
                     tekst+="\(tmpVal)"
                     break;
                 default:
