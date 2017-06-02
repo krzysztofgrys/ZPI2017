@@ -18,7 +18,7 @@ class SettingsViewController: UIViewController {
     @IBAction func addToFavButton(_ sender: Any) {
         saveCredentials()
     }
-    @IBAction func logOutButtonAction(_ sender: Any) {
+    @IBAction func logOutAction(_ sender: Any) {
         let destination = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "mainLoginPage") as! ViewController
         do{
             try Connecion.instanceOfConnection.con?.close()
@@ -33,8 +33,7 @@ class SettingsViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        let n = NumberFormatter().number(from: cellWidthTextField.text!)
-        Connecion.instanceOfConnection.cellWidth = CGFloat(n!)
+        Connecion.instanceOfConnection.cellWidth = CGFloat((cellWidthTextField.text! as NSString).floatValue)
     }
     
     func checkIfFavExist() -> Bool{
