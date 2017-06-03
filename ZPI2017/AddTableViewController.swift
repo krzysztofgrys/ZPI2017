@@ -9,90 +9,91 @@
 import UIKit
 import MySqlSwiftNative
 
-class AddTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+class AddTableViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     var pickerData = ["int","char","varchar","double","float","date"]
     var numberOfAttributes = 1
+    var primaryKey = ""
+    var attributes = [String]()
+    
+    @IBOutlet weak var queryLabel: UITextView!
+    @IBOutlet weak var columnName: UITextField!
+    @IBOutlet weak var dataTypePicker: UIPickerView!
+    @IBOutlet weak var length: UITextField!
+    @IBOutlet weak var primaryCheckBox: UIButton!
+    @IBOutlet weak var uniqueCheckBox: UIButton!
+    @IBOutlet weak var nullCheckBox: UIButton!
+    @IBAction func nameOfTableAction(_ sender: Any) {
+        queryLabel.text = "CREATE TABLE " + nameOfNewTable.text! + "( "
+    }
+    @IBAction func addAttributeAction(_ sender: Any) {
+        var query = ""
+        let pickerIndex = dataTypePicker.selectedRow(inComponent: 0)
+        query += columnName.text!
+        query += " " + pickerData[pickerIndex]
+        if(pickerIndex == 1 || pickerIndex == 2){
+            query += "(" + length.text! + ")"
+        }
+        if(nullCheckBox.currentImage! == UIImage(named: "unchecked_checkbox.png")!){
+            query += " NOT NULL"
+        }
+        if(uniqueCheckBox.currentImage! == UIImage(named: "checked_checkbox.png")!){
+            query += " UNIQUE"
+        }
+        if(primaryCheckBox.currentImage! == UIImage(named: "checked_checkbox.png")!){
+            primaryKey = ",PRIMARY KEY(" + columnName.text! + ")"
+        }
+        attributes.append(query)
+        appendAttributes()
+        resetInputs()
+    }
+    @IBAction func primaryCheckBoxAction(_ sender: Any) {
+        if(Connecion.instanceOfConnection.primaryButton){
+            Connecion.instanceOfConnection.primaryButton = false
+            if(primaryCheckBox.currentImage! == UIImage(named: "checked_checkbox.png")!){
+                primaryCheckBox.setImage(UIImage(named: "unchecked_checkbox.png"), for: .normal)
+            }else{
+                primaryCheckBox.setImage(UIImage(named: "checked_checkbox.png"), for: .normal)
+            }
+        }
+    }
+    @IBAction func uniqueCheckBoxAction(_ sender: Any) {
+        if(uniqueCheckBox.currentImage! == UIImage(named: "checked_checkbox.png")!){
+            uniqueCheckBox.setImage(UIImage(named: "unchecked_checkbox.png"), for: .normal)
+        }else{
+            uniqueCheckBox.setImage(UIImage(named: "checked_checkbox.png"), for: .normal)
+        }
+    }
+    @IBAction func nullCheckBoxAction(_ sender: Any) {
+        if(nullCheckBox.currentImage! == UIImage(named: "checked_checkbox.png")!){
+            nullCheckBox.setImage(UIImage(named: "unchecked_checkbox.png"), for: .normal)
+        }else{
+            nullCheckBox.setImage(UIImage(named: "checked_checkbox.png"), for: .normal)
+        }
+    }
+    
+    
     @IBOutlet weak var nameOfNewTable: UITextField!
-    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var act: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
+        self.queryLabel.text = "CREATE TABLE ("
         Connecion.instanceOfConnection.primaryButton = true
-    }
-    @IBAction func addAttributeAction(_ sender: Any) {
-        numberOfAttributes += 1
-        tableView.beginUpdates()
-        tableView.insertRows(at: [IndexPath(row: numberOfAttributes-1, section: 0)], with: .automatic)
-        tableView.endUpdates()
+        self.dataTypePicker.delegate = self
+        self.dataTypePicker.dataSource = self
     }
     @IBAction func addTableAction(_ sender: Any) {
-        startAct()
-        DispatchQueue.main.async {
         let con = Connecion.instanceOfConnection.con
-        let cells = self.tableView.visibleCells as! Array<AddTableTableViewCell>
-        var columns = [String]()
-        var lengths = [String]()
-        var dataTypes = [String]()
-        var nulls = [Bool]()
-        var uniques = [Bool]()
-        var primary = [Bool]()
-        for cell in cells {
-            columns.append(cell.name.text!)
-            lengths.append(cell.length.text!)
-            let indeks = cell.dataType.selectedRow(inComponent: 0)
-            dataTypes.append(self.pickerData[indeks])
-            if(cell.nullCheckBox.currentImage! == UIImage(named: "checked_checkbox.png")!){
-                nulls.append(true)
-            }else{
-                nulls.append(false)
-            }
-            if(cell.uniqueCheckBox.currentImage! == UIImage(named: "checked_checkbox.png")!){
-                uniques.append(true)
-            }else{
-                uniques.append(false)
-            }
-            if(cell.primaryKeyCheckBox.currentImage! == UIImage(named: "checked_checkbox.png")!){
-                if(!primary.contains(true)){
-                    primary.append(true)
-                }
-            }else{
-                primary.append(false)
-            }
-        }
         do{
-            var query = "CREATE TABLE "+self.nameOfNewTable.text!+"("
-            var primaryKey = ""
-            for i in 0...columns.count-1{
-                query += columns[i]
-                query += " " + dataTypes[i]
-                if(dataTypes[i] == self.pickerData[1] || dataTypes[i] == self.pickerData[2]){
-                    query += "(" + lengths[i] + ")"
-                }
-                if(!nulls[i]){
-                    query += " NOT NULL"
-                }
-                if(uniques[i]){
-                    query += " UNIQUE"
-                }
-                if(primary[i]){
-                    primaryKey = ",PRIMARY KEY(" + columns[i] + ")"
-                }
-                if(i != columns.count - 1) {query += ", "}
-            }
-            query += primaryKey
-            query += " );"
+            let tmp = queryLabel.text!
             print("QUERY:")
-            print(query)
-            let _ = try con?.query(q: query)
-            self.stopAct()
+            print(tmp)
+            let _ = try con?.query(q: tmp)
+            print("DODANO")
             _ = self.navigationController?.popViewController(animated: true)
         }catch(let e){
             print(e)
-            self.stopAct()
-        }
+            print("Blad dodania tabeli")
         }
     }
 
@@ -101,34 +102,48 @@ class AddTableViewController: UIViewController, UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    func appendAttributes(){
+        var tmpQuery = "CREATE TABLE " + nameOfNewTable.text! + "( "
+        for attribute in attributes{
+            tmpQuery += attribute + ","
+        }
+        tmpQuery.remove(at: tmpQuery.index(before: tmpQuery.endIndex))
+        tmpQuery += primaryKey
+        tmpQuery += " );"
+        queryLabel.text = tmpQuery
+    }
+    
+    func resetInputs(){
+        primaryCheckBox.setImage(UIImage(named: "unchecked_checkbox.png"), for: .normal)
+        uniqueCheckBox.setImage(UIImage(named: "unchecked_checkbox.png"), for: .normal)
+        nullCheckBox.setImage(UIImage(named: "unchecked_checkbox.png"), for: .normal)
+        columnName.text = ""
+        length.text = ""
+        dataTypePicker.selectRow(0, inComponent: 0, animated: true)
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if(row == 1 || row == 2){
+            self.length.isEnabled = true
+        }else{
+            self.length.isEnabled = false
+        }
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-        self.tableView.endEditing(true)
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numberOfAttributes
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AddTableTableViewCell
-        cell.nullCheckBox.tag = indexPath.row
-        return cell
-    }
-    
-    func getAllCells() -> [AddTableTableViewCell] {
-        
-        var cells = [AddTableTableViewCell]()
-        // assuming tableView is your self.tableView defined somewhere
-            for j in 0...numberOfAttributes
-            {
-                if let cell = tableView.cellForRow(at: IndexPath(row:j, section: 1)) {
-                    
-                    cells.append(cell as! AddTableTableViewCell)
-                }
-                
-        }
-        return cells
     }
     
     func startAct(){

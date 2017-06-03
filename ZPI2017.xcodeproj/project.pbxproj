@@ -32,7 +32,6 @@
 		B21C7C311E9F9739001647A7 /* DBSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21C7C301E9F9739001647A7 /* DBSelectionViewController.swift */; };
 		B21C7C331E9F974F001647A7 /* DBSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21C7C321E9F974F001647A7 /* DBSelectionTableViewCell.swift */; };
 		B247E3731EE083C20028BBA6 /* AddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247E3721EE083C20028BBA6 /* AddTableViewController.swift */; };
-		B247E3751EE0842C0028BBA6 /* AddTableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247E3741EE0842C0028BBA6 /* AddTableTableViewCell.swift */; };
 		B247E3791EE086490028BBA6 /* checked_checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = B247E3771EE086490028BBA6 /* checked_checkbox.png */; };
 		B247E37A1EE086490028BBA6 /* unchecked_checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = B247E3781EE086490028BBA6 /* unchecked_checkbox.png */; };
 		B26199101E98286D008AC2AC /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B261990F1E98286D008AC2AC /* DataModel.swift */; };
@@ -83,7 +82,6 @@
 		B21C7C301E9F9739001647A7 /* DBSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBSelectionViewController.swift; sourceTree = "<group>"; };
 		B21C7C321E9F974F001647A7 /* DBSelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		B247E3721EE083C20028BBA6 /* AddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewController.swift; sourceTree = "<group>"; };
-		B247E3741EE0842C0028BBA6 /* AddTableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableTableViewCell.swift; sourceTree = "<group>"; };
 		B247E3771EE086490028BBA6 /* checked_checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked_checkbox.png; sourceTree = "<group>"; };
 		B247E3781EE086490028BBA6 /* unchecked_checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked_checkbox.png; sourceTree = "<group>"; };
 		B261990F1E98286D008AC2AC /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
@@ -239,7 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				B247E3721EE083C20028BBA6 /* AddTableViewController.swift */,
-				B247E3741EE0842C0028BBA6 /* AddTableTableViewCell.swift */,
 			);
 			name = AddTableView;
 			sourceTree = "<group>";
@@ -460,7 +457,6 @@
 				9A4CE5B41EC9E4080075046C /* ExecuteSQLViewController.swift in Sources */,
 				4BB5188F1ED324EE004CFC3C /* Connection.swift in Sources */,
 				B2ED54C71EDF337E00E172F8 /* CustomCollection.swift in Sources */,
-				B247E3751EE0842C0028BBA6 /* AddTableTableViewCell.swift in Sources */,
 				B2EABFF81E9FBB47005D1C02 /* TableSelectionTableViewCell.swift in Sources */,
 				4BF5FDB21E92C3A4007430E8 /* Favorite.swift in Sources */,
 				B21C7C331E9F974F001647A7 /* DBSelectionTableViewCell.swift in Sources */,
@@ -505,6 +501,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = SGNK3MFYG3;
 				INFOPLIST_FILE = ZPI2017Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zpi.ZPI2017Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -519,6 +516,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = SGNK3MFYG3;
 				INFOPLIST_FILE = ZPI2017Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zpi.ZPI2017Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -665,6 +663,7 @@
 				4B2EED381EE3022D005638BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4BB8F01B1E76E65600D1F909 /* Build configuration list for PBXProject "ZPI2017" */ = {
 			isa = XCConfigurationList;
