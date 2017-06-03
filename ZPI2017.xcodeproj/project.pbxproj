@@ -19,6 +19,7 @@
 		4BB8F0291E76E65600D1F909 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB8F0271E76E65600D1F909 /* Main.storyboard */; };
 		4BB8F02B1E76E65600D1F909 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BB8F02A1E76E65600D1F909 /* Assets.xcassets */; };
 		4BB8F02E1E76E65600D1F909 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB8F02C1E76E65600D1F909 /* LaunchScreen.storyboard */; };
+		4BD90F651EE2AC5700C2DC15 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD90F641EE2AC5700C2DC15 /* LocalAuthentication.framework */; };
 		4BF5FDAA1E928C72007430E8 /* LastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5FDA91E928C72007430E8 /* LastTableViewCell.swift */; };
 		4BF5FDAC1E928CB2007430E8 /* LastTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5FDAB1E928CB2007430E8 /* LastTableController.swift */; };
 		4BF5FDB01E929D01007430E8 /* LastFav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5FDAF1E929D01007430E8 /* LastFav.swift */; };
@@ -54,6 +55,7 @@
 		4BB8F02A1E76E65600D1F909 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BB8F02D1E76E65600D1F909 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BB8F02F1E76E65600D1F909 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BD90F641EE2AC5700C2DC15 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		4BF5FDA91E928C72007430E8 /* LastTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastTableViewCell.swift; sourceTree = "<group>"; };
 		4BF5FDAB1E928CB2007430E8 /* LastTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastTableController.swift; sourceTree = "<group>"; };
 		4BF5FDAF1E929D01007430E8 /* LastFav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastFav.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BD90F651EE2AC5700C2DC15 /* LocalAuthentication.framework in Frameworks */,
 				2459C729968D8CCFDA71F884 /* Pods_ZPI2017.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,6 +94,7 @@
 		08025868483EBC8EB5AA6060 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4BD90F641EE2AC5700C2DC15 /* LocalAuthentication.framework */,
 				E2FD6D5270F0383BEE8BFAD2 /* Pods_ZPI2017.framework */,
 			);
 			name = Frameworks;

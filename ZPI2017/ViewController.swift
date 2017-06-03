@@ -1,7 +1,7 @@
 
 import UIKit
 import MySqlSwiftNative
-
+import LocalAuthentication
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -43,6 +43,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 noDataLabel.textAlignment = .center
                 tableView.backgroundView  = noDataLabel
                 tableView.separatorStyle  = .none
+                tableView.tableFooterView = UIView()
+
             }else{
                 TableView.backgroundView = nil
                 tableView.separatorStyle  = .singleLine
@@ -58,6 +60,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 noDataLabel.textAlignment = .center
                 tableView.backgroundView  = noDataLabel
                 tableView.separatorStyle  = .none
+                tableView.tableFooterView = UIView()
+
             }else{
                 TableView.backgroundView = nil
                 tableView.separatorStyle  = .singleLine
@@ -237,22 +241,60 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
-    func fillCredentials(id: Int){
-        if(FavLastSwitcher.selectedSegmentIndex==0){
-            let fav = favorites[id]
-            ipField.text = fav.ip
-            userField.text = fav.user
-            passwordField.text = fav.password
-            portField.text = fav.port
-            
-        }else{
-            let favv = fav[id]
-            ipField.text = favv.ip
-            userField.text = favv.user
-            passwordField.text = favv.password
-            portField.text = favv.port
-        }
+    func showAlertViewIfNoBiometricSensorHasBeenDetected(){
+        
+        showAlertWithTitle(title: "Error", message: "This device does not have a TouchID sensor.")
+        
     }
+    
+    func showAlertWithTitle( title:String, message:String ) {
+        
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertVC.addAction(okAction)
+        
+        DispatchQueue.main.async() { () -> Void in
+            self.present(alertVC, animated: true, completion: nil)
+        }
+        
+    }
+    
+    func fillCredentials(id: Int){
+        let authenticationContext = LAContext()
+
+        authenticationContext.evaluatePolicy(
+            .deviceOwnerAuthenticationWithBiometrics,
+            localizedReason: "Przyłóż palec, aby wypełnić hasło",
+            reply: { [unowned self] (success, error) -> Void in
+                DispatchQueue.main.async {
+                    var favo: LastFav? = nil
+                    if(self.FavLastSwitcher.selectedSegmentIndex==0){
+                        favo = self.favorites[id]
+                        
+                    }else{
+                        favo = self.fav[id]
+                        
+                    }
+                    
+                    if( success ) {
+                        self.ipField.text = favo?.ip
+                        self.userField.text = favo?.user
+                        self.passwordField.text = favo?.password
+                        self.portField.text = favo?.port
+                        
+                    }else {
+                        self.ipField.text = favo?.ip
+                        self.userField.text = favo?.user
+                        self.portField.text = favo?.port
+                        
+                    }
+                }
+                
+                
+        })
+        
+            }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)

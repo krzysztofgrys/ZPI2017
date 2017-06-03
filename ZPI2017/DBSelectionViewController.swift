@@ -41,6 +41,8 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.addSubview(refreshControl)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = UIView()
+
         do{
             //prepare query
             let gett = try con.query(q: "SHOW DATABASES")
