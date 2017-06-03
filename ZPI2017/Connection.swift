@@ -15,6 +15,7 @@ class Connecion{
     var numberRows: Int? = nil
     var numberColumns: Int? = nil
     var cellWidth: CGFloat = 200
+    var fontSize: CGFloat = 17
     var primaryButton = true
 
     class var instanceOfConnection: Connecion {

@@ -82,9 +82,9 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
         var tekst=""
         let indeks = indexPath.row
         let kolumna = indexPath.section
-        let keyes = self.getKeyes()
+        let keys = self.getKeys()
         for dat in self.list{
-            if(kolumna == 0){ tekst += keyes[indeks]; break;}
+            if(kolumna == 0){ tekst += keys[indeks]; break;}
             else if(dat.row==kolumna-1 && dat.column==indeks){
                 switch dat.value {
                 case let tmpVal as Float:
@@ -128,20 +128,19 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
         }
         if indexPath.section == 0 {
             cell.backgroundColor = UIColor.darkGray
-            cell.values.textColor = UIColor.white
-            
-            
+            cell.values.textColor = UIColor.white            
         } else {
             cell.backgroundColor = UIColor.white
             cell.values.textColor = UIColor.black
         }
         cell.values.text = tekst
+        cell.values.font = UIFont(name: cell.values.font.fontName, size: Connecion.instanceOfConnection.fontSize)
         cell.layer.shouldRasterize = true
         cell.layer.rasterizationScale = UIScreen.main.scale
         return cell
     }
     
-    func getKeyes() -> [String]{
+    func getKeys() -> [String]{
         var result = [String]()
         for dat in list {
             result.append(dat.key)
@@ -149,59 +148,15 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
         }
         return result
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "showInsertRow"){
+            if let destination = segue.destination as? InsertRowViewController{
+                destination.keys = self.getKeys()
+                destination.tableName = self.tableName
+            }
+        }
+    }
 }
-
-//class NodeLayout : UICollectionViewFlowLayout {
-//    var itemWidth : CGFloat
-//    var itemHeight : CGFloat
-//    var space : CGFloat
-//    var columns: Int{
-//        return self.collectionView!.numberOfItems(inSection: 0)
-//    }
-//    var rows: Int{
-//        return self.collectionView!.numberOfSections
-//    }
-//    
-//    init(itemWidth: CGFloat, itemHeight: CGFloat, space: CGFloat) {
-//        self.itemWidth = itemWidth
-//        self.itemHeight = itemHeight
-//        self.space = space
-//        super.init()
-//    }
-//    
-//    required init(coder aDecoder: NSCoder) {
-//        self.itemWidth = 50
-//        self.itemHeight = 50
-//        self.space = 3
-//        super.init()
-//    }
-//    
-//    override var collectionViewContentSize: CGSize{
-//        let w : CGFloat = CGFloat(columns) * (itemWidth + space)
-//        let h : CGFloat = CGFloat(rows) * (itemHeight + space)
-//        return CGSize(width: w, height: h)
-//    }
-//    
-//    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-//        let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
-//        let x : CGFloat = CGFloat(indexPath.row) * (itemWidth + space)
-//        let y : CGFloat = CGFloat(indexPath.section) + CGFloat(indexPath.section) * (itemHeight + space)
-//        attributes.frame = CGRect(x: x, y: y, width: itemWidth, height: itemHeight)
-//        return attributes
-//    }
-//    
-//    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-//        let minRow : Int = (rect.origin.x > 0) ? Int(floor(rect.origin.x/(itemWidth + space))) : 0
-//        let maxRow : Int = min(columns - 1, Int(ceil(rect.size.width / (itemWidth + space)) + CGFloat(minRow)))
-//        var attributes : Array<UICollectionViewLayoutAttributes> = [UICollectionViewLayoutAttributes]()
-//        for i in 0 ..< rows {
-//            for j in minRow ... maxRow {
-//                attributes.append(self.layoutAttributesForItem(at: IndexPath(item: j, section: i))!)
-//            }
-//        }
-//        return attributes
-//    }
-//}
 
 

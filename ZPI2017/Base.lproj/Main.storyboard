@@ -482,7 +482,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Txu-tb-xZm">
-                                                    <rect key="frame" x="10" y="5" width="355" height="34"/>
+                                                    <rect key="frame" x="10" y="5" width="355" height="33"/>
                                                     <state key="normal" title="Wyloguj się">
                                                         <color key="titleColor" red="1" green="0.059605572920000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
@@ -495,7 +495,6 @@
                                                 <constraint firstAttribute="bottom" secondItem="Txu-tb-xZm" secondAttribute="bottom" constant="5" id="HWH-vd-3mL"/>
                                                 <constraint firstAttribute="trailing" secondItem="Txu-tb-xZm" secondAttribute="trailing" constant="10" id="QJB-uR-KaE"/>
                                                 <constraint firstItem="Txu-tb-xZm" firstAttribute="top" secondItem="Jx3-Bc-WRq" secondAttribute="top" constant="5" id="RoJ-o2-VTw"/>
-                                                <constraint firstItem="Txu-tb-xZm" firstAttribute="centerY" secondItem="Jx3-Bc-WRq" secondAttribute="centerY" id="WP3-Yb-LsG"/>
                                                 <constraint firstItem="Txu-tb-xZm" firstAttribute="leading" secondItem="Jx3-Bc-WRq" secondAttribute="leading" constant="10" id="rad-Fd-CeZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -543,7 +542,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Rozmiar czcionki" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYi-pB-KQh">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rozmiar czcionki" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYi-pB-KQh">
                                                     <rect key="frame" x="22" y="11" width="182" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -557,13 +556,17 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="fontSizeAction:" destination="i7g-NT-ydA" eventType="editingChanged" id="h8A-GC-a9v"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="wYi-pB-KQh" firstAttribute="centerY" secondItem="gL1-jn-Yt8" secondAttribute="centerY" id="29R-GT-yjg"/>
-                                                <constraint firstItem="wYi-pB-KQh" firstAttribute="leading" secondItem="gL1-jn-Yt8" secondAttribute="leadingMargin" constant="14" id="C4h-R3-Jdw"/>
+                                                <constraint firstItem="wYi-pB-KQh" firstAttribute="centerY" secondItem="gL1-jn-Yt8" secondAttribute="centerY" id="9PJ-yC-tyO"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="gY8-WW-CU0" secondAttribute="trailing" constant="19" id="bBm-Rk-UG7"/>
-                                                <constraint firstItem="wYi-pB-KQh" firstAttribute="centerY" secondItem="gY8-WW-CU0" secondAttribute="centerY" id="tqD-PW-CUL"/>
+                                                <constraint firstItem="gY8-WW-CU0" firstAttribute="leading" secondItem="wYi-pB-KQh" secondAttribute="trailing" constant="47" id="d5p-mp-vfw"/>
+                                                <constraint firstItem="wYi-pB-KQh" firstAttribute="leading" secondItem="gL1-jn-Yt8" secondAttribute="leadingMargin" constant="14" id="hfM-yn-v0X"/>
+                                                <constraint firstItem="wYi-pB-KQh" firstAttribute="centerY" secondItem="gY8-WW-CU0" secondAttribute="centerY" id="m6W-Nt-b3j"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -633,38 +636,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Tzt-XG-ese">
-                                        <rect key="frame" x="0.0" y="620" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Tzt-XG-ese" id="EKK-X0-HTY">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65Q-vm-5md">
-                                                    <rect key="frame" x="10" y="5" width="355" height="34"/>
-                                                    <state key="normal" title="Usuń ulubione">
-                                                        <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="removeFavouritiesCredentialsList:" destination="i7g-NT-ydA" eventType="touchUpInside" id="b1o-id-fac"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="65Q-vm-5md" firstAttribute="top" secondItem="EKK-X0-HTY" secondAttribute="top" constant="5" id="Beu-6w-sSF"/>
-                                                <constraint firstAttribute="bottom" secondItem="65Q-vm-5md" secondAttribute="bottom" constant="5" id="czd-Qb-JnG"/>
-                                                <constraint firstItem="65Q-vm-5md" firstAttribute="leading" secondItem="EKK-X0-HTY" secondAttribute="leading" constant="10" id="ol8-5t-zvB"/>
-                                                <constraint firstAttribute="trailing" secondItem="65Q-vm-5md" secondAttribute="trailing" constant="10" id="qXG-ex-1RJ"/>
-                                                <constraint firstItem="65Q-vm-5md" firstAttribute="centerY" secondItem="EKK-X0-HTY" secondAttribute="centerY" id="zwT-En-WJ0"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Aplikacja" id="txS-8i-LZh">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="fgr-X8-Mgt">
-                                        <rect key="frame" x="0.0" y="720" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="676" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fgr-X8-Mgt" id="sPG-xg-Fil">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -672,7 +649,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="WRx-r1-bmv">
-                                        <rect key="frame" x="0.0" y="764" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="720" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WRx-r1-bmv" id="FAN-nR-PrO">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -680,7 +657,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Exl-6D-DWP">
-                                        <rect key="frame" x="0.0" y="808" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="764" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Exl-6D-DWP" id="EEu-TV-NQ5">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -700,6 +677,7 @@
                     <connections>
                         <outlet property="cellWidthTextField" destination="kO9-1u-f3Z" id="iL2-Ot-i4b"/>
                         <outlet property="favButton" destination="Olb-Kd-xY0" id="xvj-dW-rOQ"/>
+                        <outlet property="fontSize" destination="gY8-WW-CU0" id="GFa-UE-4Y6"/>
                         <outlet property="sysDBSwitch" destination="0a8-9A-EEe" id="q6y-bA-cYw"/>
                     </connections>
                 </tableViewController>

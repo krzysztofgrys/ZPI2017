@@ -16,6 +16,10 @@ class NewSettingsTableViewController: UITableViewController {
     @IBOutlet weak var sysDBSwitch: UISwitch!
     @IBOutlet weak var favButton: UIButton!
     @IBOutlet weak var cellWidthTextField: UITextField!
+    @IBOutlet weak var fontSize: UITextField!
+    @IBAction func fontSizeAction(_ sender: Any) {
+        Connecion.instanceOfConnection.fontSize = CGFloat((fontSize.text! as NSString).floatValue)
+    }
     @IBAction func removeLastCredentailsList(_ sender: Any) {
         var new: [LastFav] = []
         for cred in 0..<(tmp.count){
