@@ -600,6 +600,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1GS-xA-RMa">
                                                     <rect key="frame" x="317" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="touchIDSwitchAction:" destination="i7g-NT-ydA" eventType="valueChanged" id="ogB-Ov-EOt"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -679,6 +682,7 @@
                         <outlet property="favButton" destination="Olb-Kd-xY0" id="xvj-dW-rOQ"/>
                         <outlet property="fontSize" destination="gY8-WW-CU0" id="GFa-UE-4Y6"/>
                         <outlet property="sysDBSwitch" destination="0a8-9A-EEe" id="q6y-bA-cYw"/>
+                        <outlet property="touchIDSwitch" destination="1GS-xA-RMa" id="117-cT-QCL"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="enC-lp-3f4" userLabel="First Responder" sceneMemberID="firstResponder"/>

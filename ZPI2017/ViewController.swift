@@ -5,6 +5,7 @@ import LocalAuthentication
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let userDefults = UserDefaults.standard
     let con = MySQL.Connection()
     @IBOutlet weak var login: UIButton!
     @IBOutlet weak var FavLastSwitcher: UISegmentedControl!
@@ -260,7 +261,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func fillCredentials(id: Int){
         let authenticationContext = LAContext()
-
+        let useTouchID = userDefults.bool(forKey: "touchId")
+        if(useTouchID){
         authenticationContext.evaluatePolicy(
             .deviceOwnerAuthenticationWithBiometrics,
             localizedReason: "Przyłóż palec, aby wypełnić hasło",
@@ -269,12 +271,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     var favo: LastFav? = nil
                     if(self.FavLastSwitcher.selectedSegmentIndex==0){
                         favo = self.favorites[id]
-                        
                     }else{
                         favo = self.fav[id]
-                        
                     }
-                    
                     if( success ) {
                         self.ipField.text = favo?.ip
                         self.userField.text = favo?.user
@@ -285,14 +284,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         self.ipField.text = favo?.ip
                         self.userField.text = favo?.user
                         self.portField.text = favo?.port
-                        
                     }
                 }
-                
-                
         })
-        
+        }else{
+            var favo: LastFav? = nil
+            if(self.FavLastSwitcher.selectedSegmentIndex==0){
+                favo = self.favorites[id]
+            }else{
+                favo = self.fav[id]
             }
+                self.ipField.text = favo?.ip
+                self.userField.text = favo?.user
+                self.passwordField.text = favo?.password
+                self.portField.text = favo?.port
+                
+            
+        }
+        
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)

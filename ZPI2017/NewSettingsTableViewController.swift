@@ -13,12 +13,16 @@ class NewSettingsTableViewController: UITableViewController {
     var tmp: [LastFav] = []
     let userDefults = UserDefaults.standard
     
+    @IBOutlet weak var touchIDSwitch: UISwitch!
     @IBOutlet weak var sysDBSwitch: UISwitch!
     @IBOutlet weak var favButton: UIButton!
     @IBOutlet weak var cellWidthTextField: UITextField!
     @IBOutlet weak var fontSize: UITextField!
     @IBAction func fontSizeAction(_ sender: Any) {
         Connecion.instanceOfConnection.fontSize = CGFloat((fontSize.text! as NSString).floatValue)
+    }
+    @IBAction func touchIDSwitchAction(_ sender: Any) {
+        userDefults.set(touchIDSwitch.isOn, forKey: "touchId")
     }
     @IBAction func removeLastCredentailsList(_ sender: Any) {
         var new: [LastFav] = []
