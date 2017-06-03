@@ -35,6 +35,7 @@
 		B252AA941EE32ED300B2F29A /* InsertRowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B252AA931EE32ED300B2F29A /* InsertRowViewController.swift */; };
 		B252AA9A1EE360E600B2F29A /* ico.png in Resources */ = {isa = PBXBuildFile; fileRef = B252AA991EE360E600B2F29A /* ico.png */; };
 		B26199101E98286D008AC2AC /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B261990F1E98286D008AC2AC /* DataModel.swift */; };
+		B295E08C1EE3752700B5B85E /* InsertRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B295E08B1EE3752700B5B85E /* InsertRowTableViewCell.swift */; };
 		B2EABFF81E9FBB47005D1C02 /* TableSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EABFF71E9FBB47005D1C02 /* TableSelectionTableViewCell.swift */; };
 		B2EABFFA1E9FBB5C005D1C02 /* TableSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EABFF91E9FBB5C005D1C02 /* TableSelectionViewController.swift */; };
 		B2EABFFD1E9FC062005D1C02 /* TableViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EABFFC1E9FC062005D1C02 /* TableViewCollectionViewCell.swift */; };
@@ -85,6 +86,7 @@
 		B252AA931EE32ED300B2F29A /* InsertRowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertRowViewController.swift; sourceTree = "<group>"; };
 		B252AA991EE360E600B2F29A /* ico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico.png; sourceTree = "<group>"; };
 		B261990F1E98286D008AC2AC /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		B295E08B1EE3752700B5B85E /* InsertRowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertRowTableViewCell.swift; sourceTree = "<group>"; };
 		B2EABFF71E9FBB47005D1C02 /* TableSelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		B2EABFF91E9FBB5C005D1C02 /* TableSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSelectionViewController.swift; sourceTree = "<group>"; };
 		B2EABFFC1E9FC062005D1C02 /* TableViewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				B252AA931EE32ED300B2F29A /* InsertRowViewController.swift */,
+				B295E08B1EE3752700B5B85E /* InsertRowTableViewCell.swift */,
 			);
 			name = InsertRow;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BB518931ED36EC0004CFC3C /* TabBarTabalViewViewController.swift in Sources */,
+				B295E08C1EE3752700B5B85E /* InsertRowTableViewCell.swift in Sources */,
 				4BB5189A1ED895EF004CFC3C /* CredentialsTmp.swift in Sources */,
 				4BF5FDAC1E928CB2007430E8 /* LastTableController.swift in Sources */,
 				4BB5188D1ED321A0004CFC3C /* TabBarController.swift in Sources */,

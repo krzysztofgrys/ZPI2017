@@ -34,9 +34,9 @@ class NewSettingsTableViewController: UITableViewController {
         }
         tmp = new
         saveCred()
-        
+        showAlert(message: "Usunięto wszystkie ostatnie logowania!", type: "Informacja")
     }
-    @IBAction func removeFavouritiesCredentialsList(_ sender: Any) {
+    @IBAction func removeFavourities(_ sender: Any) {
         var new: [LastFav] = []
         for cred in 0..<(tmp.count){
             let read = tmp[cred]
@@ -44,9 +44,9 @@ class NewSettingsTableViewController: UITableViewController {
                 new.append(read)
             }
         }
-        
         tmp = new
         saveCred()
+        showAlert(message: "Usunięto wszystkie ulubione!", type: "Informacja")
     }
     
     @IBAction func addToFavButton(_ sender: Any) {
@@ -64,36 +64,11 @@ class NewSettingsTableViewController: UITableViewController {
         getCredentials()
         checkIfFavExist()
         sysDBSwitch.setOn(userDefults.bool(forKey: "sysDB"), animated: true)
-        let cellWidth = String(format: "%.3f", Double(Connecion.instanceOfConnection.cellWidth))
+        let cellWidth = String(format: "%.2f", Double(Connecion.instanceOfConnection.cellWidth))
         cellWidthTextField.text = cellWidth
-
-        
-        
-//        let view1: UIView = UIView.init(frame: CGRect(x: 0, y: 0, width: 360, height: 150));
-//        view1.backgroundColor = UIColor.init(red: 95/255, green: 195/255, blue: 218/255, alpha: 1)
-//        let label: UILabel = UILabel()
-//
-//    
-//        
-//        label.text = "ZPI 2017"
-//        label.center = view1.center
-//        label.sizeToFit()
-//        label.textAlignment = NSTextAlignment.center
-//        
-//        
-//        let image = UIImageView()
-//        image.image = UIImage(named: "icons.png")
-//        let imageAspect = image.image!.size.width/image.image!.size.height
-//        image.frame = CGRect(x: label.frame.origin.x-label.frame.size.height*imageAspect,y: label.frame.origin.y, width: label.frame.size.height*imageAspect, height: label.frame.size.height)
-//        image.contentMode = UIViewContentMode.scaleAspectFit
-//        
-//        view1.addSubview(label);
-//        view1.addSubview(image)
-////        tableView.backgroundColor = UIColor.init(red: 78/255, green: 188/255, blue: 212/255, alpha: 1)
-//        
-//        
-//        self.tableView.tableHeaderView = view1;
-        
+        let fontSizetmp = String(format: "%.2f", Double(Connecion.instanceOfConnection.fontSize))
+        fontSize.text = fontSizetmp
+        touchIDSwitch.setOn(userDefults.bool(forKey: "touchId"), animated: true)
     }
     
    
@@ -148,19 +123,17 @@ class NewSettingsTableViewController: UITableViewController {
             }
         }
     }
-
     
-    public func FavouritesDatabases()
-    {
-        
+    func showAlert(message: String, type: String){
+        let alertController = UIAlertController(title: type, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default){
+            (result : UIAlertAction) -> Void in
+        }
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
-    
-    
-    
    }

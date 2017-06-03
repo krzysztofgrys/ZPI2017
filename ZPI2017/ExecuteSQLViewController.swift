@@ -32,7 +32,7 @@ class ExecuteSQLViewController: UIViewController {
                 if(self.rows?.isEmpty==false){
                     var list = [DataModel]()
                     //rowss to tez wszystkie wiersze z query
-                    var rowss = self.rows?[0]
+                    let rowss = self.rows?[0]
                     // row to jeden wiersz z query
                     var ii:Int = 0
                     var cc:Int = 0

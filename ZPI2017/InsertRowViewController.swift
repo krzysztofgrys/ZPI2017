@@ -8,17 +8,44 @@
 
 import UIKit
 
-class InsertRowViewController: UIViewController {
+class InsertRowViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
+    @IBAction func insertRowAction(_ sender: Any) {
+    }
     var tableName: String! = nil
     var keys = [String]()
     override func viewDidLoad() {
-        super.viewDidLoad()    }
+        super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return keys.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! InsertRowTableViewCell
+        let index = indexPath.row
+        cell.key.text = keys[index]
+        return cell
+    }
+    
+    func getAllCells() -> [InsertRowTableViewCell] {
+        var cells = [InsertRowTableViewCell]()
+        for j in 0...keys.count-1
+        {
+            if let cell = tableView.cellForRow(at: IndexPath(row:j, section: 1)) {
+                cells.append(cell as! InsertRowTableViewCell)
+            }
+        }
+        return cells
+    }
 
     /*
     // MARK: - Navigation
