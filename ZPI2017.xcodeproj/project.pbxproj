@@ -20,6 +20,9 @@
 		4BB8F02B1E76E65600D1F909 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BB8F02A1E76E65600D1F909 /* Assets.xcassets */; };
 		4BB8F02E1E76E65600D1F909 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB8F02C1E76E65600D1F909 /* LaunchScreen.storyboard */; };
 		4BD90F651EE2AC5700C2DC15 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD90F641EE2AC5700C2DC15 /* LocalAuthentication.framework */; };
+		4BD90F671EE2BACD00C2DC15 /* NewSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD90F661EE2BACD00C2DC15 /* NewSettingsTableViewController.swift */; };
+		4BD90F691EE2C42000C2DC15 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BD90F681EE2C42000C2DC15 /* icon.png */; };
+		4BD90F6B1EE2C4EA00C2DC15 /* icons.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BD90F6A1EE2C4EA00C2DC15 /* icons.png */; };
 		4BF5FDAA1E928C72007430E8 /* LastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5FDA91E928C72007430E8 /* LastTableViewCell.swift */; };
 		4BF5FDAC1E928CB2007430E8 /* LastTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5FDAB1E928CB2007430E8 /* LastTableController.swift */; };
 		4BF5FDB01E929D01007430E8 /* LastFav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5FDAF1E929D01007430E8 /* LastFav.swift */; };
@@ -56,6 +59,9 @@
 		4BB8F02D1E76E65600D1F909 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BB8F02F1E76E65600D1F909 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BD90F641EE2AC5700C2DC15 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		4BD90F661EE2BACD00C2DC15 /* NewSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSettingsTableViewController.swift; sourceTree = "<group>"; };
+		4BD90F681EE2C42000C2DC15 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Assets.xcassets/AppIcon.appiconset/icon.png; sourceTree = "<group>"; };
+		4BD90F6A1EE2C4EA00C2DC15 /* icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icons.png; path = Assets.xcassets/AppIcon.appiconset/icons.png; sourceTree = "<group>"; };
 		4BF5FDA91E928C72007430E8 /* LastTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastTableViewCell.swift; sourceTree = "<group>"; };
 		4BF5FDAB1E928CB2007430E8 /* LastTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastTableController.swift; sourceTree = "<group>"; };
 		4BF5FDAF1E929D01007430E8 /* LastFav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastFav.swift; sourceTree = "<group>"; };
@@ -123,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				4BB518951ED836FB004CFC3C /* SettingsViewController.swift */,
+				4BD90F661EE2BACD00C2DC15 /* NewSettingsTableViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -161,6 +168,8 @@
 				4BB8F0231E76E65600D1F909 /* AppDelegate.swift */,
 				9A4CE5B31EC9E4080075046C /* ExecuteSQLViewController.swift */,
 				4BB8F0271E76E65600D1F909 /* Main.storyboard */,
+				4BD90F6A1EE2C4EA00C2DC15 /* icons.png */,
+				4BD90F681EE2C42000C2DC15 /* icon.png */,
 				4BB8F02A1E76E65600D1F909 /* Assets.xcassets */,
 				4BB8F02C1E76E65600D1F909 /* LaunchScreen.storyboard */,
 				4BB8F02F1E76E65600D1F909 /* Info.plist */,
@@ -301,9 +310,11 @@
 			files = (
 				B247E3791EE086490028BBA6 /* checked_checkbox.png in Resources */,
 				B247E37A1EE086490028BBA6 /* unchecked_checkbox.png in Resources */,
+				4BD90F691EE2C42000C2DC15 /* icon.png in Resources */,
 				4BB8F02E1E76E65600D1F909 /* LaunchScreen.storyboard in Resources */,
 				4BB8F02B1E76E65600D1F909 /* Assets.xcassets in Resources */,
 				4BB8F0291E76E65600D1F909 /* Main.storyboard in Resources */,
+				4BD90F6B1EE2C4EA00C2DC15 /* icons.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +387,7 @@
 				B2EABFFD1E9FC062005D1C02 /* TableViewCollectionViewCell.swift in Sources */,
 				B2EABFFF1E9FC070005D1C02 /* TableViewViewController.swift in Sources */,
 				B2EABFFA1E9FBB5C005D1C02 /* TableSelectionViewController.swift in Sources */,
+				4BD90F671EE2BACD00C2DC15 /* NewSettingsTableViewController.swift in Sources */,
 				B26199101E98286D008AC2AC /* DataModel.swift in Sources */,
 				9A4CE5B41EC9E4080075046C /* ExecuteSQLViewController.swift in Sources */,
 				4BB5188F1ED324EE004CFC3C /* Connection.swift in Sources */,

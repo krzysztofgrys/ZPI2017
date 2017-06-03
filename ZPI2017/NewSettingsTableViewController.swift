@@ -1,14 +1,15 @@
 //
-//  SettingsViewController.swift
+//  NewSettingsTableViewController.swift
 //  ZPI2017
 //
-//  Created by Krzysztof Grys on 5/26/17.
+//  Created by Krzysztof Grys on 6/3/17.
 //  Copyright © 2017 ZPI. All rights reserved.
 //
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class NewSettingsTableViewController: UITableViewController {
+
     var tmp: [LastFav] = []
     let userDefults = UserDefaults.standard
     
@@ -19,6 +20,48 @@ class SettingsViewController: UIViewController {
     @IBAction func addToFavButton(_ sender: Any) {
         saveCredentials()
     }
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        getCredentials()
+        checkIfFavExist()
+        sysDBSwitch.setOn(userDefults.bool(forKey: "sysDB"), animated: true)
+        let cellWidth = String(format: "%.3f", Double(Connecion.instanceOfConnection.cellWidth))
+        cellWidthTextField.text = cellWidth
+
+        
+        
+        let view1: UIView = UIView.init(frame: CGRect(x: 0, y: 0, width: 360, height: 150));
+        view1.backgroundColor = UIColor.init(red: 95/255, green: 195/255, blue: 218/255, alpha: 1)
+        let label: UILabel = UILabel()
+
+    
+        
+        label.text = "ZPI 2017"
+        label.center = view1.center
+        label.sizeToFit()
+        label.textAlignment = NSTextAlignment.center
+        
+        
+        let image = UIImageView()
+        image.image = UIImage(named: "icons.png")
+        let imageAspect = image.image!.size.width/image.image!.size.height
+        image.frame = CGRect(x: label.frame.origin.x-label.frame.size.height*imageAspect,y: label.frame.origin.y, width: label.frame.size.height*imageAspect, height: label.frame.size.height)
+        image.contentMode = UIViewContentMode.scaleAspectFit
+        
+        view1.addSubview(label);
+        view1.addSubview(image)
+//        tableView.backgroundColor = UIColor.init(red: 78/255, green: 188/255, blue: 212/255, alpha: 1)
+        
+        
+        self.tableView.tableHeaderView = view1;
+        
+    }
+    
+   
     @IBAction func logOutAction(_ sender: Any) {
         let destination = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "mainLoginPage") as! ViewController
         do{
@@ -61,38 +104,23 @@ class SettingsViewController: UIViewController {
             print("odczytano")
             for favv in 0..<(unarchiveProfile.count){
                 let read = unarchiveProfile[favv]
-                    tmp.append(read)
+                tmp.append(read)
             }
         }
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        getCredentials()
-        checkIfFavExist()
-        sysDBSwitch.setOn(userDefults.bool(forKey: "sysDB"), animated: true)
-        let cellWidth = String(format: "%.3f", Double(Connecion.instanceOfConnection.cellWidth))
-        cellWidthTextField.text = cellWidth
-        // Do any additional setup after loading the view.
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     public func FavouritesDatabases()
     {
         
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
-    */
 
-}
+    
+    
+    
+   }
