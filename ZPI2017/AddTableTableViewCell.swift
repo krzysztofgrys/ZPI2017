@@ -10,7 +10,7 @@ import UIKit
 
 class AddTableTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    var pickerData = ["int","String","double"]
+    var pickerData = ["int","char","varchar","double","float","date"]
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var dataType: UIPickerView!
     @IBOutlet weak var nullCheckBox: UIButton!
@@ -52,6 +52,14 @@ class AddTableTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerView
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if(row == 1 || row == 2){
+            self.length.isEnabled = true
+        }else{
+            self.length.isEnabled = false
+        }
     }
     
     override func awakeFromNib() {
