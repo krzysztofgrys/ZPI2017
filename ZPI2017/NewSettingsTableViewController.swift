@@ -20,6 +20,9 @@ class NewSettingsTableViewController: UITableViewController {
     @IBAction func addToFavButton(_ sender: Any) {
         saveCredentials()
     }
+    @IBAction func sysDBSwitchAction(_ sender: Any) {
+        userDefults.set(sysDBSwitch.isOn, forKey: "sysDB")
+    }
     
     
     

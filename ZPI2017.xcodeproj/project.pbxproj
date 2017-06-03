@@ -12,7 +12,6 @@
 		4BB5188F1ED324EE004CFC3C /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB5188E1ED324EE004CFC3C /* Connection.swift */; };
 		4BB518911ED32A3B004CFC3C /* TabBarTableSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB518901ED32A3B004CFC3C /* TabBarTableSelectionViewController.swift */; };
 		4BB518931ED36EC0004CFC3C /* TabBarTabalViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB518921ED36EC0004CFC3C /* TabBarTabalViewViewController.swift */; };
-		4BB518961ED836FB004CFC3C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB518951ED836FB004CFC3C /* SettingsViewController.swift */; };
 		4BB5189A1ED895EF004CFC3C /* CredentialsTmp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB518991ED895EF004CFC3C /* CredentialsTmp.swift */; };
 		4BB8F0241E76E65600D1F909 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB8F0231E76E65600D1F909 /* AppDelegate.swift */; };
 		4BB8F0261E76E65600D1F909 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB8F0251E76E65600D1F909 /* ViewController.swift */; };
@@ -49,7 +48,6 @@
 		4BB5188E1ED324EE004CFC3C /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		4BB518901ED32A3B004CFC3C /* TabBarTableSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarTableSelectionViewController.swift; sourceTree = "<group>"; };
 		4BB518921ED36EC0004CFC3C /* TabBarTabalViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarTabalViewViewController.swift; sourceTree = "<group>"; };
-		4BB518951ED836FB004CFC3C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4BB518991ED895EF004CFC3C /* CredentialsTmp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CredentialsTmp.swift; sourceTree = "<group>"; };
 		4BB8F0201E76E65600D1F909 /* ZPI2017.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZPI2017.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB8F0231E76E65600D1F909 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -128,7 +126,6 @@
 		4BB518941ED836ED004CFC3C /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				4BB518951ED836FB004CFC3C /* SettingsViewController.swift */,
 				4BD90F661EE2BACD00C2DC15 /* NewSettingsTableViewController.swift */,
 			);
 			name = Settings;
@@ -168,8 +165,6 @@
 				4BB8F0231E76E65600D1F909 /* AppDelegate.swift */,
 				9A4CE5B31EC9E4080075046C /* ExecuteSQLViewController.swift */,
 				4BB8F0271E76E65600D1F909 /* Main.storyboard */,
-				4BD90F6A1EE2C4EA00C2DC15 /* icons.png */,
-				4BD90F681EE2C42000C2DC15 /* icon.png */,
 				4BB8F02A1E76E65600D1F909 /* Assets.xcassets */,
 				4BB8F02C1E76E65600D1F909 /* LaunchScreen.storyboard */,
 				4BB8F02F1E76E65600D1F909 /* Info.plist */,
@@ -220,6 +215,8 @@
 		B247E3761EE086410028BBA6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4BD90F6A1EE2C4EA00C2DC15 /* icons.png */,
+				4BD90F681EE2C42000C2DC15 /* icon.png */,
 				B247E3771EE086490028BBA6 /* checked_checkbox.png */,
 				B247E3781EE086490028BBA6 /* unchecked_checkbox.png */,
 			);
@@ -280,7 +277,7 @@
 				TargetAttributes = {
 					4BB8F01F1E76E65600D1F909 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = SGNK3MFYG3;
+						DevelopmentTeam = R8S98YHV2J;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -377,7 +374,6 @@
 				4BB5189A1ED895EF004CFC3C /* CredentialsTmp.swift in Sources */,
 				4BF5FDAC1E928CB2007430E8 /* LastTableController.swift in Sources */,
 				4BB5188D1ED321A0004CFC3C /* TabBarController.swift in Sources */,
-				4BB518961ED836FB004CFC3C /* SettingsViewController.swift in Sources */,
 				B247E3731EE083C20028BBA6 /* AddTableViewController.swift in Sources */,
 				B21C7C311E9F9739001647A7 /* DBSelectionViewController.swift in Sources */,
 				4BF5FDAA1E928C72007430E8 /* LastTableViewCell.swift in Sources */,
@@ -522,11 +518,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = SGNK3MFYG3;
+				DEVELOPMENT_TEAM = R8S98YHV2J;
 				INFOPLIST_FILE = ZPI2017/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.zpi1.ZPI2017;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zpi.ZPI2017;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -540,11 +536,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = SGNK3MFYG3;
+				DEVELOPMENT_TEAM = R8S98YHV2J;
 				INFOPLIST_FILE = ZPI2017/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.zpi1.ZPI2017;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zpi.ZPI2017;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;

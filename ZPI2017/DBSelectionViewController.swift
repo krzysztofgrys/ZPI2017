@@ -158,10 +158,9 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
                     }
                     rowss = nil
                     self.performSegue(withIdentifier: "showSelectTable", sender: self)
-                    
-                    
                 }else{
-                    self.showAlert(message: "Wybrana baza danych jest pusta")
+                    //self.showAlert(message: "Wybrana baza danych jest pusta")
+                    self.performSegue(withIdentifier: "showSelectTable", sender: self)
                 }
                 self.stopAct()
             }catch(let e){

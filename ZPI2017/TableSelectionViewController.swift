@@ -79,7 +79,8 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
                     
                     self.performSegue(withIdentifier: "showViewTable", sender: self)
                 }else{
-                    self.showAlert(message: "Tabela jest pusta")
+                    self.performSegue(withIdentifier: "showViewTable", sender: self)
+                    //self.showAlert(message: "Tabela jest pusta")
                 }
                 self.stopAct()
             }catch(let e){
@@ -108,10 +109,16 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "showViewTable"){
             if let destination = segue.destination as? TableViewViewController{
-                var rowss = self.rows?[0]
-                destination.list = self.list2
-                destination.numberRows = (rowss?.count)!
-                destination.numberColumns = rowss![0].count
+                if((self.rows?.isEmpty)! == false){
+                    var rowss = self.rows?[0]
+                    destination.list = self.list2
+                    destination.numberRows = (rowss?.count)!
+                    destination.numberColumns = rowss![0].count
+                }else{
+                    destination.list = self.list2
+                    destination.numberRows = 0
+                    destination.numberColumns = 0
+                }
             }
         }
     }
@@ -141,6 +148,10 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.refreshData()
+    }
+    
     func refreshData(){
         do{
             list.removeAll()
@@ -149,6 +160,7 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
             //rows to wszystkie wiersze z query
             rows = try gett.readAllRows()
             //rowss to tez wszystkie wiersze z query
+            if((rows?.isEmpty)! == false){
             rowss = rows?[0]
             // row to jeden wiersz z query
             var ii:Int = 1
@@ -160,8 +172,8 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
                     cc += 1
                 }
                 ii += 1
+                }
             }
-            
         }catch(let e){
             print(e)
         }
