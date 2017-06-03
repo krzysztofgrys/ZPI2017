@@ -106,7 +106,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     CredentialsTmp.CredentialPassword.password = self.passwordField.text!
                     CredentialsTmp.CredentialUser.user = self.userField.text!
                     CredentialsTmp.CredentialisFav.isFavourite = false
-                    
+                    self.view.endEditing(true)
                     appDelegate.window?.rootViewController = initialViewController
                     appDelegate.window?.makeKeyAndVisible()
                     
