@@ -43,7 +43,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 noDataLabel.textAlignment = .center
                 tableView.backgroundView  = noDataLabel
                 tableView.separatorStyle  = .none
-                tableView.tableFooterView = UIView()
 
             }else{
                 TableView.backgroundView = nil
@@ -60,7 +59,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 noDataLabel.textAlignment = .center
                 tableView.backgroundView  = noDataLabel
                 tableView.separatorStyle  = .none
-                tableView.tableFooterView = UIView()
 
             }else{
                 TableView.backgroundView = nil
