@@ -61,30 +61,30 @@ class NewSettingsTableViewController: UITableViewController {
 
         
         
-        let view1: UIView = UIView.init(frame: CGRect(x: 0, y: 0, width: 360, height: 150));
-        view1.backgroundColor = UIColor.init(red: 95/255, green: 195/255, blue: 218/255, alpha: 1)
-        let label: UILabel = UILabel()
-
-    
-        
-        label.text = "ZPI 2017"
-        label.center = view1.center
-        label.sizeToFit()
-        label.textAlignment = NSTextAlignment.center
-        
-        
-        let image = UIImageView()
-        image.image = UIImage(named: "icons.png")
-        let imageAspect = image.image!.size.width/image.image!.size.height
-        image.frame = CGRect(x: label.frame.origin.x-label.frame.size.height*imageAspect,y: label.frame.origin.y, width: label.frame.size.height*imageAspect, height: label.frame.size.height)
-        image.contentMode = UIViewContentMode.scaleAspectFit
-        
-        view1.addSubview(label);
-        view1.addSubview(image)
-//        tableView.backgroundColor = UIColor.init(red: 78/255, green: 188/255, blue: 212/255, alpha: 1)
-        
-        
-        self.tableView.tableHeaderView = view1;
+//        let view1: UIView = UIView.init(frame: CGRect(x: 0, y: 0, width: 360, height: 150));
+//        view1.backgroundColor = UIColor.init(red: 95/255, green: 195/255, blue: 218/255, alpha: 1)
+//        let label: UILabel = UILabel()
+//
+//    
+//        
+//        label.text = "ZPI 2017"
+//        label.center = view1.center
+//        label.sizeToFit()
+//        label.textAlignment = NSTextAlignment.center
+//        
+//        
+//        let image = UIImageView()
+//        image.image = UIImage(named: "icons.png")
+//        let imageAspect = image.image!.size.width/image.image!.size.height
+//        image.frame = CGRect(x: label.frame.origin.x-label.frame.size.height*imageAspect,y: label.frame.origin.y, width: label.frame.size.height*imageAspect, height: label.frame.size.height)
+//        image.contentMode = UIViewContentMode.scaleAspectFit
+//        
+//        view1.addSubview(label);
+//        view1.addSubview(image)
+////        tableView.backgroundColor = UIColor.init(red: 78/255, green: 188/255, blue: 212/255, alpha: 1)
+//        
+//        
+//        self.tableView.tableHeaderView = view1;
         
     }
     

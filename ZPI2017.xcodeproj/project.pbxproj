@@ -21,8 +21,6 @@
 		4BB8F02E1E76E65600D1F909 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB8F02C1E76E65600D1F909 /* LaunchScreen.storyboard */; };
 		4BD90F651EE2AC5700C2DC15 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD90F641EE2AC5700C2DC15 /* LocalAuthentication.framework */; };
 		4BD90F671EE2BACD00C2DC15 /* NewSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD90F661EE2BACD00C2DC15 /* NewSettingsTableViewController.swift */; };
-		4BD90F691EE2C42000C2DC15 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BD90F681EE2C42000C2DC15 /* icon.png */; };
-		4BD90F6B1EE2C4EA00C2DC15 /* icons.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BD90F6A1EE2C4EA00C2DC15 /* icons.png */; };
 		4BF5FDAA1E928C72007430E8 /* LastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5FDA91E928C72007430E8 /* LastTableViewCell.swift */; };
 		4BF5FDAC1E928CB2007430E8 /* LastTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5FDAB1E928CB2007430E8 /* LastTableController.swift */; };
 		4BF5FDB01E929D01007430E8 /* LastFav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5FDAF1E929D01007430E8 /* LastFav.swift */; };
@@ -34,6 +32,8 @@
 		B247E3731EE083C20028BBA6 /* AddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247E3721EE083C20028BBA6 /* AddTableViewController.swift */; };
 		B247E3791EE086490028BBA6 /* checked_checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = B247E3771EE086490028BBA6 /* checked_checkbox.png */; };
 		B247E37A1EE086490028BBA6 /* unchecked_checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = B247E3781EE086490028BBA6 /* unchecked_checkbox.png */; };
+		B252AA941EE32ED300B2F29A /* InsertRowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B252AA931EE32ED300B2F29A /* InsertRowViewController.swift */; };
+		B252AA9A1EE360E600B2F29A /* ico.png in Resources */ = {isa = PBXBuildFile; fileRef = B252AA991EE360E600B2F29A /* ico.png */; };
 		B26199101E98286D008AC2AC /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B261990F1E98286D008AC2AC /* DataModel.swift */; };
 		B2EABFF81E9FBB47005D1C02 /* TableSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EABFF71E9FBB47005D1C02 /* TableSelectionTableViewCell.swift */; };
 		B2EABFFA1E9FBB5C005D1C02 /* TableSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EABFF91E9FBB5C005D1C02 /* TableSelectionViewController.swift */; };
@@ -71,8 +71,6 @@
 		4BB8F02F1E76E65600D1F909 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BD90F641EE2AC5700C2DC15 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		4BD90F661EE2BACD00C2DC15 /* NewSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSettingsTableViewController.swift; sourceTree = "<group>"; };
-		4BD90F681EE2C42000C2DC15 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Assets.xcassets/AppIcon.appiconset/icon.png; sourceTree = "<group>"; };
-		4BD90F6A1EE2C4EA00C2DC15 /* icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icons.png; path = Assets.xcassets/AppIcon.appiconset/icons.png; sourceTree = "<group>"; };
 		4BF5FDA91E928C72007430E8 /* LastTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastTableViewCell.swift; sourceTree = "<group>"; };
 		4BF5FDAB1E928CB2007430E8 /* LastTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastTableController.swift; sourceTree = "<group>"; };
 		4BF5FDAF1E929D01007430E8 /* LastFav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastFav.swift; sourceTree = "<group>"; };
@@ -84,6 +82,8 @@
 		B247E3721EE083C20028BBA6 /* AddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewController.swift; sourceTree = "<group>"; };
 		B247E3771EE086490028BBA6 /* checked_checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked_checkbox.png; sourceTree = "<group>"; };
 		B247E3781EE086490028BBA6 /* unchecked_checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked_checkbox.png; sourceTree = "<group>"; };
+		B252AA931EE32ED300B2F29A /* InsertRowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertRowViewController.swift; sourceTree = "<group>"; };
+		B252AA991EE360E600B2F29A /* ico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico.png; sourceTree = "<group>"; };
 		B261990F1E98286D008AC2AC /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		B2EABFF71E9FBB47005D1C02 /* TableSelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		B2EABFF91E9FBB5C005D1C02 /* TableSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSelectionViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +182,7 @@
 		4BB8F0221E76E65600D1F909 /* ZPI2017 */ = {
 			isa = PBXGroup;
 			children = (
+				B252AA921EE32EAD00B2F29A /* InsertRow */,
 				B247E3761EE086410028BBA6 /* Images */,
 				B247E3711EE083A40028BBA6 /* AddTableView */,
 				4BB518941ED836ED004CFC3C /* Settings */,
@@ -244,12 +245,19 @@
 		B247E3761EE086410028BBA6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				4BD90F6A1EE2C4EA00C2DC15 /* icons.png */,
-				4BD90F681EE2C42000C2DC15 /* icon.png */,
+				B252AA991EE360E600B2F29A /* ico.png */,
 				B247E3771EE086490028BBA6 /* checked_checkbox.png */,
 				B247E3781EE086490028BBA6 /* unchecked_checkbox.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		B252AA921EE32EAD00B2F29A /* InsertRow */ = {
+			isa = PBXGroup;
+			children = (
+				B252AA931EE32ED300B2F29A /* InsertRowViewController.swift */,
+			);
+			name = InsertRow;
 			sourceTree = "<group>";
 		};
 		B2EABFFB1E9FBB61005D1C02 /* TableSelection */ = {
@@ -367,12 +375,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B247E3791EE086490028BBA6 /* checked_checkbox.png in Resources */,
+				B252AA9A1EE360E600B2F29A /* ico.png in Resources */,
 				B247E37A1EE086490028BBA6 /* unchecked_checkbox.png in Resources */,
-				4BD90F691EE2C42000C2DC15 /* icon.png in Resources */,
 				4BB8F02E1E76E65600D1F909 /* LaunchScreen.storyboard in Resources */,
 				4BB8F02B1E76E65600D1F909 /* Assets.xcassets in Resources */,
 				4BB8F0291E76E65600D1F909 /* Main.storyboard in Resources */,
-				4BD90F6B1EE2C4EA00C2DC15 /* icons.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +466,7 @@
 				B2ED54C71EDF337E00E172F8 /* CustomCollection.swift in Sources */,
 				B2EABFF81E9FBB47005D1C02 /* TableSelectionTableViewCell.swift in Sources */,
 				4BF5FDB21E92C3A4007430E8 /* Favorite.swift in Sources */,
+				B252AA941EE32ED300B2F29A /* InsertRowViewController.swift in Sources */,
 				B21C7C331E9F974F001647A7 /* DBSelectionTableViewCell.swift in Sources */,
 				4BB8F0241E76E65600D1F909 /* AppDelegate.swift in Sources */,
 				4BF5FDB01E929D01007430E8 /* LastFav.swift in Sources */,
