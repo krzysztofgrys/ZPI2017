@@ -575,6 +575,9 @@
                                                     <state key="normal" title="Usuń ostatnio logowane">
                                                         <color key="titleColor" red="1" green="0.059605572920000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="removeLastCredentailsList:" destination="i7g-NT-ydA" eventType="touchUpInside" id="GNs-tr-He0"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -597,6 +600,9 @@
                                                     <state key="normal" title="Usuń ulubione">
                                                         <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="removeFavouritiesCredentialsList:" destination="i7g-NT-ydA" eventType="touchUpInside" id="b1o-id-fac"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>

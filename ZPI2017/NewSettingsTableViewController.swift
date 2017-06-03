@@ -16,6 +16,30 @@ class NewSettingsTableViewController: UITableViewController {
     @IBOutlet weak var sysDBSwitch: UISwitch!
     @IBOutlet weak var favButton: UIButton!
     @IBOutlet weak var cellWidthTextField: UITextField!
+    @IBAction func removeLastCredentailsList(_ sender: Any) {
+        var new: [LastFav] = []
+        for cred in 0..<(tmp.count){
+            let read = tmp[cred]
+            if(read.type=="fav"){
+                new.append(read)
+            }
+        }
+        tmp = new
+        saveCred()
+        
+    }
+    @IBAction func removeFavouritiesCredentialsList(_ sender: Any) {
+        var new: [LastFav] = []
+        for cred in 0..<(tmp.count){
+            let read = tmp[cred]
+            if(read.type=="last"){
+                new.append(read)
+            }
+        }
+        
+        tmp = new
+        saveCred()
+    }
     
     @IBAction func addToFavButton(_ sender: Any) {
         saveCredentials()
@@ -92,6 +116,11 @@ class NewSettingsTableViewController: UITableViewController {
             }
         }
         return false
+    }
+    
+    func saveCred(){
+        let filename = NSHomeDirectory().appending("/Documents/profile.bin")
+        NSKeyedArchiver.archiveRootObject(tmp, toFile: filename)
     }
     
     func saveCredentials(){
