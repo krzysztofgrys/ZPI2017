@@ -12,14 +12,15 @@ class InsertRowViewController: UIViewController, UITableViewDelegate, UITableVie
 
     @IBOutlet weak var tableView: UITableView!
     @IBAction func insertRowAction(_ sender: Any) {
-        let cells = getAllCells()
-        var query = "INSERT INTO " + tableName + " VALUES ("
-        for cell in cells{
+        do{
+            let cells = getAllCells()
+            var query = "INSERT INTO " + tableName + " VALUES ("
+            for cell in cells{
             query += cell.value.text! + ","
         }
         query.remove(at: query.index(before: query.endIndex))
         query += ");"
-        do{
+        
             let _ = try Connecion.instanceOfConnection.con?.query(q: query)
         }catch(_){
             print("Blad dodania wiersza")
@@ -53,10 +54,12 @@ class InsertRowViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func getAllCells() -> [InsertRowTableViewCell] {
         var cells = [InsertRowTableViewCell]()
+        if(keys.isEmpty == false){
         for j in 0...keys.count-1
         {
             if let cell = tableView.cellForRow(at: IndexPath(row:j, section: 0)) {
                 cells.append(cell as! InsertRowTableViewCell)
+            }
             }
         }
         return cells
