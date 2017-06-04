@@ -17,10 +17,10 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
     var list = [DataModel]()
     var list2 = [DataModel]()
     var dbName = String()
+    var tableName: String! = nil
     var dbToDelete: Int = -1
     var refreshControl: UIRefreshControl!
     var tField: UITextField!
-    var tableName: String! = nil
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var act: UIActivityIndicatorView!
     
@@ -32,6 +32,7 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
         tableView.addSubview(refreshControl)
         tableView.delegate = self
         tableView.dataSource = self
+        self.title = dbName
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,6 +49,7 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
         DispatchQueue.main.async {
             let destination = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "tableView") as! TableViewViewController
             let tblName = self.list[indexPath.row].value as! String
+            self.tableName = tblName
             self.list2.removeAll()
             do{
                 //prepare query

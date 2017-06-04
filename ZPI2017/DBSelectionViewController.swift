@@ -18,6 +18,7 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
     var list2 = [DataModel]()
     var dbToDelete: Int = -1
     var tField: UITextField!
+    var databaseName: String! = nil
     var refreshControl: UIRefreshControl!
     let userDefults = UserDefaults.standard
     @IBOutlet weak var tableView: UITableView!
@@ -32,6 +33,7 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Wybierz bazę danych"
         
         con = Connecion.instanceOfConnection.con!
         
@@ -74,6 +76,7 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
             if let destination = segue.destination as? TableSelectionViewController{
                 destination.con = self.con
                 destination.list = self.list2
+                destination.dbName = self.databaseName
             }
         }
     }
@@ -132,6 +135,7 @@ class DBSelectionViewController: UIViewController, UITableViewDelegate, UITableV
         startAct()
         DispatchQueue.main.async {
             let dbName = self.list[indexPath.row].value as! String
+            self.databaseName = dbName
             self.list2.removeAll()
             do{
                 try self.con.use(dbname: dbName)
