@@ -14,7 +14,7 @@ class newExecuteViewController: UIViewController {
     var dictionaryT: Array<String> = []
     var dictionaryD: Array<String> = []
     
-    var con = MySQL.Connection()
+    static var con = MySQL.Connection()
     var rows: [MySQL.ResultSet]? = nil
     var rowss: MySQL.ResultSet? = nil
     var list = [DataModel]()
@@ -24,7 +24,7 @@ class newExecuteViewController: UIViewController {
     @IBOutlet weak var tokenView: KSTokenView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.con = Connecion.instanceOfConnection.con!
+        newExecuteViewController.con = Connecion.instanceOfConnection.con!
 
         dictionaryD = getDatabases()
         
@@ -53,7 +53,7 @@ class newExecuteViewController: UIViewController {
         var list = [DataModel]()
         var databases: Array<String> = []
         do{
-            let gett = try con.query(q: "SHOW DATABASES")
+            let gett = try newExecuteViewController.con.query(q: "SHOW DATABASES")
             rows = try gett.readAllRows()
             rowss = rows?[0]
             var ii:Int = 1
@@ -83,8 +83,34 @@ class newExecuteViewController: UIViewController {
     
     
     static func getTables()->Array<String>{
+        var rows: [MySQL.ResultSet]? = nil
+        var rowss: MySQL.ResultSet? = nil
+        var list = [DataModel]()
         var tables: Array<String> = []
+        do{
+            try newExecuteViewController.con.use(dbname: ExecuteSQLHelper.database.database)
+            let gett = try con.query(q: "SHOW TABLES")
+            rows = try gett.readAllRows()
+            rowss = rows?[0]
+            var ii:Int = 1
+            var cc:Int = 0
+            for row in rowss!{
+                cc = 0
+                for(key,value) in row{
+                    list.append(DataModel(k: key, v: value, r: ii, c:cc))
+                    cc += 1
+                }
+                ii += 1
+            }
+        }catch(let e){
+            print(e)
+        }
         
+        
+        for index in 0..<list.count {
+            tables.append(list[index].value as! String)
+        }
+
         return tables
     }
 }
@@ -98,10 +124,12 @@ extension newExecuteViewController: KSTokenViewDelegate {
         }
         
         var data: Array<String> = []
-        dictionaryT = newExecuteViewController.getTables()
         if((string.range(of: "@t")) != nil){
+            dictionaryT = newExecuteViewController.getTables()
+            var newString = string.substring(from: 2)
+
             for value: String in dictionaryT {
-                if value.lowercased().range(of: string.lowercased()) != nil {
+                if value.lowercased().range(of: newString.lowercased()) != nil {
                     data.append(value)
                 }
             }
@@ -128,6 +156,7 @@ extension newExecuteViewController: KSTokenViewDelegate {
     }
     
     func tokenView(_ token: KSTokenView, displayTitleForObject object: AnyObject) -> String {
+        ExecuteSQLHelper.database.database = object as! String
         return object as! String
     }
 }
