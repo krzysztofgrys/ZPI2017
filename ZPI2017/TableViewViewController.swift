@@ -27,6 +27,7 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = tableName
+        self.con = Connecion.instanceOfConnection.con!
         self.collectionView.register(TableViewCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -35,6 +36,11 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        refreshData()
+        collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -147,6 +153,38 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
             if(result.count == numberColumns){ break;}
         }
         return result
+    }
+    
+    func refreshData(){
+        do{
+            //prepare query
+            let query = "SELECT * FROM " + tableName
+            let gett = try self.con.query(q: query)
+            //rows to wszystkie wiersze z query
+            self.rows = try gett.readAllRows()
+            //rowss to tez wszystkie wiersze z query XDD
+            if(self.rows?.isEmpty==false){
+                self.list.removeAll()
+                //var list = [DataModel]()
+                //rowss to tez wszystkie wiersze z query
+                let rowss = self.rows?[0]
+                // row to jeden wiersz z query
+                var ii:Int = 0
+                var cc:Int = 0
+                for row in rowss!{
+                    cc = 0
+                    for(key,value) in row{
+                        list.append(DataModel(k: key, v: value, r: ii, c:cc))
+                        cc += 1
+                    }
+                    ii += 1
+                }
+            }else{
+                //self.showAlert(message: "Tabela jest pusta")
+            }
+        }catch(let e){
+            print(e)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
