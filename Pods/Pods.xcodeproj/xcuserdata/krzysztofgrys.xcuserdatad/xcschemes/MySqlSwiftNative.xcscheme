@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'BF8EDF5B4A02191462EDB0838EE7D013'
+               BlueprintIdentifier = '2C98E186655E7FA43114BF8373688368'
                BlueprintName = 'MySqlSwiftNative'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'MySqlSwiftNative.framework'>

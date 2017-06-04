@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double InteractiveSideMenuVersionNumber;
-FOUNDATION_EXPORT const unsigned char InteractiveSideMenuVersionString[];
+FOUNDATION_EXPORT double KSTokenViewVersionNumber;
+FOUNDATION_EXPORT const unsigned char KSTokenViewVersionString[];
 
