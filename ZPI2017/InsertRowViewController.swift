@@ -22,6 +22,7 @@ class InsertRowViewController: UIViewController, UITableViewDelegate, UITableVie
         query += ");"
         
             let _ = try Connecion.instanceOfConnection.con?.query(q: query)
+            _ = self.navigationController?.popViewController(animated: true)
         }catch(_){
             print("Blad dodania wiersza")
         }
