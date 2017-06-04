@@ -20,6 +20,7 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
     var dbToDelete: Int = -1
     var refreshControl: UIRefreshControl!
     var tField: UITextField!
+    var tableName: String! = nil
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var act: UIActivityIndicatorView!
     
@@ -52,6 +53,7 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
                 //prepare query
                 let query = "SELECT * FROM " + tblName
                 let gett = try self.con.query(q: query)
+                self.tableName = tblName
                 //rows to wszystkie wiersze z query
                 self.rows = try gett.readAllRows()
                 //rowss to tez wszystkie wiersze z query XDD
@@ -114,6 +116,7 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
                     destination.list = self.list2
                     destination.numberRows = (rowss?.count)!
                     destination.numberColumns = rowss![0].count
+                    destination.tableName = self.tableName
                 }else{
                     destination.list = self.list2
                     destination.numberRows = 0
