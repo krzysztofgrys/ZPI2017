@@ -123,6 +123,7 @@ class TableSelectionViewController: UIViewController, UITableViewDelegate, UITab
                     destination.list = self.list2
                     destination.numberRows = 0
                     destination.numberColumns = 0
+                    destination.tableName = self.tableName
                 }
             }
         }

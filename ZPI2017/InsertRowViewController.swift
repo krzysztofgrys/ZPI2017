@@ -31,6 +31,7 @@ class InsertRowViewController: UIViewController, UITableViewDelegate, UITableVie
     var types = [String:String]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        keys.removeAll()
         tableView.delegate = self
         tableView.dataSource = self
         types = getDataTypes()
@@ -41,7 +42,7 @@ class InsertRowViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return keys.count
+        return types.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -81,6 +82,7 @@ class InsertRowViewController: UIViewController, UITableViewDelegate, UITableVie
                     let tmpKey = unwrap(row["Key"])
                     let tmpField = unwrap(row["Field"])
                     dataTypes[String(describing: tmpField)] = "Null: " + String(describing: tmpNull) + ", Klucz: " + String(describing: tmpKey) + ", Typ: " + String(describing: tmpType)
+                    keys.append(String(describing: tmpField))
                 }
             }
         }catch(_){
