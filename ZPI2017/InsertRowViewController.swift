@@ -16,7 +16,7 @@ class InsertRowViewController: UIViewController, UITableViewDelegate, UITableVie
             let cells = getAllCells()
             var query = "INSERT INTO " + tableName + " VALUES ("
             for cell in cells{
-            query += cell.value.text! + ","
+            query += deleteSpaces(txt: cell.value.text!) + ","
         }
         query.remove(at: query.index(before: query.endIndex))
         query += ");"
@@ -52,6 +52,10 @@ class InsertRowViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.key.text = keys[index]
         cell.key.text = keys[index] + ", " + types[keys[index]]!
         return cell
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     func getAllCells() -> [InsertRowTableViewCell] {
@@ -99,6 +103,32 @@ class InsertRowViewController: UIViewController, UITableViewDelegate, UITableVie
             return any
         }
         return unwrap(first.value)
+    }
+    
+    func deleteSpaces(txt: String!) -> String!{
+        var txtTmp = txt!
+        txtTmp = txtTmp.replacingOccurrences(of: " ", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: ",", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: ".", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "@", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "!", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "?", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "/", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "#", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "@", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "$", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "%", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "^", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "(", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: ")", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "+", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "=", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "-", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "<", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: ">", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: ":", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: ";", with: "")
+        return txtTmp
     }
 
     /*

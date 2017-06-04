@@ -12,7 +12,6 @@ import MySqlSwiftNative
 class AddTableViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     var pickerData = ["int","char","varchar","double","float","date"]
-    var numberOfAttributes = 1
     var primaryKey = ""
     var attributes = [String]()
     
@@ -24,15 +23,15 @@ class AddTableViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var uniqueCheckBox: UIButton!
     @IBOutlet weak var nullCheckBox: UIButton!
     @IBAction func nameOfTableAction(_ sender: Any) {
-        queryLabel.text = "CREATE TABLE " + nameOfNewTable.text! + "( "
+        queryLabel.text = "CREATE TABLE " + deleteSpaces(txt: nameOfNewTable.text!) + "( "
     }
     @IBAction func addAttributeAction(_ sender: Any) {
         var query = ""
         let pickerIndex = dataTypePicker.selectedRow(inComponent: 0)
-        query += columnName.text!
+        query += deleteSpaces(txt: columnName.text!)
         query += " " + pickerData[pickerIndex]
         if(pickerIndex == 1 || pickerIndex == 2){
-            query += "(" + length.text! + ")"
+            query += "(" + deleteSpaces(txt: length.text) + ")"
         }
         if(nullCheckBox.currentImage! == UIImage(named: "unchecked_checkbox.png")!){
             query += " NOT NULL"
@@ -41,7 +40,7 @@ class AddTableViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             query += " UNIQUE"
         }
         if(primaryCheckBox.currentImage! == UIImage(named: "checked_checkbox.png")!){
-            primaryKey = ",PRIMARY KEY(" + columnName.text! + ")"
+            primaryKey = ",PRIMARY KEY(" + deleteSpaces(txt: columnName.text!) + ")"
         }
         attributes.append(query)
         appendAttributes()
@@ -72,7 +71,6 @@ class AddTableViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
     }
     
-    
     @IBOutlet weak var nameOfNewTable: UITextField!
     @IBOutlet weak var act: UIActivityIndicatorView!
     override func viewDidLoad() {
@@ -86,14 +84,12 @@ class AddTableViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let con = Connecion.instanceOfConnection.con
         do{
             let tmp = queryLabel.text!
-            print("QUERY:")
-            print(tmp)
             let _ = try con?.query(q: tmp)
-            print("DODANO")
             _ = self.navigationController?.popViewController(animated: true)
         }catch(let e){
             print(e)
             print("Blad dodania tabeli")
+            print(queryLabel.text!)
         }
     }
 
@@ -103,7 +99,7 @@ class AddTableViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     func appendAttributes(){
-        var tmpQuery = "CREATE TABLE " + nameOfNewTable.text! + "( "
+        var tmpQuery = "CREATE TABLE " + deleteSpaces(txt: nameOfNewTable.text!) + "( "
         for attribute in attributes{
             tmpQuery += attribute + ","
         }
@@ -156,6 +152,32 @@ class AddTableViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         DispatchQueue.main.async {
             self.act.stopAnimating()
         }
+    }
+    
+    func deleteSpaces(txt: String!) -> String!{
+        var txtTmp = txt!
+        txtTmp = txtTmp.replacingOccurrences(of: " ", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: ",", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: ".", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "@", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "!", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "?", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "/", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "#", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "@", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "$", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "%", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "^", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "(", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: ")", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "+", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "=", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "-", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "<", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: ">", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: ":", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: ";", with: "")
+        return txtTmp
     }
 
 }

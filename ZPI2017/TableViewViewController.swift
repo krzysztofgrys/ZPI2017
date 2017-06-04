@@ -18,9 +18,8 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
     var list = [DataModel]()
     var dbName = String()
     var tableName = String()
-    var numberRows:Int = 1
-    var numberColumns:Int = 1
-    var pinchGesture = UIPinchGestureRecognizer()
+    public var numberRows:Int = 1
+    public var numberColumns:Int = 1
     var itemWidth: CGFloat = 300.0
     var lastScale: CGFloat = 0.0
     
@@ -39,8 +38,11 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        refreshData()
-        collectionView.reloadData()
+        DispatchQueue.main.async {
+        self.refreshData()
+        self.collectionView.reloadData()
+        print("Dane odswiezone")
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -162,7 +164,7 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
             let gett = try self.con.query(q: query)
             //rows to wszystkie wiersze z query
             self.rows = try gett.readAllRows()
-            //rowss to tez wszystkie wiersze z query XDD
+            //rowss to tez wszystkie wiersze z query
             if(self.rows?.isEmpty==false){
                 self.list.removeAll()
                 //var list = [DataModel]()
@@ -174,13 +176,14 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
                 for row in rowss!{
                     cc = 0
                     for(key,value) in row{
-                        list.append(DataModel(k: key, v: value, r: ii, c:cc))
+                        self.list.append(DataModel(k: key, v: value, r: ii, c:cc))
                         cc += 1
                     }
                     ii += 1
                 }
+                numberRows = (rowss?.count)!
             }else{
-                //self.showAlert(message: "Tabela jest pusta")
+                print("Blad odswiezenia danych w collectionview")
             }
         }catch(let e){
             print(e)
@@ -194,6 +197,32 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
                 destination.tableName = self.tableName
             }
         }
+    }
+    
+    func deleteSpaces(txt: String!) -> String!{
+        var txtTmp = txt!
+        txtTmp = txtTmp.replacingOccurrences(of: " ", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: ",", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: ".", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "@", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "!", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "?", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "/", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "#", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "@", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "$", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "%", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "^", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "(", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: ")", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "+", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "=", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "-", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: "<", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: ">", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: ":", with: "")
+        txtTmp = txtTmp.replacingOccurrences(of: ";", with: "")
+        return txtTmp
     }
 }
 
