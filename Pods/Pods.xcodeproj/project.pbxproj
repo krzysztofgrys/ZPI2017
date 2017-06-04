@@ -7,99 +7,158 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05BF3A3DD8FC38261D675669511416DF /* Pods-ZPI2017-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 198C1497F6E405EB75835290E8E6C61C /* Pods-ZPI2017-dummy.m */; };
-		19C0220A207CD14EF4FB11261C4B0EF7 /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075854AEBDABFF7CAF1B6517F1A95D3A /* Statement.swift */; };
-		2EEE60BA337BE16FAF55C38417337333 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A04A1FEEDAA8DF696A0A4098065A83 /* Utils.swift */; };
-		36F5F9C1A7E3F3DE16D9F6E6E4BEBF62 /* mysql.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBFB74B3F9E0E9A7BE16505AF6A4E10 /* mysql.swift */; };
-		4FB0D9F943D25F5D1FE7D1641B150166 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		599E0A24A91A9E31C1144BA837DB88BA /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59956BB8D0281A9A99F3806587D94250 /* Socket.swift */; };
-		6D8154755E77C9BA3753185C978E9B82 /* Packets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC93986F32A98269B2DAAC53587E062B /* Packets.swift */; };
-		83785159BF1ED0BEBABF09973EF54DED /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F67B0F0E6D550A75BAB4DA5B8D21A52 /* Result.swift */; };
-		96E3E08DAEE8AF2B0098B47F54639E3B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281904C749E33EDB1696188845C3FE76 /* main.swift */; };
-		A081347541F45A968D8F5961E7B9E81C /* MySqlSwiftNative-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FDE60B661890BD712612674B9E36178C /* MySqlSwiftNative-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A604331582ABA993D62324433E564927 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0917C1212F012ED563C6F8E404723663 /* Connection.swift */; };
-		A9A7A8661F26270E3428242E38FB21FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		AA54B4F30633FAB103029B0A4597303E /* tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9364474FB8F68722A074A9431A5C812 /* tests.swift */; };
-		ABBDE29959CC25F99EEF2864E35AD73C /* MySqlSwiftNative-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A04B3320FE0ADB1F7C597E74521BCD /* MySqlSwiftNative-dummy.m */; };
-		B55F0399AEE25ACCEFE2E014BEF36433 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE8E88D7E79E635F4938B7DDEF8974C /* Query.swift */; };
-		B937A53E186082945165694BB4DDA370 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF657E25A83BFC8FDA4D87FFA0893E94 /* Constants.swift */; };
-		CB9328742D6693C7607B6A96C85D4747 /* Pods-ZPI2017-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B2757780DDC280A7E7E42CC195B10BCC /* Pods-ZPI2017-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DC7501921E03D923ED6F276ABAFEDF34 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1200B69A76A3AD696A6A5CF3290910 /* Table.swift */; };
-		F262B90C3D399626DA25885D7BA60120 /* sha1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FE2858415A58DB60E267BF7253678B /* sha1.swift */; };
+		07BFBB833D5C70956D63C5F85046DAF2 /* Packets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD85AB7F506E64F045CB49A68DF8882 /* Packets.swift */; };
+		0943C456A579C3AF123511D20C5FDEFD /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5647C7BC3D4B8A8C4517682347DEDD3 /* Connection.swift */; };
+		0C0B1BFFD0A50EFF5A6B194E949E45A4 /* sha1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1D8FBAC0DFF7A3C4D361CC1C7CDCA /* sha1.swift */; };
+		0DD7CBD50F16DE6F0CFA182110C09AAD /* KSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4A1132FA5F788FC7FDF2D71A3191A9 /* KSUtils.swift */; };
+		126B1A4D8E8458EFC29D8887D5D454BC /* KSTokenView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 32F5A1E30B41B086D190B9F88798EE42 /* KSTokenView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21ACA144FEEE39BF9F97F3766376B867 /* KSToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1868E25B5145409EBE1D10C8CF4F796D /* KSToken.swift */; };
+		32833748B5FC14A715008A1E232A0ACB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650BB51B5422D29570B3E7A158F31268 /* Constants.swift */; };
+		69BD496AC53FBC3CBA6989C19441FBB4 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F859CEC1558BF6EAEF7AD3BB6F100A3 /* Query.swift */; };
+		84719B475667BDBCB96128ED6DE30D25 /* tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604D88A6DC98960D70412C92926E34E2 /* tests.swift */; };
+		87F17BEABD0FD9201CDD7026A2AD2254 /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7876F573D34BDE2E900B33E0288E5787 /* Statement.swift */; };
+		9EB3E46BD54D3B16BEF528A54717F7A8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838BB969F6B9F482CE844BB8AE40EA4 /* Utils.swift */; };
+		AF2E6DBB9E78340D5C90DDBD4D88CA48 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		AF748A1B1534DE1BDAF45E31BB3E4B56 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2CBC78A55570483690554A6400AE70 /* Result.swift */; };
+		BED7BAEFEA245A2B1601432FD346F85D /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20BD0CF023251614F83A614B1967889 /* Table.swift */; };
+		CBC659D783058BEA0593429F38604CB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		D6612D5DF1172621CECB114584DBCC2A /* Pods-ZPI2017-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 198C1497F6E405EB75835290E8E6C61C /* Pods-ZPI2017-dummy.m */; };
+		DBED5DFE5C2B8554A180F86CE8900238 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01400DC4B6B30333F11C281F8BB6A4DF /* Socket.swift */; };
+		DD65B969FBBA577558B13E20E2C02894 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		DDA42DFB239A22F2A1BEF0C05E754712 /* KSTokenView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C37BF9DD543C05E6E74ECDCD94CD10BC /* KSTokenView-dummy.m */; };
+		E81D7FCFA96A864427F3E9809E5E671E /* ConnectionPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377E7404B67C172006DA1BC1C69AEE09 /* ConnectionPool.swift */; };
+		E9D3DB2FB5968763CBFE40572C8AFA44 /* MySqlSwiftNative-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B6EA6425005A6F02FD18B87944C4BFE /* MySqlSwiftNative-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EFF749D6D41CECD1DF467A3364C2D255 /* Pods-ZPI2017-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B2757780DDC280A7E7E42CC195B10BCC /* Pods-ZPI2017-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F45D6552CC292CEA1E7554056E6B1329 /* mysql.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED7D8D15EDA52215BC3CD10D43E480 /* mysql.swift */; };
+		F61F27F4C6735ADAEFA9C3F182D6E483 /* MySqlSwiftNative-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 592B03F585B0D4F9F84FE7006DAD7FBD /* MySqlSwiftNative-dummy.m */; };
+		F8216B593B799213D5CF22CBF7D53364 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853636BDEC2ED50A9A9F359FFE8DC130 /* main.swift */; };
+		FCF6F23E5CF16C22EA6F92B49CF43753 /* KSTokenField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534990975BF4B93CA2709C4A752616AA /* KSTokenField.swift */; };
+		FF6111DFB476986862DAE3FFBD19FE96 /* KSTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C00B1B31E49A511E22D588D5E51948 /* KSTokenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9E420737EEE49EFBC5BF1D931FECBBA6 /* PBXContainerItemProxy */ = {
+		3B2B700F558145BCE4FF8DACD0255292 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = BF8EDF5B4A02191462EDB0838EE7D013;
+			remoteGlobalIDString = 2C98E186655E7FA43114BF8373688368;
 			remoteInfo = MySqlSwiftNative;
+		};
+		BE51DB51854AB6369BCE0A2C52F2636F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E91EFCA18C1AC0117B2DA7A21EAA8BC0;
+			remoteInfo = KSTokenView;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01400DC4B6B30333F11C281F8BB6A4DF /* Socket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Socket.swift; path = Sources/MySqlSwiftNative/Socket.swift; sourceTree = "<group>"; };
 		048E222C0043B44543F4394CC258A138 /* Pods-ZPI2017.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ZPI2017.modulemap"; sourceTree = "<group>"; };
-		075854AEBDABFF7CAF1B6517F1A95D3A /* Statement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Statement.swift; path = Sources/MySqlSwiftNative/Statement.swift; sourceTree = "<group>"; };
-		0917C1212F012ED563C6F8E404723663 /* Connection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Connection.swift; path = Sources/MySqlSwiftNative/Connection.swift; sourceTree = "<group>"; };
+		0B6EA6425005A6F02FD18B87944C4BFE /* MySqlSwiftNative-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MySqlSwiftNative-umbrella.h"; sourceTree = "<group>"; };
+		0FFF1B28928F7930EC8507EF39E654D7 /* MySqlSwiftNative.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MySqlSwiftNative.modulemap; sourceTree = "<group>"; };
+		1868E25B5145409EBE1D10C8CF4F796D /* KSToken.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KSToken.swift; path = KSTokenView/KSToken.swift; sourceTree = "<group>"; };
 		198C1497F6E405EB75835290E8E6C61C /* Pods-ZPI2017-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ZPI2017-dummy.m"; sourceTree = "<group>"; };
-		281904C749E33EDB1696188845C3FE76 /* main.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = main.swift; path = Sources/MySqlSwiftNative/main.swift; sourceTree = "<group>"; };
-		2AF419DDE42535660CEF56802CB56D14 /* MySqlSwiftNative.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MySqlSwiftNative.modulemap; sourceTree = "<group>"; };
-		2C1200B69A76A3AD696A6A5CF3290910 /* Table.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Table.swift; path = Sources/MySqlSwiftNative/Table.swift; sourceTree = "<group>"; };
 		2CDFB82F1214E1773BA52C271D81856D /* Pods-ZPI2017-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ZPI2017-frameworks.sh"; sourceTree = "<group>"; };
 		2F03639A5095534E2D73EEDEBCD9D8D5 /* Pods-ZPI2017.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ZPI2017.release.xcconfig"; sourceTree = "<group>"; };
-		38A1FFEBC11E826222C4C073D1E73791 /* MySqlSwiftNative.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MySqlSwiftNative.xcconfig; sourceTree = "<group>"; };
+		32F5A1E30B41B086D190B9F88798EE42 /* KSTokenView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KSTokenView-umbrella.h"; sourceTree = "<group>"; };
+		377E7404B67C172006DA1BC1C69AEE09 /* ConnectionPool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConnectionPool.swift; path = Sources/MySqlSwiftNative/ConnectionPool.swift; sourceTree = "<group>"; };
+		37F047A1310996381E6933DFACB799AC /* Pods_ZPI2017.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ZPI2017.framework; path = "Pods-ZPI2017.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F859CEC1558BF6EAEF7AD3BB6F100A3 /* Query.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Query.swift; path = Sources/MySqlSwiftNative/Query.swift; sourceTree = "<group>"; };
 		42B1581B4141EDB2A7C1C7AC7DE8E9EE /* Pods-ZPI2017.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ZPI2017.debug.xcconfig"; sourceTree = "<group>"; };
-		46A04B3320FE0ADB1F7C597E74521BCD /* MySqlSwiftNative-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MySqlSwiftNative-dummy.m"; sourceTree = "<group>"; };
-		4D298BC1CAC4F76095BE681E72759785 /* MySqlSwiftNative-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MySqlSwiftNative-prefix.pch"; sourceTree = "<group>"; };
-		50013CF08808A8E9AD0096A54C1EA819 /* MySqlSwiftNative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MySqlSwiftNative.framework; path = MySqlSwiftNative.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		59956BB8D0281A9A99F3806587D94250 /* Socket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Socket.swift; path = Sources/MySqlSwiftNative/Socket.swift; sourceTree = "<group>"; };
+		44339F67440CF74DD0E8C35C6A55E5C9 /* KSTokenView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KSTokenView-prefix.pch"; sourceTree = "<group>"; };
+		475DEC2CAF219C79CCB0CA27595586EF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BC8486A08212E86488405E3E818222B /* KSTokenView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KSTokenView.framework; path = KSTokenView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		534990975BF4B93CA2709C4A752616AA /* KSTokenField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KSTokenField.swift; path = KSTokenView/KSTokenField.swift; sourceTree = "<group>"; };
+		592B03F585B0D4F9F84FE7006DAD7FBD /* MySqlSwiftNative-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MySqlSwiftNative-dummy.m"; sourceTree = "<group>"; };
 		5D13F170E2C879F10DB52BB1D577B721 /* Pods-ZPI2017-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ZPI2017-acknowledgements.plist"; sourceTree = "<group>"; };
-		67FE2858415A58DB60E267BF7253678B /* sha1.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = sha1.swift; path = Sources/MySqlSwiftNative/sha1.swift; sourceTree = "<group>"; };
-		6B89A01F403CE6F7A2CD36B3B9DA27E5 /* Pods_ZPI2017.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ZPI2017.framework; path = "Pods-ZPI2017.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F0C33CA79AFCE378B582C7322FAF816 /* KSTokenView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KSTokenView.xcconfig; sourceTree = "<group>"; };
+		604D88A6DC98960D70412C92926E34E2 /* tests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = tests.swift; path = Sources/MySqlSwiftNative/tests.swift; sourceTree = "<group>"; };
+		650BB51B5422D29570B3E7A158F31268 /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Sources/MySqlSwiftNative/Constants.swift; sourceTree = "<group>"; };
+		6838BB969F6B9F482CE844BB8AE40EA4 /* Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = Sources/MySqlSwiftNative/Utils.swift; sourceTree = "<group>"; };
+		7876F573D34BDE2E900B33E0288E5787 /* Statement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Statement.swift; path = Sources/MySqlSwiftNative/Statement.swift; sourceTree = "<group>"; };
+		79C00B1B31E49A511E22D588D5E51948 /* KSTokenView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KSTokenView.swift; path = KSTokenView/KSTokenView.swift; sourceTree = "<group>"; };
+		853636BDEC2ED50A9A9F359FFE8DC130 /* main.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = main.swift; path = Sources/MySqlSwiftNative/main.swift; sourceTree = "<group>"; };
 		91042273BDF0C8BA9A8E881DA22DBF77 /* Pods-ZPI2017-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ZPI2017-resources.sh"; sourceTree = "<group>"; };
+		92B1D8FBAC0DFF7A3C4D361CC1C7CDCA /* sha1.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = sha1.swift; path = Sources/MySqlSwiftNative/sha1.swift; sourceTree = "<group>"; };
+		932608AB155DC7EF4DB4129F311065E0 /* MySqlSwiftNative.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MySqlSwiftNative.xcconfig; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		979CCFF47CDEDF6B18CFF959855C6D13 /* Pods-ZPI2017-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ZPI2017-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9D2B8D1BA0836CC578DDC09568A2A620 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9F67B0F0E6D550A75BAB4DA5B8D21A52 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Sources/MySqlSwiftNative/Result.swift; sourceTree = "<group>"; };
+		AC2CBC78A55570483690554A6400AE70 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Sources/MySqlSwiftNative/Result.swift; sourceTree = "<group>"; };
 		B2757780DDC280A7E7E42CC195B10BCC /* Pods-ZPI2017-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ZPI2017-umbrella.h"; sourceTree = "<group>"; };
-		BF657E25A83BFC8FDA4D87FFA0893E94 /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Sources/MySqlSwiftNative/Constants.swift; sourceTree = "<group>"; };
-		C1A04A1FEEDAA8DF696A0A4098065A83 /* Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = Sources/MySqlSwiftNative/Utils.swift; sourceTree = "<group>"; };
+		C37BF9DD543C05E6E74ECDCD94CD10BC /* KSTokenView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KSTokenView-dummy.m"; sourceTree = "<group>"; };
+		C6E965EB5C7DCBBECA2B3A3E4C9E81BC /* MySqlSwiftNative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MySqlSwiftNative.framework; path = MySqlSwiftNative.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		CC93986F32A98269B2DAAC53587E062B /* Packets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Packets.swift; path = Sources/MySqlSwiftNative/Packets.swift; sourceTree = "<group>"; };
-		CFE8E88D7E79E635F4938B7DDEF8974C /* Query.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Query.swift; path = Sources/MySqlSwiftNative/Query.swift; sourceTree = "<group>"; };
-		D9364474FB8F68722A074A9431A5C812 /* tests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = tests.swift; path = Sources/MySqlSwiftNative/tests.swift; sourceTree = "<group>"; };
-		EEFB2F9318A5A5074E18873BA6970E5E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EFBFB74B3F9E0E9A7BE16505AF6A4E10 /* mysql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = mysql.swift; path = Sources/MySqlSwiftNative/mysql.swift; sourceTree = "<group>"; };
-		FDE60B661890BD712612674B9E36178C /* MySqlSwiftNative-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MySqlSwiftNative-umbrella.h"; sourceTree = "<group>"; };
+		CDD85AB7F506E64F045CB49A68DF8882 /* Packets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Packets.swift; path = Sources/MySqlSwiftNative/Packets.swift; sourceTree = "<group>"; };
+		CF2F0F02C023186C6DCDF633246ECD0A /* KSTokenView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = KSTokenView.modulemap; sourceTree = "<group>"; };
+		D05151FA5B1D39AD599557E74EDC3432 /* MySqlSwiftNative-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MySqlSwiftNative-prefix.pch"; sourceTree = "<group>"; };
+		D2ED7D8D15EDA52215BC3CD10D43E480 /* mysql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = mysql.swift; path = Sources/MySqlSwiftNative/mysql.swift; sourceTree = "<group>"; };
+		D5647C7BC3D4B8A8C4517682347DEDD3 /* Connection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Connection.swift; path = Sources/MySqlSwiftNative/Connection.swift; sourceTree = "<group>"; };
+		D9B1B589F66DC6FD43B952A9CE0189E8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F20BD0CF023251614F83A614B1967889 /* Table.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Table.swift; path = Sources/MySqlSwiftNative/Table.swift; sourceTree = "<group>"; };
+		FD4A1132FA5F788FC7FDF2D71A3191A9 /* KSUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KSUtils.swift; path = KSTokenView/KSUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		62687188F0B267917F03826FCE37587F /* Frameworks */ = {
+		12AECFE65241DEB5BCBCA131BB657A99 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FB0D9F943D25F5D1FE7D1641B150166 /* Foundation.framework in Frameworks */,
+				AF2E6DBB9E78340D5C90DDBD4D88CA48 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FC29D398D75FAB34C1B21D1DBEF772B6 /* Frameworks */ = {
+		27498AAB96023B0F7E6A8CB476D4231C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9A7A8661F26270E3428242E38FB21FB /* Foundation.framework in Frameworks */,
+				DD65B969FBBA577558B13E20E2C02894 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		374DAC23B1A4C197F1FD6757C1C77E6B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBC659D783058BEA0593429F38604CB7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1D6C77E13037458634853A6F8D0F9E0F /* Pods */ = {
+		2CB361706B865EF82397B82E06EBDAB0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D1D500F4AFC361D9635B813D026D0467 /* MySqlSwiftNative */,
+				3CA30D281216A0E42AFFC8F05586D5CF /* KSTokenView */,
+				B4BFB3287906A638E63F6F58EB45E106 /* MySqlSwiftNative */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		3CA30D281216A0E42AFFC8F05586D5CF /* KSTokenView */ = {
+			isa = PBXGroup;
+			children = (
+				1868E25B5145409EBE1D10C8CF4F796D /* KSToken.swift */,
+				534990975BF4B93CA2709C4A752616AA /* KSTokenField.swift */,
+				79C00B1B31E49A511E22D588D5E51948 /* KSTokenView.swift */,
+				FD4A1132FA5F788FC7FDF2D71A3191A9 /* KSUtils.swift */,
+				A19148D7FC9F4A882A6F43A41D0E0A7E /* Support Files */,
+			);
+			name = KSTokenView;
+			path = KSTokenView;
+			sourceTree = "<group>";
+		};
+		59E17A2624B7F29D0A47CAC8B36A0652 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4BC8486A08212E86488405E3E818222B /* KSTokenView.framework */,
+				C6E965EB5C7DCBBECA2B3A3E4C9E81BC /* MySqlSwiftNative.framework */,
+				37F047A1310996381E6933DFACB799AC /* Pods_ZPI2017.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
@@ -115,10 +174,47 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				1D6C77E13037458634853A6F8D0F9E0F /* Pods */,
-				E2BE72F0D3D1D275FEF3F1EF98751DDB /* Products */,
+				2CB361706B865EF82397B82E06EBDAB0 /* Pods */,
+				59E17A2624B7F29D0A47CAC8B36A0652 /* Products */,
 				CC3D79D79FDED8EFCAA36780F8B6C9F8 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		A19148D7FC9F4A882A6F43A41D0E0A7E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				475DEC2CAF219C79CCB0CA27595586EF /* Info.plist */,
+				CF2F0F02C023186C6DCDF633246ECD0A /* KSTokenView.modulemap */,
+				5F0C33CA79AFCE378B582C7322FAF816 /* KSTokenView.xcconfig */,
+				C37BF9DD543C05E6E74ECDCD94CD10BC /* KSTokenView-dummy.m */,
+				44339F67440CF74DD0E8C35C6A55E5C9 /* KSTokenView-prefix.pch */,
+				32F5A1E30B41B086D190B9F88798EE42 /* KSTokenView-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/KSTokenView";
+			sourceTree = "<group>";
+		};
+		B4BFB3287906A638E63F6F58EB45E106 /* MySqlSwiftNative */ = {
+			isa = PBXGroup;
+			children = (
+				D5647C7BC3D4B8A8C4517682347DEDD3 /* Connection.swift */,
+				377E7404B67C172006DA1BC1C69AEE09 /* ConnectionPool.swift */,
+				650BB51B5422D29570B3E7A158F31268 /* Constants.swift */,
+				853636BDEC2ED50A9A9F359FFE8DC130 /* main.swift */,
+				D2ED7D8D15EDA52215BC3CD10D43E480 /* mysql.swift */,
+				CDD85AB7F506E64F045CB49A68DF8882 /* Packets.swift */,
+				3F859CEC1558BF6EAEF7AD3BB6F100A3 /* Query.swift */,
+				AC2CBC78A55570483690554A6400AE70 /* Result.swift */,
+				92B1D8FBAC0DFF7A3C4D361CC1C7CDCA /* sha1.swift */,
+				01400DC4B6B30333F11C281F8BB6A4DF /* Socket.swift */,
+				7876F573D34BDE2E900B33E0288E5787 /* Statement.swift */,
+				F20BD0CF023251614F83A614B1967889 /* Table.swift */,
+				604D88A6DC98960D70412C92926E34E2 /* tests.swift */,
+				6838BB969F6B9F482CE844BB8AE40EA4 /* Utils.swift */,
+				BE4D6A9ECABE4D8926865458C114AE3C /* Support Files */,
+			);
+			name = MySqlSwiftNative;
+			path = MySqlSwiftNative;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -129,34 +225,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BE4D6A9ECABE4D8926865458C114AE3C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D9B1B589F66DC6FD43B952A9CE0189E8 /* Info.plist */,
+				0FFF1B28928F7930EC8507EF39E654D7 /* MySqlSwiftNative.modulemap */,
+				932608AB155DC7EF4DB4129F311065E0 /* MySqlSwiftNative.xcconfig */,
+				592B03F585B0D4F9F84FE7006DAD7FBD /* MySqlSwiftNative-dummy.m */,
+				D05151FA5B1D39AD599557E74EDC3432 /* MySqlSwiftNative-prefix.pch */,
+				0B6EA6425005A6F02FD18B87944C4BFE /* MySqlSwiftNative-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/MySqlSwiftNative";
+			sourceTree = "<group>";
+		};
 		CC3D79D79FDED8EFCAA36780F8B6C9F8 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
 				DE6120982F31E5CF4C65CB0DD469018E /* Pods-ZPI2017 */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		D1D500F4AFC361D9635B813D026D0467 /* MySqlSwiftNative */ = {
-			isa = PBXGroup;
-			children = (
-				0917C1212F012ED563C6F8E404723663 /* Connection.swift */,
-				BF657E25A83BFC8FDA4D87FFA0893E94 /* Constants.swift */,
-				281904C749E33EDB1696188845C3FE76 /* main.swift */,
-				EFBFB74B3F9E0E9A7BE16505AF6A4E10 /* mysql.swift */,
-				CC93986F32A98269B2DAAC53587E062B /* Packets.swift */,
-				CFE8E88D7E79E635F4938B7DDEF8974C /* Query.swift */,
-				9F67B0F0E6D550A75BAB4DA5B8D21A52 /* Result.swift */,
-				67FE2858415A58DB60E267BF7253678B /* sha1.swift */,
-				59956BB8D0281A9A99F3806587D94250 /* Socket.swift */,
-				075854AEBDABFF7CAF1B6517F1A95D3A /* Statement.swift */,
-				2C1200B69A76A3AD696A6A5CF3290910 /* Table.swift */,
-				D9364474FB8F68722A074A9431A5C812 /* tests.swift */,
-				C1A04A1FEEDAA8DF696A0A4098065A83 /* Utils.swift */,
-				F3E85DBCFB6F3A670B120B3D55FAFC5D /* Support Files */,
-			);
-			name = MySqlSwiftNative;
-			path = MySqlSwiftNative;
 			sourceTree = "<group>";
 		};
 		DE6120982F31E5CF4C65CB0DD469018E /* Pods-ZPI2017 */ = {
@@ -177,76 +265,43 @@
 			path = "Target Support Files/Pods-ZPI2017";
 			sourceTree = "<group>";
 		};
-		E2BE72F0D3D1D275FEF3F1EF98751DDB /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				50013CF08808A8E9AD0096A54C1EA819 /* MySqlSwiftNative.framework */,
-				6B89A01F403CE6F7A2CD36B3B9DA27E5 /* Pods_ZPI2017.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		F3E85DBCFB6F3A670B120B3D55FAFC5D /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				EEFB2F9318A5A5074E18873BA6970E5E /* Info.plist */,
-				2AF419DDE42535660CEF56802CB56D14 /* MySqlSwiftNative.modulemap */,
-				38A1FFEBC11E826222C4C073D1E73791 /* MySqlSwiftNative.xcconfig */,
-				46A04B3320FE0ADB1F7C597E74521BCD /* MySqlSwiftNative-dummy.m */,
-				4D298BC1CAC4F76095BE681E72759785 /* MySqlSwiftNative-prefix.pch */,
-				FDE60B661890BD712612674B9E36178C /* MySqlSwiftNative-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/MySqlSwiftNative";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		5253B5E25152843EBC1F08530C6573BF /* Headers */ = {
+		0B16A0BF4F09BE52D700829B906599FA /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A081347541F45A968D8F5961E7B9E81C /* MySqlSwiftNative-umbrella.h in Headers */,
+				EFF749D6D41CECD1DF467A3364C2D255 /* Pods-ZPI2017-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6C5F3FF0E44861C1ABD20D5F30F03A55 /* Headers */ = {
+		23CE849F4F8CE2B4BB3DF469F673CF04 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB9328742D6693C7607B6A96C85D4747 /* Pods-ZPI2017-umbrella.h in Headers */,
+				E9D3DB2FB5968763CBFE40572C8AFA44 /* MySqlSwiftNative-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EDE8F75BF16BC3BC646502C1BA19CD9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				126B1A4D8E8458EFC29D8887D5D454BC /* KSTokenView-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5889BF660ECBC7F8755129B9E6801CB0 /* Pods-ZPI2017 */ = {
+		2C98E186655E7FA43114BF8373688368 /* MySqlSwiftNative */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E7EA6B4013923E36938FA8B45C23B737 /* Build configuration list for PBXNativeTarget "Pods-ZPI2017" */;
+			buildConfigurationList = D3C689165215BDF222B3C2D053601FEB /* Build configuration list for PBXNativeTarget "MySqlSwiftNative" */;
 			buildPhases = (
-				270AE769817CFF63AA454D46D30E02F7 /* Sources */,
-				FC29D398D75FAB34C1B21D1DBEF772B6 /* Frameworks */,
-				6C5F3FF0E44861C1ABD20D5F30F03A55 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				679712B26E1D13E810A3744CFFDF9F25 /* PBXTargetDependency */,
-			);
-			name = "Pods-ZPI2017";
-			productName = "Pods-ZPI2017";
-			productReference = 6B89A01F403CE6F7A2CD36B3B9DA27E5 /* Pods_ZPI2017.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		BF8EDF5B4A02191462EDB0838EE7D013 /* MySqlSwiftNative */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9156E2D60D2AD4BA1BCC24426DEC4C34 /* Build configuration list for PBXNativeTarget "MySqlSwiftNative" */;
-			buildPhases = (
-				8C7088ECDB42A5C7360F70490EEE473F /* Sources */,
-				62687188F0B267917F03826FCE37587F /* Frameworks */,
-				5253B5E25152843EBC1F08530C6573BF /* Headers */,
+				B19D9948FD0DF8B370CD139947097BF5 /* Sources */,
+				374DAC23B1A4C197F1FD6757C1C77E6B /* Frameworks */,
+				23CE849F4F8CE2B4BB3DF469F673CF04 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -254,7 +309,43 @@
 			);
 			name = MySqlSwiftNative;
 			productName = MySqlSwiftNative;
-			productReference = 50013CF08808A8E9AD0096A54C1EA819 /* MySqlSwiftNative.framework */;
+			productReference = C6E965EB5C7DCBBECA2B3A3E4C9E81BC /* MySqlSwiftNative.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		88072D1F8FB4919DFDEE432147DF7067 /* Pods-ZPI2017 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0166DB37CF966A367C7F240910478F0 /* Build configuration list for PBXNativeTarget "Pods-ZPI2017" */;
+			buildPhases = (
+				98D6A3B8371252C7B4C834CD3E80B46D /* Sources */,
+				27498AAB96023B0F7E6A8CB476D4231C /* Frameworks */,
+				0B16A0BF4F09BE52D700829B906599FA /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8A508F136374D04779DF2D59B846F116 /* PBXTargetDependency */,
+				B5781D7D98368630F69529C6776889A4 /* PBXTargetDependency */,
+			);
+			name = "Pods-ZPI2017";
+			productName = "Pods-ZPI2017";
+			productReference = 37F047A1310996381E6933DFACB799AC /* Pods_ZPI2017.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E91EFCA18C1AC0117B2DA7A21EAA8BC0 /* KSTokenView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D40C14EB6C5D3585DA105C48A07631A8 /* Build configuration list for PBXNativeTarget "KSTokenView" */;
+			buildPhases = (
+				622E7A2FAC11B0B419DCEA40239C9AD9 /* Sources */,
+				12AECFE65241DEB5BCBCA131BB657A99 /* Frameworks */,
+				2EDE8F75BF16BC3BC646502C1BA19CD9 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KSTokenView;
+			productName = KSTokenView;
+			productReference = 4BC8486A08212E86488405E3E818222B /* KSTokenView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -274,61 +365,81 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = E2BE72F0D3D1D275FEF3F1EF98751DDB /* Products */;
+			productRefGroup = 59E17A2624B7F29D0A47CAC8B36A0652 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BF8EDF5B4A02191462EDB0838EE7D013 /* MySqlSwiftNative */,
-				5889BF660ECBC7F8755129B9E6801CB0 /* Pods-ZPI2017 */,
+				E91EFCA18C1AC0117B2DA7A21EAA8BC0 /* KSTokenView */,
+				2C98E186655E7FA43114BF8373688368 /* MySqlSwiftNative */,
+				88072D1F8FB4919DFDEE432147DF7067 /* Pods-ZPI2017 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		270AE769817CFF63AA454D46D30E02F7 /* Sources */ = {
+		622E7A2FAC11B0B419DCEA40239C9AD9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05BF3A3DD8FC38261D675669511416DF /* Pods-ZPI2017-dummy.m in Sources */,
+				21ACA144FEEE39BF9F97F3766376B867 /* KSToken.swift in Sources */,
+				FCF6F23E5CF16C22EA6F92B49CF43753 /* KSTokenField.swift in Sources */,
+				DDA42DFB239A22F2A1BEF0C05E754712 /* KSTokenView-dummy.m in Sources */,
+				FF6111DFB476986862DAE3FFBD19FE96 /* KSTokenView.swift in Sources */,
+				0DD7CBD50F16DE6F0CFA182110C09AAD /* KSUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8C7088ECDB42A5C7360F70490EEE473F /* Sources */ = {
+		98D6A3B8371252C7B4C834CD3E80B46D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A604331582ABA993D62324433E564927 /* Connection.swift in Sources */,
-				B937A53E186082945165694BB4DDA370 /* Constants.swift in Sources */,
-				96E3E08DAEE8AF2B0098B47F54639E3B /* main.swift in Sources */,
-				36F5F9C1A7E3F3DE16D9F6E6E4BEBF62 /* mysql.swift in Sources */,
-				ABBDE29959CC25F99EEF2864E35AD73C /* MySqlSwiftNative-dummy.m in Sources */,
-				6D8154755E77C9BA3753185C978E9B82 /* Packets.swift in Sources */,
-				B55F0399AEE25ACCEFE2E014BEF36433 /* Query.swift in Sources */,
-				83785159BF1ED0BEBABF09973EF54DED /* Result.swift in Sources */,
-				F262B90C3D399626DA25885D7BA60120 /* sha1.swift in Sources */,
-				599E0A24A91A9E31C1144BA837DB88BA /* Socket.swift in Sources */,
-				19C0220A207CD14EF4FB11261C4B0EF7 /* Statement.swift in Sources */,
-				DC7501921E03D923ED6F276ABAFEDF34 /* Table.swift in Sources */,
-				AA54B4F30633FAB103029B0A4597303E /* tests.swift in Sources */,
-				2EEE60BA337BE16FAF55C38417337333 /* Utils.swift in Sources */,
+				D6612D5DF1172621CECB114584DBCC2A /* Pods-ZPI2017-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B19D9948FD0DF8B370CD139947097BF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0943C456A579C3AF123511D20C5FDEFD /* Connection.swift in Sources */,
+				E81D7FCFA96A864427F3E9809E5E671E /* ConnectionPool.swift in Sources */,
+				32833748B5FC14A715008A1E232A0ACB /* Constants.swift in Sources */,
+				F8216B593B799213D5CF22CBF7D53364 /* main.swift in Sources */,
+				F45D6552CC292CEA1E7554056E6B1329 /* mysql.swift in Sources */,
+				F61F27F4C6735ADAEFA9C3F182D6E483 /* MySqlSwiftNative-dummy.m in Sources */,
+				07BFBB833D5C70956D63C5F85046DAF2 /* Packets.swift in Sources */,
+				69BD496AC53FBC3CBA6989C19441FBB4 /* Query.swift in Sources */,
+				AF748A1B1534DE1BDAF45E31BB3E4B56 /* Result.swift in Sources */,
+				0C0B1BFFD0A50EFF5A6B194E949E45A4 /* sha1.swift in Sources */,
+				DBED5DFE5C2B8554A180F86CE8900238 /* Socket.swift in Sources */,
+				87F17BEABD0FD9201CDD7026A2AD2254 /* Statement.swift in Sources */,
+				BED7BAEFEA245A2B1601432FD346F85D /* Table.swift in Sources */,
+				84719B475667BDBCB96128ED6DE30D25 /* tests.swift in Sources */,
+				9EB3E46BD54D3B16BEF528A54717F7A8 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		679712B26E1D13E810A3744CFFDF9F25 /* PBXTargetDependency */ = {
+		8A508F136374D04779DF2D59B846F116 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KSTokenView;
+			target = E91EFCA18C1AC0117B2DA7A21EAA8BC0 /* KSTokenView */;
+			targetProxy = BE51DB51854AB6369BCE0A2C52F2636F /* PBXContainerItemProxy */;
+		};
+		B5781D7D98368630F69529C6776889A4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MySqlSwiftNative;
-			target = BF8EDF5B4A02191462EDB0838EE7D013 /* MySqlSwiftNative */;
-			targetProxy = 9E420737EEE49EFBC5BF1D931FECBBA6 /* PBXContainerItemProxy */;
+			target = 2C98E186655E7FA43114BF8373688368 /* MySqlSwiftNative */;
+			targetProxy = 3B2B700F558145BCE4FF8DACD0255292 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0C4BBD6D468E06EF04FE2CDFC3EE6B9B /* Release */ = {
+		0C1AB8F7B8E5F5E832F8DE0EA7153CD0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38A1FFEBC11E826222C4C073D1E73791 /* MySqlSwiftNative.xcconfig */;
+			baseConfigurationReference = 2F03639A5095534E2D73EEDEBCD9D8D5 /* Pods-ZPI2017.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -341,24 +452,27 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MySqlSwiftNative/MySqlSwiftNative-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MySqlSwiftNative/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-ZPI2017/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MySqlSwiftNative/MySqlSwiftNative.modulemap";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ZPI2017/Pods-ZPI2017.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = MySqlSwiftNative;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ZPI2017;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		156284431C64CB05C59BDA0595A1E95A /* Release */ = {
+		673254EEAF0B5BF4596080C749645884 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -390,7 +504,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
@@ -398,7 +512,73 @@
 			};
 			name = Release;
 		};
-		56AD0FA7FF23DCD3DEDCAE4E983DB901 /* Debug */ = {
+		9168D826F6285A7931B4A041CD3F12F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F0C33CA79AFCE378B582C7322FAF816 /* KSTokenView.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/KSTokenView/KSTokenView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KSTokenView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/KSTokenView/KSTokenView.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = KSTokenView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		92E1EB77344C6034ED48A29620FA9345 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 932608AB155DC7EF4DB4129F311065E0 /* MySqlSwiftNative.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MySqlSwiftNative/MySqlSwiftNative-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MySqlSwiftNative/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MySqlSwiftNative/MySqlSwiftNative.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = MySqlSwiftNative;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9B3B455F20D935532B76801E3D484CB7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 42B1581B4141EDB2A7C1C7AC7DE8E9EE /* Pods-ZPI2017.debug.xcconfig */;
 			buildSettings = {
@@ -415,7 +595,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-ZPI2017/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-ZPI2017/Pods-ZPI2017.modulemap";
@@ -434,9 +614,9 @@
 			};
 			name = Debug;
 		};
-		7C68135975728EF545AD162900CA3BD1 /* Release */ = {
+		ABFAE422525479667BDE6D29D8CB5DFF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F03639A5095534E2D73EEDEBCD9D8D5 /* Pods-ZPI2017.release.xcconfig */;
+			baseConfigurationReference = 932608AB155DC7EF4DB4129F311065E0 /* MySqlSwiftNative.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -449,27 +629,56 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-ZPI2017/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/MySqlSwiftNative/MySqlSwiftNative-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MySqlSwiftNative/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-ZPI2017/Pods-ZPI2017.modulemap";
+				MODULEMAP_FILE = "Target Support Files/MySqlSwiftNative/MySqlSwiftNative.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_ZPI2017;
+				PRODUCT_NAME = MySqlSwiftNative;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		C382132BB6BF8CA1A911872A2062FD0D /* Debug */ = {
+		C0385979FCA61573A09DB085BA18DF5B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F0C33CA79AFCE378B582C7322FAF816 /* KSTokenView.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/KSTokenView/KSTokenView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KSTokenView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/KSTokenView/KSTokenView.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = KSTokenView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E4F26E6EB105713A6A7E7E2E283AC2DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -505,44 +714,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Debug;
-		};
-		F2E8EBB2D8CD8A5BDDABA13ACDF656EE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38A1FFEBC11E826222C4C073D1E73791 /* MySqlSwiftNative.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MySqlSwiftNative/MySqlSwiftNative-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MySqlSwiftNative/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MySqlSwiftNative/MySqlSwiftNative.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = MySqlSwiftNative;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
@@ -552,26 +728,35 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C382132BB6BF8CA1A911872A2062FD0D /* Debug */,
-				156284431C64CB05C59BDA0595A1E95A /* Release */,
+				E4F26E6EB105713A6A7E7E2E283AC2DF /* Debug */,
+				673254EEAF0B5BF4596080C749645884 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9156E2D60D2AD4BA1BCC24426DEC4C34 /* Build configuration list for PBXNativeTarget "MySqlSwiftNative" */ = {
+		B0166DB37CF966A367C7F240910478F0 /* Build configuration list for PBXNativeTarget "Pods-ZPI2017" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F2E8EBB2D8CD8A5BDDABA13ACDF656EE /* Debug */,
-				0C4BBD6D468E06EF04FE2CDFC3EE6B9B /* Release */,
+				9B3B455F20D935532B76801E3D484CB7 /* Debug */,
+				0C1AB8F7B8E5F5E832F8DE0EA7153CD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E7EA6B4013923E36938FA8B45C23B737 /* Build configuration list for PBXNativeTarget "Pods-ZPI2017" */ = {
+		D3C689165215BDF222B3C2D053601FEB /* Build configuration list for PBXNativeTarget "MySqlSwiftNative" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				56AD0FA7FF23DCD3DEDCAE4E983DB901 /* Debug */,
-				7C68135975728EF545AD162900CA3BD1 /* Release */,
+				92E1EB77344C6034ED48A29620FA9345 /* Debug */,
+				ABFAE422525479667BDE6D29D8CB5DFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D40C14EB6C5D3585DA105C48A07631A8 /* Build configuration list for PBXNativeTarget "KSTokenView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9168D826F6285A7931B4A041CD3F12F1 /* Debug */,
+				C0385979FCA61573A09DB085BA18DF5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
