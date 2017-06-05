@@ -23,7 +23,6 @@ class ExecuteSQLViewController: UIViewController {
         DispatchQueue.main.async {
             self.list2.removeAll()
             do{
-                //prepare query
                 let query = self.SQLTextField.text
                 let gett = try self.con.query(q: query!)
                 //rows to wszystkie wiersze z query
