@@ -48,7 +48,7 @@ class newExecuteViewController: UIViewController {
                         }
                         ii += 1
                     }
-                    self.performSegue(withIdentifier: "SQLshowViewTable", sender: self)
+                    self.performSegue(withIdentifier: "SQLshowViewTable1", sender: self)
                 }else{
                     print("Pusta tabela!")
                     self.showAlert(message: "Operacja wykonana poprawnie!",type: "Sukces")
