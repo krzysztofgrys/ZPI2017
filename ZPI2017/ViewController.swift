@@ -279,6 +279,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         self.userField.text = favo?.user
                         self.passwordField.text = favo?.password
                         self.portField.text = favo?.port
+                        self.connect()
                         
                     }else {
                         self.ipField.text = favo?.ip
