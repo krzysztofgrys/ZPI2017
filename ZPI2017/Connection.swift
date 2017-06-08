@@ -18,6 +18,7 @@ class Connecion{
     var fontSize: CGFloat = 17
     var primaryButton = true
 
+    
     class var instanceOfConnection: Connecion {
         struct Static {
             static let instance = Connecion()

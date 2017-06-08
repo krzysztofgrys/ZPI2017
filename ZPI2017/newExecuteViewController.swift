@@ -70,15 +70,15 @@ class newExecuteViewController: UIViewController {
         dictionaryD = getDatabases()
         
         tokenView.delegate = self
-        tokenView.promptText = "Top: "
-        tokenView.placeholder = "Type to search"
+        tokenView.promptText = ""
+        tokenView.placeholder = "Wpisz zapytanie"
         tokenView.descriptionText = "Languages"
         tokenView.maxTokenLimit = -1
         tokenView.minimumCharactersToSearch = 1
         tokenView.style = .squared
         tokenView.direction = .vertical
         tokenView.editable = true
-        tokenView.separatorText = ""
+        tokenView.separatorText = " "
         tokenView.shouldDisplayAlreadyTokenized = true
     }
 

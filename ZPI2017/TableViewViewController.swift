@@ -38,11 +38,11 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        DispatchQueue.main.async {
-        self.refreshData()
-        self.collectionView.reloadData()
-        print("Dane odswiezone")
-        }
+//        DispatchQueue.main.async {
+//        self.refreshData()
+//        self.collectionView.reloadData()
+//        print("Dane odswiezone")
+//        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
