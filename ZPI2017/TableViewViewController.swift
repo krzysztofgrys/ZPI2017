@@ -22,6 +22,7 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
     public var numberColumns:Int = 1
     var itemWidth: CGFloat = 300.0
     var lastScale: CGFloat = 0.0
+    @IBOutlet weak var abbBarButtonItem: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,8 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
         self.collectionView.register(TableViewCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         collectionView.delegate = self
         collectionView.dataSource = self
+        navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: "5FC3DA")
+        abbBarButtonItem.tintColor = UIColor.white
     }
     
     override func didReceiveMemoryWarning() {
@@ -223,6 +226,28 @@ class TableViewViewController: UIViewController, UICollectionViewDataSource, UIC
         txtTmp = txtTmp.replacingOccurrences(of: ":", with: "")
         txtTmp = txtTmp.replacingOccurrences(of: ";", with: "")
         return txtTmp
+    }
+    
+    func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+        
+        if ((cString.characters.count) != 6) {
+            return UIColor.gray
+        }
+        
+        var rgbValue:UInt32 = 0
+        Scanner(string: cString).scanHexInt32(&rgbValue)
+        
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
     }
 }
 
